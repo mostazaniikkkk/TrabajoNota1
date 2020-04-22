@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace TrabajoNota1.Ventanas.Mensajes
+namespace TrabajoNota1
 {
     /// <summary>
     /// Lógica de interacción para Error00.xaml
