@@ -28,7 +28,7 @@
         <TextBlock Margin="87,105,25,0" TextWrapping="Wrap" Text="Ingrese los apellidos del cliente " VerticalAlignment="Top" Background="#FF3B4258" Foreground="#FF2C3044" Grid.Row="1"/>
         <TextBlock HorizontalAlignment="Left" Margin="85,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="246" Background="#FF3B4258" Foreground="#FF2C3044" Grid.Row="1"><Run Text="Ej: Las perdices 4587 (en caso de dpto.) "/><Run Text="dpto "/><Run Text="4"/></TextBlock>
         <Grid HorizontalAlignment="Right" Height="74" VerticalAlignment="Top" Width="356" Background="#FF15152B" Grid.RowSpan="2">
-            <Label Content="Datos del cliente" HorizontalAlignment="Left" Margin="83,17,0,0" VerticalAlignment="Top" Foreground="#FF3B4258" FontSize="24" FontFamily="Arial"/>
+            <Label Content="Datos del cliente" HorizontalAlignment="Left" Margin="83,17,0,0" VerticalAlignment="Top" Foreground="#FF3B4258" FontSize="24" FontFamily="Arial" FontWeight="Bold"/>
         </Grid>
 
     </Grid>

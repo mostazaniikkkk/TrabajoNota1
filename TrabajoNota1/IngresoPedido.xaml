@@ -27,7 +27,7 @@
         <TextBlock Margin="72,162,20,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Background="#FF3B4258" Foreground="#FF2C3044"/>
         <TextBlock HorizontalAlignment="Left" Margin="97,192,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="239" Background="#FF3B4258" Foreground="#FF2C3044"/>
         <Grid HorizontalAlignment="Right" Height="74" VerticalAlignment="Top" Width="356" Background="#FF15152B">
-            <Label Content="Datos del pedido" HorizontalAlignment="Left" Margin="83,17,0,0" VerticalAlignment="Top" Foreground="#FF3B4258" FontSize="24" FontFamily="Arial"/>
+            <Label Content="Datos del pedido" HorizontalAlignment="Left" Margin="83,17,0,0" VerticalAlignment="Top" Foreground="#FF3B4258" FontSize="24" FontFamily="Arial" FontWeight="Bold"/>
         </Grid>
         <Label Content="Fecha entrega:" HorizontalAlignment="Left" Margin="15,218,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FF3B4258" Grid.RowSpan="2"/>
         <TextBlock HorizontalAlignment="Left" Margin="107,223,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="229" Background="#FF3B4258" Foreground="#FF2C3044"/>

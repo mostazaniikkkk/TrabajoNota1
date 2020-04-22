@@ -26,7 +26,7 @@
         <TextBlock Margin="67,91,25,0" TextWrapping="Wrap" Text="Ingrese un ID de 4 digitos" VerticalAlignment="Top" Background="#FF3B4258" FontFamily="Arial" Foreground="#FF2C3044" Height="14" Grid.ColumnSpan="2"/>
         <TextBlock Margin="165,167,25,0" TextWrapping="Wrap" Text="Añada la cant de libros nuevos" VerticalAlignment="Top" Background="#FF3B4258" Foreground="#FF2C3044" Height="16" Grid.ColumnSpan="2"/>
         <Grid HorizontalAlignment="Right" Height="74" VerticalAlignment="Top" Width="356" Background="#FF15152B" Grid.ColumnSpan="2">
-            <Label Content="Datos del libro" HorizontalAlignment="Left" Margin="83,17,0,0" VerticalAlignment="Top" Foreground="#FF3B4258" FontSize="24" FontFamily="Arial"/>
+            <Label Content="Datos del libro" HorizontalAlignment="Left" Margin="83,17,0,0" VerticalAlignment="Top" Foreground="#FF3B4258" FontSize="24" FontFamily="Arial" FontWeight="Bold"/>
         </Grid>
         <Label Content="0" HorizontalAlignment="Left" Margin="129,121,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FF3B4258" Height="26" Width="18"/>
 
