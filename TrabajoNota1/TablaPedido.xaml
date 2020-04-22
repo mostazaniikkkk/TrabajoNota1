@@ -5,12 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TrabajoNota1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="360" Width="640" Background="#FF2C3044">
-    <Grid HorizontalAlignment="Left" Height="331" VerticalAlignment="Top" Width="630" Margin="0,0,0,-1">
-        <TextBox Margin="52,0,0,249" TextWrapping="Wrap" Text="TextBox" TextChanged="TextBox_TextChanged" HorizontalAlignment="Left" Width="402" Height="23" VerticalAlignment="Bottom" Background="#FF3B4258" BorderBrush="{x:Null}" Foreground="#FF15152B" FontFamily="Arial" BorderThickness="1"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="459,60,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
-        <Menu HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="630" Background="#FF15152B">
-            <MenuItem Header="Menu" Foreground="#FF3B4258" Click="MenuItem_Click"/>
-        </Menu>
+        Title="MainWindow" Height="339.574" Width="532.766" Background="#FF2C3044">
+    <Grid HorizontalAlignment="Left" Height="330" VerticalAlignment="Top" Width="630" RenderTransformOrigin="0.127,0.111">
+        <TextBox Margin="25,0,0,285" TextWrapping="Wrap" Text="Ingrese el ID del pedido para buscar " TextChanged="TextBox_TextChanged" HorizontalAlignment="Left" Width="402" Height="23" VerticalAlignment="Bottom" Background="#FF3B4258" BorderBrush="{x:Null}" Foreground="#FF15152B" FontFamily="Arial" BorderThickness="1"/>
+        <Button Content="Buscar" HorizontalAlignment="Left" Margin="432,23,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+        <DataGrid HorizontalAlignment="Left" Height="236" Margin="21,50,0,0" VerticalAlignment="Top" Width="486" Background="#FF3B4258"/>
     </Grid>
 </Window>

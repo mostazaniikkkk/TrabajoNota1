@@ -7,10 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="360" Width="640" Background="#FF2C3044">
     <Grid HorizontalAlignment="Left" Height="331" VerticalAlignment="Top" Width="630" Margin="0,0,0,-1">
-        <TextBox Margin="52,0,0,249" TextWrapping="Wrap" Text="TextBox" TextChanged="TextBox_TextChanged" HorizontalAlignment="Left" Width="402" Height="23" VerticalAlignment="Bottom" Background="#FF3B4258" BorderBrush="{x:Null}" Foreground="#FF15152B" FontFamily="Arial" BorderThickness="1"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="459,60,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
-        <Menu HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="630" Background="#FF15152B">
+        <TextBox Margin="21,0,0,280" TextWrapping="Wrap" Text="Ingrese el RUT del cliente para buscar (Ejemplo: 11.111.111-1)" TextChanged="TextBox_TextChanged" HorizontalAlignment="Left" Width="510" Height="23" VerticalAlignment="Bottom" Background="#FF3B4258" BorderBrush="{x:Null}" Foreground="#FF15152B" FontFamily="Arial" BorderThickness="1"/>
+        <Button Content="Buscar" HorizontalAlignment="Left" Margin="536,29,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+        <Menu HorizontalAlignment="Left" Height="19" VerticalAlignment="Top" Width="630" Background="#FF15152B">
             <MenuItem Header="Menu" Foreground="#FF3B4258" Click="MenuItem_Click"/>
         </Menu>
+        <DataGrid HorizontalAlignment="Left" Height="243" Margin="21,65,0,0" VerticalAlignment="Top" Width="590" Background="#FF3B4258"/>
     </Grid>
 </Window>
