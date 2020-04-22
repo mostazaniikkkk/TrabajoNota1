@@ -4,10 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WindowsFormsApp1
-{
-    public class PEDIDO
-    {
+namespace TrabajoNota1{
+    public class Pedido{
         //nota: rutcl=rut cliente
         //      idl= id del libro
         //      fehcaS=fecha de salida
