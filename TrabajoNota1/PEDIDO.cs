@@ -10,9 +10,9 @@ namespace TrabajoNota1{
         //      idl= id del libro
         //      fehcaS=fecha de salida
         //      fechaE= fecha de entrega
-        public int rutcl;
-        public int idl;
-        public DateTime fehcaS;
-        public DateTime fehcaE;
+        public string rut;
+        public int id;
+        public string fechaS;
+        public string fechaE;
     }
 }

@@ -13,7 +13,8 @@
             <RowDefinition Height="0*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="7*"/>
+            <ColumnDefinition Width="3*"/>
             <ColumnDefinition Width="0*"/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
@@ -21,10 +22,10 @@
         <Label Content="Cantidad disponible:" HorizontalAlignment="Left" Margin="10,121,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FF3B4258" Height="26" Width="121"/>
         <Label Content="Cantidad de tomos nuevos" HorizontalAlignment="Left" Margin="10,162,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.565,2.308" Background="{x:Null}" Foreground="#FF3B4258" Height="26" Width="155"/>
         <Button Content="Aceptar" HorizontalAlignment="Left" Margin="10,207,0,0" VerticalAlignment="Top" Width="75" Height="22"/>
-        <Button Content="Cancelar" Margin="271,0,10,209" VerticalAlignment="Bottom" Height="22"/>
-        <TextBlock Margin="67,91,25,0" TextWrapping="Wrap" Text="Ingrese un ID de 4 digitos" VerticalAlignment="Top" Background="#FF3B4258" FontFamily="Arial" Foreground="#FF2C3044" Height="14"/>
-        <TextBlock Margin="165,167,25,0" TextWrapping="Wrap" Text="Añada la cant de libros nuevos" VerticalAlignment="Top" Background="#FF3B4258" Foreground="#FF2C3044" Height="16"/>
-        <Grid HorizontalAlignment="Right" Height="74" VerticalAlignment="Top" Width="356" Background="#FF15152B">
+        <Button Content="Cancelar" Margin="19,0,10,209" VerticalAlignment="Bottom" Height="22" Grid.Column="1"/>
+        <TextBlock Margin="67,91,25,0" TextWrapping="Wrap" Text="Ingrese un ID de 4 digitos" VerticalAlignment="Top" Background="#FF3B4258" FontFamily="Arial" Foreground="#FF2C3044" Height="14" Grid.ColumnSpan="2"/>
+        <TextBlock Margin="165,167,25,0" TextWrapping="Wrap" Text="Añada la cant de libros nuevos" VerticalAlignment="Top" Background="#FF3B4258" Foreground="#FF2C3044" Height="16" Grid.ColumnSpan="2"/>
+        <Grid HorizontalAlignment="Right" Height="74" VerticalAlignment="Top" Width="356" Background="#FF15152B" Grid.ColumnSpan="2">
             <Label Content="Datos del libro" HorizontalAlignment="Left" Margin="83,17,0,0" VerticalAlignment="Top" Foreground="#FF3B4258" FontSize="24" FontFamily="Arial"/>
         </Grid>
         <Label Content="0" HorizontalAlignment="Left" Margin="129,121,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FF3B4258" Height="26" Width="18"/>

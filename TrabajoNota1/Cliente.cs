@@ -9,6 +9,6 @@ namespace TrabajoNota1{
         //rut --- nombre --- direccion
         public string nombre;
         public string direccion;
-        public int rut;
+        public string rut;
     }
 }

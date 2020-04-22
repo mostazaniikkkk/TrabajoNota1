@@ -56,7 +56,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Biblioteca - Copia.cs" />
+    <Compile Include="Main.cs" />
+    <Compile Include="Pedido.cs" />
+    <Compile Include="Libro.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="Exito00.xaml.cs">
       <DependentUpon>Exito00.xaml</DependentUpon>

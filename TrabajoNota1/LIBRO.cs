@@ -10,9 +10,5 @@ namespace TrabajoNota1{
         public String titulo;
         public int ID;
         public int cantidad;
-
-        public void Libros(){
-
-        }
     }
 }
