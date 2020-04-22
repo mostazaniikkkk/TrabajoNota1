@@ -11,9 +11,9 @@
         <Label Content="Los datos fueron registrados a la DB" Margin="15,117,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FF3B4258" Height="26" HorizontalAlignment="Left" Width="204"/>
         <Grid HorizontalAlignment="Left" Height="117" VerticalAlignment="Top" Width="229" Background="#FF15152B"/>
         <Label Content="Exito" Margin="94,86,99,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FF3B4258" Height="26"/>
-        <Image HorizontalAlignment="Left" Height="79" Margin="72,10,0,0" VerticalAlignment="Top" Width="79" Source="pack://siteoforigin:,,,/pngs/exitoICO.png">
+        <Image HorizontalAlignment="Left" Height="76" Margin="75,10,0,0" VerticalAlignment="Top" Width="76" Source="pack://siteoforigin:,,,/pngs/exitoICO.png">
             <Image.OpacityMask>
-                <ImageBrush/>
+                <ImageBrush ImageSource="pack://siteoforigin:,,,/pngs/exitoICO.png"/>
             </Image.OpacityMask>
         </Image>
 

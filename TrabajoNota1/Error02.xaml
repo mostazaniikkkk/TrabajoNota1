@@ -11,9 +11,9 @@
         <Label Content="Faltan datos por rellenar" Margin="43,117,42,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FF3B4258" Height="26"/>
         <Grid HorizontalAlignment="Left" Height="117" VerticalAlignment="Top" Width="229" Background="#FF15152B"/>
         <Label Content="Error 02" Margin="88,86,89,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FF3B4258" Height="26"/>
-        <Image HorizontalAlignment="Left" Height="79" Margin="72,10,0,0" VerticalAlignment="Top" Width="79" Source="pack://siteoforigin:,,,/pngs/errorICO.png">
+        <Image HorizontalAlignment="Left" Height="71" Margin="80,10,0,0" VerticalAlignment="Top" Width="71" Source="pack://siteoforigin:,,,/pngs/errorICO.png">
             <Image.OpacityMask>
-                <ImageBrush/>
+                <ImageBrush ImageSource="pack://siteoforigin:,,,/pngs/errorICO.png"/>
             </Image.OpacityMask>
         </Image>
 
