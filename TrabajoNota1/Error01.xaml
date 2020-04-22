@@ -7,10 +7,15 @@
         mc:Ignorable="d"
         Title="Error00" Height="210.191" Width="237.191" Background="#FF2C3044">
     <Grid Height="180" VerticalAlignment="Top">
-        <Button Content="Aceptar" HorizontalAlignment="Left" Margin="79,148,0,10" Width="75"/>
-        <Label Content="Faltan datos por rellenar" Margin="43,117,42,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FF3B4258" Height="26"/>
+        <Button Content="Aceptar" HorizontalAlignment="Left" Margin="79,148,0,10" Width="75" Click="Button_Click"/>
+        <Label Content="El dato ya se encuentra registrado&#xD;&#xA;" Margin="19,117,20,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FF3B4258" Height="26"/>
         <Grid HorizontalAlignment="Left" Height="117" VerticalAlignment="Top" Width="229" Background="#FF15152B"/>
-        <Label Content="Error 02" Margin="88,86,89,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FF3B4258" Height="26"/>
+        <Label Content="Error 01" Margin="88,86,89,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FF3B4258" Height="26"/>
+        <Image HorizontalAlignment="Left" Height="79" Margin="72,10,0,0" VerticalAlignment="Top" Width="79" Source="pack://siteoforigin:,,,/pngs/errorICO.png">
+            <Image.OpacityMask>
+                <ImageBrush/>
+            </Image.OpacityMask>
+        </Image>
 
     </Grid>
 </Window>

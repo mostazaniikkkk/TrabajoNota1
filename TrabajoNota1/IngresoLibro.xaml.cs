@@ -12,14 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace TrabajoNota1.Ventanas.Mensajes
+namespace TrabajoNota1
 {
     /// <summary>
-    /// Lógica de interacción para Error00.xaml
+    /// Lógica de interacción para IngresoDatos.xaml
     /// </summary>
-    public partial class Error00 : Window
+    public partial class IngresoLibro : Window
     {
-        public Error00()
+        public IngresoLibro()
         {
             InitializeComponent();
         }

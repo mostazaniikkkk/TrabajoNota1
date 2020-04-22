@@ -20,7 +20,7 @@
         <Label Content="ID libro:" HorizontalAlignment="Left" Margin="10,84,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FF3B4258" Height="26" Width="52"/>
         <Label Content="Nombre libro:" HorizontalAlignment="Left" Margin="10,121,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FF3B4258" Height="26" Width="84"/>
         <Label Content="Cantidad de tomos:" HorizontalAlignment="Left" Margin="10,162,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.565,2.308" Background="{x:Null}" Foreground="#FF3B4258" Height="26" Width="114"/>
-        <Button Content="Aceptar" HorizontalAlignment="Left" Margin="10,207,0,0" VerticalAlignment="Top" Width="75" Height="22"/>
+        <Button Content="Aceptar" HorizontalAlignment="Left" Margin="10,207,0,0" VerticalAlignment="Top" Width="75" Height="22" Click="Button_Click"/>
         <Button Content="Cancelar" Margin="271,0,10,209" VerticalAlignment="Bottom" Height="22"/>
         <TextBlock Margin="67,91,25,0" TextWrapping="Wrap" Text="Ingrese un ID de 4 digitos" VerticalAlignment="Top" Background="#FF3B4258" FontFamily="Arial" Foreground="#FF2C3044" Height="14"/>
         <TextBlock Margin="99,126,25,0" TextWrapping="Wrap" Text="Ingrese el dato requerido" VerticalAlignment="Top" Background="#FF3B4258" Foreground="#FF2C3044" Height="16"/>

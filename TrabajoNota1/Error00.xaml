@@ -7,9 +7,15 @@
         mc:Ignorable="d"
         Title="Error00" Height="210.191" Width="237.191" Background="#FF2C3044">
     <Grid Height="180" VerticalAlignment="Top">
-        <Button Content="Aceptar" HorizontalAlignment="Left" Margin="79,148,0,10" Width="75"/>
+        <Button Content="Aceptar" HorizontalAlignment="Left" Margin="79,148,0,10" Width="75" Click="Button_Click"/>
         <Label Content="Error al conectar con la base de datos" Margin="10,117,10,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FF3B4258" Height="26"/>
-        <Grid HorizontalAlignment="Left" Height="117" VerticalAlignment="Top" Width="229" Background="#FF15152B"/>
+        <Grid HorizontalAlignment="Left" Height="117" VerticalAlignment="Top" Width="229" Background="#FF15152B">
+            <Image HorizontalAlignment="Left" Height="79" Margin="72,10,0,0" VerticalAlignment="Top" Width="79" Source="pack://siteoforigin:,,,/pngs/errorICO.png">
+                <Image.OpacityMask>
+                    <ImageBrush/>
+                </Image.OpacityMask>
+            </Image>
+        </Grid>
         <Label Content="Error 00" Margin="88,86,89,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FF3B4258" Height="26"/>
 
     </Grid>

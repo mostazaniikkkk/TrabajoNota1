@@ -17,9 +17,9 @@ namespace TrabajoNota1.Ventanas.Mensajes
     /// <summary>
     /// Lógica de interacción para Error00.xaml
     /// </summary>
-    public partial class Error00 : Window
+    public partial class Exito01 : Window
     {
-        public Error00()
+        public Exito01()
         {
             InitializeComponent();
         }

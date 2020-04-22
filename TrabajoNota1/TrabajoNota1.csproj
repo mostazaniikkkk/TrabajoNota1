@@ -37,6 +37,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -55,46 +56,48 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Ventanas\Mensajes\Exito00.xaml.cs">
+    <Compile Include="Cliente.cs" />
+    <Compile Include="Exito00.xaml.cs">
       <DependentUpon>Exito00.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Ventanas\Mensajes\Exito01.xaml.cs">
+    <Compile Include="Exito01.xaml.cs">
       <DependentUpon>Exito01.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Ventanas\Mensajes\Error02.xaml.cs">
+    <Compile Include="Error02.xaml.cs">
       <DependentUpon>Error02.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Ventanas\Mensajes\Error01.xaml.cs">
+    <Compile Include="Error01.xaml.cs">
       <DependentUpon>Error01.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Ventanas\Mensajes\Error00.xaml.cs">
+    <Compile Include="Error00.xaml.cs">
       <DependentUpon>Error00.xaml</DependentUpon>
     </Compile>
-    <Page Include="Ventanas\AumentarLibros.xaml">
+    <Compile Include="Biblioteca.cs" />
+    <Page Include="AumentarLibros.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Ventanas\IngresoPedido.xaml">
+    <Page Include="IngresoPedido.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Ventanas\IngresoLibro.xaml">
+    <Page Include="IngresoLibro.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Ventanas\IngresoCliente.xaml">
+    <Page Include="IngresoCliente.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Ventanas\TablaLibro.xaml">
+    <Page Include="TablaLibro.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Ventanas\TablaPedido.xaml">
+    <Page Include="TablaPedido.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Ventanas\MenuPrincipal.xaml">
+    <Page Include="MenuPrincipal.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -102,45 +105,45 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Ventanas\AumentarLibros.xaml.cs">
+    <Compile Include="AumentarLibros.xaml.cs">
       <DependentUpon>AumentarLibros.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Ventanas\IngresoPedido.xaml.cs">
+    <Compile Include="IngresoPedido.xaml.cs">
       <DependentUpon>IngresoPedido.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Ventanas\IngresoLibro.xaml.cs">
+    <Compile Include="IngresoLibro.xaml.cs">
       <DependentUpon>IngresoLibro.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Ventanas\IngresoCliente.xaml.cs">
+    <Compile Include="IngresoCliente.xaml.cs">
       <DependentUpon>IngresoCliente.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Ventanas\TablaLibro.xaml.cs">
+    <Compile Include="TablaLibro.xaml.cs">
       <DependentUpon>TablaLibro.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Ventanas\TablaPedido.xaml.cs">
+    <Compile Include="TablaPedido.xaml.cs">
       <DependentUpon>TablaPedido.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Ventanas\MenuPrincipal.xaml.cs">
+    <Compile Include="MenuPrincipal.xaml.cs">
       <DependentUpon>MenuPrincipal.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Ventanas\Mensajes\Exito00.xaml">
+    <Page Include="Exito00.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Ventanas\Mensajes\Exito01.xaml">
+    <Page Include="Exito01.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Ventanas\Mensajes\Error02.xaml">
+    <Page Include="Error02.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Ventanas\Mensajes\Error01.xaml">
+    <Page Include="Error01.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Ventanas\Mensajes\Error00.xaml">
+    <Page Include="Error00.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -170,6 +173,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pngs\errorICO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Ventanas\Mensajes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pngs\exitoICO.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
