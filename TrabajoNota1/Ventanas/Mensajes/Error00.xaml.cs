@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace TrabajoNota1
+namespace TrabajoNota1.Ventanas.Mensajes
 {
     /// <summary>
-    /// Lógica de interacción para MainWindow.xaml
+    /// Lógica de interacción para Error00.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Error00 : Window
     {
-        public MainWindow()
+        public Error00()
         {
             InitializeComponent();
         }

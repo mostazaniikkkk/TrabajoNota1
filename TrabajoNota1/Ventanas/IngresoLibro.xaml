@@ -1,0 +1,33 @@
+﻿<Window x:Class="TrabajoNota1.IngresoDatos"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TrabajoNota1"
+        mc:Ignorable="d"
+        Title="IngresoDatos" Height="270.667" Width="360" Background="#FF2C3044">
+    <Grid Margin="0,0,-8,-3" Height="244" VerticalAlignment="Top">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="0*"/>
+            <RowDefinition Height="0*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="ID libro:" HorizontalAlignment="Left" Margin="10,84,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FF3B4258" Height="26" Width="52"/>
+        <Label Content="Cantidad disponible:" HorizontalAlignment="Left" Margin="10,121,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FF3B4258" Height="26" Width="121"/>
+        <Label Content="Cantidad de tomos nuevos" HorizontalAlignment="Left" Margin="10,162,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.565,2.308" Background="{x:Null}" Foreground="#FF3B4258" Height="26" Width="155"/>
+        <Button Content="Aceptar" HorizontalAlignment="Left" Margin="10,207,0,0" VerticalAlignment="Top" Width="75" Height="22"/>
+        <Button Content="Cancelar" Margin="271,0,10,209" VerticalAlignment="Bottom" Height="22"/>
+        <TextBlock Margin="67,91,25,0" TextWrapping="Wrap" Text="Ingrese un ID de 4 digitos" VerticalAlignment="Top" Background="#FF3B4258" FontFamily="Arial" Foreground="#FF2C3044" Height="14"/>
+        <TextBlock Margin="165,167,25,0" TextWrapping="Wrap" Text="Añada la cant de libros nuevos" VerticalAlignment="Top" Background="#FF3B4258" Foreground="#FF2C3044" Height="16"/>
+        <Grid HorizontalAlignment="Right" Height="74" VerticalAlignment="Top" Width="356" Background="#FF15152B">
+            <Label Content="Datos del libro" HorizontalAlignment="Left" Margin="83,17,0,0" VerticalAlignment="Top" Foreground="#FF3B4258" FontSize="24" FontFamily="Arial"/>
+        </Grid>
+        <Label Content="0" HorizontalAlignment="Left" Margin="129,121,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="#FF3B4258" Height="26" Width="18"/>
+
+    </Grid>
+</Window>
