@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:TrabajoNota1.Ventanas.Mensajes"
+        xmlns:local="clr-namespace:TrabajoNota1"
         mc:Ignorable="d"
         Title="Error00" Height="210.191" Width="237.191" Background="#FF2C3044">
     <Grid Height="180" VerticalAlignment="Top">

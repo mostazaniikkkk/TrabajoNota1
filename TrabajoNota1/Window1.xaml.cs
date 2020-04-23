@@ -15,15 +15,13 @@ using System.Windows.Shapes;
 namespace TrabajoNota1
 {
     /// <summary>
-    /// Lógica de interacción para Error00.xaml
+    /// Lógica de interacción para Window1.xaml
     /// </summary>
-    public partial class Error00{
-        public Error00(){
+    public partial class Window1 : Window
+    {
+        public Window1()
+        {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e){
-
         }
     }
 }
