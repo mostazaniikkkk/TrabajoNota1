@@ -17,7 +17,7 @@ namespace Nota2
     /// <summary>
     /// Lógica de interacción para Window1.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public class Window1 : Window
     {
         public Window1()
         {
