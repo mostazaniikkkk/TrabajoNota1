@@ -11,7 +11,7 @@
             <ImageBrush ImageSource="Img/BG/BG00.png"/>
         </Grid.Background>
         <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="77" Margin="55,46,0,0" Stroke="Black" VerticalAlignment="Top" Width="77"/>
-        <Label Content="Nombre Usuario" HorizontalAlignment="Left" Margin="148,52,0,0" VerticalAlignment="Top" FontFamily="Myriad Pro" Background="{x:Null}" Foreground="White" Height="34" Width="228" FontSize="24"/>
+        <Label x:Name="lblBienvenido" Content="" HorizontalAlignment="Left" Margin="148,52,0,0" VerticalAlignment="Top" FontFamily="Myriad Pro" Background="{x:Null}" Foreground="White" Height="34" Width="228" FontSize="24"/>
         <Label Content="Rut Usuario" HorizontalAlignment="Left" Margin="148,86,0,0" VerticalAlignment="Top" FontFamily="Myriad Pro" Background="{x:Null}" Foreground="White" Height="34" Width="228" FontSize="18"/>
         <Button Content="Button" HorizontalAlignment="Left" Margin="933,157,0,0" VerticalAlignment="Top" Width="281" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="141">
             <Button.Background>

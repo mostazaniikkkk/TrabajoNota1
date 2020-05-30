@@ -22,6 +22,15 @@ namespace Nota2
         public Window1()
         {
             InitializeComponent();
+
+            win1 = this;
+        }
+
+        internal static Window1 win1;
+        internal string Status
+        {
+            get { return lblBienvenido.Content.ToString(); }
+            set { Dispatcher.Invoke(new Action(() => { lblBienvenido.Content = value; })); }
         }
     }
 }

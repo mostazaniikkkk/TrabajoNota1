@@ -24,5 +24,27 @@ namespace Nota2
         {
             InitializeComponent();
         }
+        Window1 win1 = new Window1();
+        Conexion cx = new Conexion();
+        public int[] user = new int[1];
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+
+                //lblID.Content = user[0] = cx.VerificarUsuario(txtUsuario.Text, txtContraseña.Text);
+                user[0] = cx.VerificarUsuario(txtUsuario.Text, txtContraseña.Text);
+                //lblID.Content = cx.VerificarUsuario(txtUsuario.Text, txtContraseña.Text);
+                //this.Close();
+                //cx.NombreUsuario(user[0]); 
+
+                win1.Show();
+            }
+            catch (Exception)
+            {
+                MessageBoxResult result = MessageBox.Show("Error, usuario inválido...");
+                Console.WriteLine(result);
+            }
+        }
     }
 }
