@@ -1,0 +1,45 @@
+﻿<Window x:Class="Nota2.Window6"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Nota2"
+        mc:Ignorable="d"
+        Title="Perfil del cliente" Height="720" Width="1280">
+    <Window.Background>
+        <ImageBrush ImageSource="Img/BG/BG00.png"/>
+    </Window.Background>
+    <Grid>
+        <Rectangle HorizontalAlignment="Left" Height="502" Margin="41,142,0,0" VerticalAlignment="Top" Width="1191">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="Img/BG/BGC/BGC00.png"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="77" Margin="57,36,0,0" Stroke="Black" VerticalAlignment="Top" Width="77"/>
+        <Label x:Name="lblBienvenido" Content="" HorizontalAlignment="Left" Margin="150,42,0,0" VerticalAlignment="Top" FontFamily="Myriad Pro" Background="{x:Null}" Foreground="White" Height="34" Width="228" FontSize="24"/>
+        <Label Content="Rut Usuario" HorizontalAlignment="Left" Margin="150,76,0,0" VerticalAlignment="Top" FontFamily="Myriad Pro" Background="{x:Null}" Foreground="White" Height="34" Width="228" FontSize="18"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="1064,339,0,0" VerticalAlignment="Top" Width="133" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="44">
+            <Button.Background>
+                <ImageBrush ImageSource="Img/Botones/volver01.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+        <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="132" Margin="80,164,0,0" Stroke="Black" VerticalAlignment="Top" Width="132"/>
+        <Label Content="Nombre cliente" HorizontalAlignment="Left" Margin="217,164,0,0" VerticalAlignment="Top" FontFamily="Myriad Pro" Background="{x:Null}" Foreground="White" Height="57" Width="400" FontSize="36"/>
+        <Label Content="RUT cliente" HorizontalAlignment="Left" Margin="217,221,0,0" VerticalAlignment="Top" FontFamily="Myriad Pro" Background="{x:Null}" Foreground="White" Height="36" Width="352" FontSize="18"/>
+        <Label Content="Fecha nacimiento cliente" HorizontalAlignment="Left" Margin="217,257,0,0" VerticalAlignment="Top" FontFamily="Myriad Pro" Background="{x:Null}" Foreground="White" Height="36" Width="352" FontSize="18"/>
+        <Label Content="Estado civil cliente" HorizontalAlignment="Left" Margin="617,221,0,0" VerticalAlignment="Top" FontFamily="Myriad Pro" Background="{x:Null}" Foreground="White" Height="36" Width="352" FontSize="18"/>
+        <Label Content="Genero cliente" HorizontalAlignment="Left" Margin="617,257,0,0" VerticalAlignment="Top" FontFamily="Myriad Pro" Background="{x:Null}" Foreground="White" Height="36" Width="352" FontSize="18"/>
+        <Label Content="Contratos efectuados:" HorizontalAlignment="Left" Margin="80,341,0,0" VerticalAlignment="Top" FontFamily="Myriad Pro" Background="{x:Null}" Foreground="White" Height="42" Width="400" FontSize="28"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="910,341,0,0" VerticalAlignment="Top" Width="133" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="44">
+            <Button.Background>
+                <ImageBrush ImageSource="Img/Botones/eliminar.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="759,341,0,0" VerticalAlignment="Top" Width="133" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="44">
+            <Button.Background>
+                <ImageBrush ImageSource="Img/Botones/modificar.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+
+    </Grid>
+</Window>

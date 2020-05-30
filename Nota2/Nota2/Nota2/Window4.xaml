@@ -1,0 +1,41 @@
+﻿<Window x:Class="Nota2.Window4"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Nota2"
+        mc:Ignorable="d"
+        Title="Buscar contrato" Height="720" Width="1280">
+    <Window.Background>
+        <ImageBrush ImageSource="Img/BG/BG00.png"/>
+    </Window.Background>
+    <Grid>
+        <Rectangle HorizontalAlignment="Left" Height="502" Margin="41,142,0,0" VerticalAlignment="Top" Width="1191">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="Img/BG/BGC/BGC00.png"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="77" Margin="57,36,0,0" Stroke="Black" VerticalAlignment="Top" Width="77"/>
+        <Label x:Name="lblBienvenido" Content="" HorizontalAlignment="Left" Margin="150,42,0,0" VerticalAlignment="Top" FontFamily="Myriad Pro" Background="{x:Null}" Foreground="White" Height="34" Width="228" FontSize="24"/>
+        <Label Content="Rut Usuario" HorizontalAlignment="Left" Margin="150,76,0,0" VerticalAlignment="Top" FontFamily="Myriad Pro" Background="{x:Null}" Foreground="White" Height="34" Width="228" FontSize="18"/>
+        <TextBox x:Name="txtUsuario" HorizontalAlignment="Left" Height="40" Margin="225,163,0,0" TextWrapping="Wrap" Text="Ej. 12456789-3" VerticalAlignment="Top" Width="976" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="72,576,0,0" VerticalAlignment="Top" Width="133" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="44">
+            <Button.Background>
+                <ImageBrush ImageSource="Img/Botones/modificar.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="72,163,0,0" VerticalAlignment="Top" Width="133" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="44">
+            <Button.Background>
+                <ImageBrush ImageSource="Img/Botones/buscar.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="1068,576,0,0" VerticalAlignment="Top" Width="133" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="44">
+            <Button.Background>
+                <ImageBrush ImageSource="Img/Botones/volver01.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+        <RadioButton Content="Contrato vigente" HorizontalAlignment="Left" Margin="225,208,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <RadioButton Content="Contrato expirado" HorizontalAlignment="Left" Margin="489,208,0,0" VerticalAlignment="Top" FontSize="24"/>
+
+    </Grid>
+</Window>
