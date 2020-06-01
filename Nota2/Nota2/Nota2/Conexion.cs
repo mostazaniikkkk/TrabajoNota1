@@ -45,7 +45,7 @@ namespace Nota2
                         {
                             int id = int.Parse(dt.Rows[0][0].ToString());
                             number = id;
-                            MessageBoxResult result = MessageBox.Show("ENCONTRADO CORRECTAMENTE!");
+                            MessageBoxResult result = MessageBox.Show("Iniciando sesión...");
                             Console.WriteLine(result);
 
                         }
