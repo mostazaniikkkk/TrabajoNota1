@@ -26,19 +26,17 @@ namespace Nota2
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
         }
         Window1 win1 = new Window1();
-        Conexion cx = new Conexion();
+
         public int[] user = new int[1];
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             try
             {
+                user[0] = Conexion.VerificarUsuario(txtRut.Text, txtContraseña.Text);
+                
+                Conexion.NombreUsuario(user[0]);
 
-                //lblID.Content = user[0] = cx.VerificarUsuario(txtUsuario.Text, txtContraseña.Text);
-                user[0] = cx.VerificarUsuario(txtRut.Text, txtContraseña.Text);
-                //lblID.Content = cx.VerificarUsuario(txtUsuario.Text, txtContraseña.Text);
-                //this.Close();
-                cx.NombreUsuario(user[0]); 
-
+                this.Close();
                 win1.Show();
             }
             catch (Exception)

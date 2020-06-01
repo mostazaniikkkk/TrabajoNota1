@@ -33,7 +33,7 @@
                 <ImageBrush ImageSource="Img/Botones/agregarContrato.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="348,157,0,0" VerticalAlignment="Top" Width="281" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="141">
+        <Button x:Name="btnBuscar" Content="Button" HorizontalAlignment="Left" Margin="348,157,0,0" VerticalAlignment="Top" Width="281" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="141">
             <Button.Background>
                 <ImageBrush ImageSource="Img/Botones/buscarCliente.png" Stretch="Uniform"/>
             </Button.Background>

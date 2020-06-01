@@ -12,10 +12,8 @@ namespace Nota2
     class Conexion
     {
         static string connectionString = @"Server=DESKTOP-3FLS338; Database=REGISTRO; Trusted_Connection=True;";
-        DataTable dt = new DataTable();
 
-
-        public int VerificarUsuario(string rut, string contraseña)
+        public static int VerificarUsuario(string rut, string contraseña)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -31,7 +29,7 @@ namespace Nota2
                 connection.Open();
                 Int32 rowsAffected = command.ExecuteNonQuery();
                 SqlDataAdapter da = new SqlDataAdapter(command);
-
+                DataTable dt = new DataTable();
                 dt.Clear();
                 da.Fill(dt);
 
@@ -57,7 +55,7 @@ namespace Nota2
             }
         }
 
-        public void NombreUsuario(int id)
+        public static void NombreUsuario(int id)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -71,7 +69,7 @@ namespace Nota2
                 connection.Open();
                 Int32 rowsAffected = command.ExecuteNonQuery();
                 SqlDataAdapter da = new SqlDataAdapter(command);
-
+                DataTable dt = new DataTable();
                 dt.Clear();
                 da.Fill(dt);
 
