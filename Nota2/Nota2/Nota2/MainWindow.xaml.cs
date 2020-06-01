@@ -23,6 +23,7 @@ namespace Nota2
         public MainWindow()
         {
             InitializeComponent();
+            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
         }
         Window1 win1 = new Window1();
         Conexion cx = new Conexion();
@@ -33,10 +34,10 @@ namespace Nota2
             {
 
                 //lblID.Content = user[0] = cx.VerificarUsuario(txtUsuario.Text, txtContraseña.Text);
-                user[0] = cx.VerificarUsuario(txtUsuario.Text, txtContraseña.Text);
+                user[0] = cx.VerificarUsuario(txtRut.Text, txtContraseña.Text);
                 //lblID.Content = cx.VerificarUsuario(txtUsuario.Text, txtContraseña.Text);
                 //this.Close();
-                //cx.NombreUsuario(user[0]); 
+                cx.NombreUsuario(user[0]); 
 
                 win1.Show();
             }

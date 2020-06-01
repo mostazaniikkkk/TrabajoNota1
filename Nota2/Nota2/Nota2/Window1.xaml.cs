@@ -17,20 +17,25 @@ namespace Nota2
     /// <summary>
     /// Lógica de interacción para Window1.xaml
     /// </summary>
-    public class Window1 : Window
+    public partial class Window1 : Window
     {
         public Window1()
         {
             InitializeComponent();
-
+            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             win1 = this;
         }
 
         internal static Window1 win1;
         internal string Status
         {
-            get { return lblBienvenido.Content.ToString(); }
-            set { Dispatcher.Invoke(new Action(() => { lblBienvenido.Content = value; })); }
+            get { return lblUser.Content.ToString(); }
+            set { Dispatcher.Invoke(new Action(() => { lblUser.Content = value; })); }
+        }
+        internal string Status1
+        {
+            get { return lblRut.Content.ToString(); }
+            set { Dispatcher.Invoke(new Action(() => { lblRut.Content = value; })); }
         }
     }
 }

@@ -15,14 +15,14 @@ namespace Nota2
         DataTable dt = new DataTable();
 
 
-        public int VerificarUsuario(string nombre, string contraseña)
+        public int VerificarUsuario(string rut, string contraseña)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand(null, connection);
-                command.CommandText = "SELECT id_usuario FROM REGISTRO WHERE nombre_usuario = @nombre AND contraseña_usuario = @contraseña";
+                command.CommandText = "SELECT id_usuario FROM REGISTRO WHERE rut_usuario = @rut AND contraseña_usuario = @contraseña";
 
-                command.Parameters.AddWithValue("@nombre", nombre);
+                command.Parameters.AddWithValue("@rut", rut);
                 command.Parameters.AddWithValue("@contraseña", contraseña);
 
 
@@ -62,7 +62,7 @@ namespace Nota2
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand(null, connection);
-                command.CommandText = "SELECT nombre_usuario FROM REGISTRO WHERE id_usuario = @id";
+                command.CommandText = "SELECT rut_usuario, nombre_usuario FROM REGISTRO WHERE id_usuario = @id";
 
                 command.Parameters.AddWithValue("@id", id);
 
@@ -76,9 +76,10 @@ namespace Nota2
                 da.Fill(dt);
 
                 string nombre = dt.Rows[0][1].ToString();
-                Console.WriteLine("CACA"+nombre);
+                string rut = dt.Rows[0][2].ToString();
 
                 Window1.win1.Status = nombre.ToUpper();
+                Window1.win1.Status1 = rut.ToUpper();
 
                 connection.Close();
             }

@@ -20,7 +20,7 @@
                 <ImageBrush ImageSource="Img/logo.png" Stretch="Uniform"/>
             </Rectangle.Fill>
         </Rectangle>
-        <TextBox x:Name="txtUsuario" HorizontalAlignment="Left" Height="41" Margin="437,299,0,0" TextWrapping="Wrap" Text="Ej. 12456789-3" VerticalAlignment="Top" Width="382" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black"/>
+        <TextBox x:Name="txtRut" HorizontalAlignment="Left" Height="41" Margin="437,299,0,0" TextWrapping="Wrap" Text="Ej. 12456789-3" VerticalAlignment="Top" Width="382" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black"/>
         <TextBox x:Name="txtContraseña" HorizontalAlignment="Left" Height="41" Margin="437,370,0,0" TextWrapping="Wrap" Text="Contraseña" VerticalAlignment="Top" Width="382" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black"/>
         <Label Content="RUT:" HorizontalAlignment="Left" Margin="370,299,0,0" VerticalAlignment="Top" Height="41" Width="54" FontFamily="Myriad Pro" Foreground="White" FontSize="24"/>
         <Button Content="Button" HorizontalAlignment="Left" Margin="510,500,0,0" VerticalAlignment="Top" Width="192" Height="54" Foreground="{x:Null}" BorderBrush="{x:Null}" Click="Button_Click">
