@@ -29,7 +29,9 @@ namespace Nota2
                 connection.Open();
                 Int32 rowsAffected = command.ExecuteNonQuery();
                 SqlDataAdapter da = new SqlDataAdapter(command);
+
                 DataTable dt = new DataTable();
+
                 dt.Clear();
                 da.Fill(dt);
 
@@ -69,12 +71,14 @@ namespace Nota2
                 connection.Open();
                 Int32 rowsAffected = command.ExecuteNonQuery();
                 SqlDataAdapter da = new SqlDataAdapter(command);
+
                 DataTable dt = new DataTable();
+
                 dt.Clear();
                 da.Fill(dt);
 
-                string nombre = dt.Rows[0][1].ToString();
-                string rut = dt.Rows[0][2].ToString();
+                string nombre = dt.Rows[0][0].ToString();
+                string rut = dt.Rows[0][1].ToString();
 
                 Window1.win1.Status = nombre.ToUpper();
                 Window1.win1.Status1 = rut.ToUpper();

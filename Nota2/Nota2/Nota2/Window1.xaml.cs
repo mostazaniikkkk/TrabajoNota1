@@ -37,5 +37,10 @@ namespace Nota2
             get { return lblRut.Content.ToString(); }
             set { Dispatcher.Invoke(new Action(() => { lblRut.Content = value; })); }
         }
+
+        private void btnBuscar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
