@@ -6,6 +6,41 @@
         xmlns:local="clr-namespace:Nota2"
         mc:Ignorable="d"
         Title="MainWindow" Height="720" Width="1280">
+
+    <Window.Resources>
+        <Style x:Key="placeHolder" TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Type TextBox}}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Grid>
+                            <TextBox Text="{Binding Path=Text,
+                                                RelativeSource={RelativeSource TemplatedParent}, 
+                                                Mode=TwoWay,
+                                                UpdateSourceTrigger=PropertyChanged}"
+                                 x:Name="textSource" 
+                                 Background="Transparent" 
+                                 Panel.ZIndex="2" />
+                            <TextBox Text="{TemplateBinding Tag}" Background="{TemplateBinding Background}" Panel.ZIndex="1">
+                                <TextBox.Style>
+                                    <Style TargetType="{x:Type TextBox}">
+                                        <Setter Property="Foreground" Value="Transparent"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Path=Text, Source={x:Reference textSource}}" Value="">
+                                                <Setter Property="Foreground" Value="Gray"/>
+                                                <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                                                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBox.Style>
+                            </TextBox>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="Img/BG/BG00.png"/>
@@ -20,8 +55,8 @@
                 <ImageBrush ImageSource="Img/logo.png" Stretch="Uniform"/>
             </Rectangle.Fill>
         </Rectangle>
-        <TextBox x:Name="txtUsuario" HorizontalAlignment="Left" Height="41" Margin="437,299,0,0" TextWrapping="Wrap" Text="Ej. 12456789-3" VerticalAlignment="Top" Width="382" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black"/>
-        <TextBox x:Name="txtContraseña" HorizontalAlignment="Left" Height="41" Margin="437,370,0,0" TextWrapping="Wrap" Text="Contraseña" VerticalAlignment="Top" Width="382" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black"/>
+        <TextBox x:Name="txtRut" Style="{StaticResource placeHolder}" Tag="Ej. 123456789-3" HorizontalAlignment="Left" Height="41" Margin="437,299,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="382" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black"/>
+        <TextBox x:Name="txtContraseña" Style="{StaticResource placeHolder}" Tag="Contraseña" HorizontalAlignment="Left" Height="41" Margin="437,370,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="382" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black"/>
         <Label Content="RUT:" HorizontalAlignment="Left" Margin="370,299,0,0" VerticalAlignment="Top" Height="41" Width="54" FontFamily="Myriad Pro" Foreground="White" FontSize="24"/>
         <Button Content="Button" HorizontalAlignment="Left" Margin="510,500,0,0" VerticalAlignment="Top" Width="192" Height="54" Foreground="{x:Null}" BorderBrush="{x:Null}" Click="Button_Click">
             <Button.Background>

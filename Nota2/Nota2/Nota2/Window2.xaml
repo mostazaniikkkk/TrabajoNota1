@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Nota2"
         mc:Ignorable="d"
+<<<<<<< HEAD
         Title="Agregar contrato" Height="720" Width="1280">
     <Window.Background>
         <ImageBrush ImageSource="Img/BG/BG00.png"/>
@@ -48,5 +49,10 @@
         </Button>
         <Label Content="Crear contrato" HorizontalAlignment="Left" Margin="70,165,0,0" VerticalAlignment="Top" Height="57" Width="308" FontFamily="Myriad Pro" Foreground="White" FontSize="48"/>
 
+=======
+        Title="Window2" Height="450" Width="800">
+    <Grid>
+        
+>>>>>>> Progra1
     </Grid>
 </Window>

@@ -12,17 +12,15 @@ namespace Nota2
     class Conexion
     {
         static string connectionString = @"Server=DESKTOP-3FLS338; Database=REGISTRO; Trusted_Connection=True;";
-        DataTable dt = new DataTable();
 
-
-        public int VerificarUsuario(string nombre, string contraseña)
+        public static int VerificarUsuario(string rut, string contraseña)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand(null, connection);
-                command.CommandText = "SELECT id_usuario FROM REGISTRO WHERE nombre_usuario = @nombre AND contraseña_usuario = @contraseña";
+                command.CommandText = "SELECT id_usuario FROM REGISTRO WHERE rut_usuario = @rut AND contraseña_usuario = @contraseña";
 
-                command.Parameters.AddWithValue("@nombre", nombre);
+                command.Parameters.AddWithValue("@rut", rut);
                 command.Parameters.AddWithValue("@contraseña", contraseña);
 
 
@@ -31,6 +29,8 @@ namespace Nota2
                 connection.Open();
                 Int32 rowsAffected = command.ExecuteNonQuery();
                 SqlDataAdapter da = new SqlDataAdapter(command);
+
+                DataTable dt = new DataTable();
 
                 dt.Clear();
                 da.Fill(dt);
@@ -45,7 +45,7 @@ namespace Nota2
                         {
                             int id = int.Parse(dt.Rows[0][0].ToString());
                             number = id;
-                            MessageBoxResult result = MessageBox.Show("ENCONTRADO CORRECTAMENTE!");
+                            MessageBoxResult result = MessageBox.Show("Iniciando sesión...");
                             Console.WriteLine(result);
 
                         }
@@ -57,12 +57,12 @@ namespace Nota2
             }
         }
 
-        public void NombreUsuario(int id)
+        public static void NombreUsuario(int id)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand(null, connection);
-                command.CommandText = "SELECT nombre_usuario FROM REGISTRO WHERE id_usuario = @id";
+                command.CommandText = "SELECT rut_usuario, nombre_usuario FROM REGISTRO WHERE id_usuario = @id";
 
                 command.Parameters.AddWithValue("@id", id);
 
@@ -72,13 +72,16 @@ namespace Nota2
                 Int32 rowsAffected = command.ExecuteNonQuery();
                 SqlDataAdapter da = new SqlDataAdapter(command);
 
+                DataTable dt = new DataTable();
+
                 dt.Clear();
                 da.Fill(dt);
 
-                string nombre = dt.Rows[0][1].ToString();
-                Console.WriteLine("CACA"+nombre);
+                string nombre = dt.Rows[0][0].ToString();
+                string rut = dt.Rows[0][1].ToString();
 
                 Window1.win1.Status = nombre.ToUpper();
+                Window1.win1.Status1 = rut.ToUpper();
 
                 connection.Close();
             }
