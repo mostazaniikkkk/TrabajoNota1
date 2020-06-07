@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -12,7 +13,7 @@ namespace Nota2
     class Conexion
     {
         static string connectionString = @"Server=DESKTOP-3FLS338; Database=REGISTRO; Trusted_Connection=True;";
-
+        public static List<User> lista;
         public static int VerificarUsuario(string rut, string contraseña)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -35,6 +36,7 @@ namespace Nota2
                 dt.Clear();
                 da.Fill(dt);
 
+                Window4.win4.Status = dt.ToString();
 
                 int number = 0;
                 do
@@ -84,6 +86,37 @@ namespace Nota2
                 Window1.win1.Status1 = rut.ToUpper();
 
                 connection.Close();
+            }
+        }
+
+        public static List<User> BuscarUsuario(string rut)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString)){
+
+                SqlCommand command = new SqlCommand(null, connection);
+
+                command.CommandText = "SELECT * FROM DBO.REGISTRO WHERE rut_usuario = @rut";
+                command.Parameters.AddWithValue("@rut", rut);
+
+                connection.Open();
+                SqlDataAdapter da = new SqlDataAdapter(command);
+                DataTable dt = new DataTable();
+
+                da.Fill(dt);
+
+                lista = new List<User>();
+
+                foreach (DataRow row in dt.Rows)
+                {
+                    User user = new User();
+                    user.Id = row["id_usuario"].ToString();
+                    user.Rut = row["rut_usuario"].ToString();
+                    user.Usuario = row["nombre_usuario"].ToString();
+                    user.Contraseña = row["contraseña_usuario"].ToString();
+                    user.Foto = row["foto_usuario"].ToString();
+                    lista.Add(user);
+                }
+                return lista;
             }
         }
     }

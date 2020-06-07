@@ -32,7 +32,7 @@ namespace Nota2
         {
             try
             {
-                user[0] = Conexion.VerificarUsuario(txtRut.Text, txtContraseña.Text);
+                user[0] = Conexion.VerificarUsuario(txtRut.Text, txtContraseña.Password);
                 
                 Conexion.NombreUsuario(user[0]);
 

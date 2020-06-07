@@ -56,7 +56,8 @@
             </Rectangle.Fill>
         </Rectangle>
         <TextBox x:Name="txtRut" Style="{StaticResource placeHolder}" Tag="Ej. 123456789-3" HorizontalAlignment="Left" Height="41" Margin="437,299,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="382" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black"/>
-        <TextBox x:Name="txtContraseña" Style="{StaticResource placeHolder}" Tag="Contraseña" HorizontalAlignment="Left" Height="41" Margin="437,370,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="382" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black"/>
+        <PasswordBox x:Name="txtContraseña" HorizontalAlignment="Left" Margin="437,351,0,0" VerticalAlignment="Top" Width="382" Height="41" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black"/>
+
         <Label Content="RUT:" HorizontalAlignment="Left" Margin="370,299,0,0" VerticalAlignment="Top" Height="41" Width="54" FontFamily="Myriad Pro" Foreground="White" FontSize="24"/>
         <Button Content="Button" HorizontalAlignment="Left" Margin="510,500,0,0" VerticalAlignment="Top" Width="192" Height="54" Foreground="{x:Null}" BorderBrush="{x:Null}" Click="Button_Click">
             <Button.Background>
@@ -74,6 +75,6 @@
         </Button>
         <CheckBox Content="Recordar contraseña" HorizontalAlignment="Left" Margin="320,435,0,0" VerticalAlignment="Top" Height="40" Width="243" FontSize="24" FontFamily="Myriad Pro" Foreground="White" Background="White" BorderBrush="White"/>
         <Label Content="Recuperar contraseña" HorizontalAlignment="Left" Margin="672,435,0,0" VerticalAlignment="Top" Height="40" Width="249" FontFamily="Myriad Pro" FontSize="24" Foreground="White"/>
-
+        
     </Grid>
 </Window>
