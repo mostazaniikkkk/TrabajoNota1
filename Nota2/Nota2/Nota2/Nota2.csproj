@@ -175,5 +175,20 @@
     <Folder Include="Img\AvatarUsuario\" />
     <Folder Include="Img\FotoCliente\" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Botones\00.png" />
+    <Resource Include="Img\Botones\01.png" />
+    <Resource Include="Img\Botones\02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Botones\modificar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\Botones\add01.png" />
+    <Resource Include="Img\Botones\buscar.png" />
+    <Resource Include="Img\Botones\eliminar.png" />
+    <Resource Include="Img\Botones\ver.png" />
+    <Resource Include="Img\Botones\volver01.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
