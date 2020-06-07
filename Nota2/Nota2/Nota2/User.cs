@@ -9,8 +9,10 @@ namespace Nota2
     class User
     {
         public string Id { get; set; }
-        public string Rut { get; set; }
-        public string Usuario { get; set; }
+        private string Rut;
+        public string _Rut{ get { return this.Rut; } set{this.Rut = value; } }
+        private string Usuario { get; set; }
+        public string _Usuario { get { return this.Usuario; } set { this.Usuario = value; } }
         public string Contraseña { get; set; }
         public string Foto { get; set; }
     }

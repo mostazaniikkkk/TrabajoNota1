@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,20 +26,30 @@ namespace Nota2
             InitializeComponent();
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
         }
-        Window1 win1 = new Window1();
+        User usuario = new User();
 
         public int[] user = new int[1];
+        
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             try
             {
+                Window1 win1 = new Window1();
                 user[0] = Conexion.VerificarUsuario(txtRut.Text, txtContraseña.Password);
-                
-                Conexion.NombreUsuario(user[0]);
+
+                string usuariox = Conexion.NombreUsuario(user[0]);
+                string rut = Conexion.RutUsuario(user[0]);
+
+                usuario._Rut = rut;
+                usuario._Usuario = usuariox;
+
+                Window1.win1.Status = usuario._Usuario;
+                Window1.win1.Status1 = usuario._Rut;
 
                 this.Close();
-                win1.Show();
-                
+
+                Window1.win1.Show();
+
             }
             catch (Exception)
             {

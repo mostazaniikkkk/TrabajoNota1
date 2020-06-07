@@ -50,19 +50,18 @@ namespace Nota2
 
                         }
                         connection.Close();
-
                         return number;
                     }
                 } while (true);
             }
         }
 
-        public static void NombreUsuario(int id)
+        public static string RutUsuario(int id)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand(null, connection);
-                command.CommandText = "SELECT rut_usuario, nombre_usuario FROM REGISTRO WHERE id_usuario = @id";
+                command.CommandText = "SELECT rut_usuario FROM REGISTRO WHERE id_usuario = @id";
 
                 command.Parameters.AddWithValue("@id", id);
 
@@ -77,13 +76,45 @@ namespace Nota2
                 dt.Clear();
                 da.Fill(dt);
 
-                string nombre = dt.Rows[0][0].ToString();
-                string rut = dt.Rows[0][1].ToString();
+                //string nombre = dt.Rows[0][0].ToString();
+                string rut = dt.Rows[0][0].ToString();
 
-                Window1.win1.Status = nombre.ToUpper();
-                Window1.win1.Status1 = rut.ToUpper();
+                //Window1.win1.Status = nombre.ToUpper();
+                //Window1.win1.Status1 = rut.ToUpper();
+                
+                connection.Close();
+                return rut;
+            }
+        }
+
+        public static string NombreUsuario(int id)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(null, connection);
+                command.CommandText = "SELECT nombre_usuario FROM REGISTRO WHERE id_usuario = @id";
+
+                command.Parameters.AddWithValue("@id", id);
+
+
+                //Abrir conexión y ejecutar query
+                connection.Open();
+                Int32 rowsAffected = command.ExecuteNonQuery();
+                SqlDataAdapter da = new SqlDataAdapter(command);
+
+                DataTable dt = new DataTable();
+
+                dt.Clear();
+                da.Fill(dt);
+
+                //string nombre = dt.Rows[0][0].ToString();
+                string nombre = dt.Rows[0][0].ToString();
+
+                //Window1.win1.Status = nombre.ToUpper();
+                //Window1.win1.Status1 = rut.ToUpper();
 
                 connection.Close();
+                return nombre;
             }
         }
 
@@ -108,8 +139,8 @@ namespace Nota2
                 {
                     User user = new User();
                     user.Id = row["id_usuario"].ToString();
-                    user.Rut = row["rut_usuario"].ToString();
-                    user.Usuario = row["nombre_usuario"].ToString();
+                    user._Rut = row["rut_usuario"].ToString();
+                    user._Usuario = row["nombre_usuario"].ToString();
                     user.Contraseña = row["contraseña_usuario"].ToString();
                     user.Foto = row["foto_usuario"].ToString();
                     lista.Add(user);

@@ -34,7 +34,7 @@
                 <ImageBrush ImageSource="Img/Botones/add01.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
-        <Label Content="Registrar contrato" HorizontalAlignment="Left" Margin="70,165,0,0" VerticalAlignment="Top" Height="57" Width="395" FontFamily="Myriad Pro" Foreground="White" FontSize="48"/>
+        <Label Content="Registrar cliente" HorizontalAlignment="Left" Margin="70,165,0,0" VerticalAlignment="Top" Height="57" Width="395" FontFamily="Myriad Pro" Foreground="White" FontSize="48"/>
         <TextBox x:Name="txtUsuario_Copy2" HorizontalAlignment="Left" Height="40" Margin="295,439,0,0" TextWrapping="Wrap" Text="Ej. 12456789-3" VerticalAlignment="Top" Width="295" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black"/>
         <Label Content="Estado civil:" HorizontalAlignment="Left" Margin="165,439,0,0" VerticalAlignment="Top" Height="40" Width="130" FontFamily="Myriad Pro" Foreground="White" FontSize="24"/>
         <Label Content="Fecha de nacimiento:" HorizontalAlignment="Left" Margin="70,503,0,0" VerticalAlignment="Top" Height="40" Width="225" FontFamily="Myriad Pro" Foreground="White" FontSize="24"/>

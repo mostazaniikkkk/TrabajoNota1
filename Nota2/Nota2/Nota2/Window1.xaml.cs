@@ -23,28 +23,42 @@ namespace Nota2
         {
             InitializeComponent();
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
-            win1 = this;   
+            win1 = this;
+        }
+        User usuario = new User();
+        //internal static Window1 win1;
+        /*internal string Status
+        {
+            get { return lblUser.Content.ToString(); }
+            set { Dispatcher.Invoke(new Action(() => { lblUser.Content = value; })); }
+        }/*
+        /*internal string Status1
+        {
+            get { return lblRut.Content.ToString(); }
+            set { Dispatcher.Invoke(new Action(() => { lblRut.Content = value; })); }
+        }*/
+
+        private void btnBuscar_Click(object sender, RoutedEventArgs e)
+        {
+            Window5 win5 = new Window5();
+
+            Window5.win5.Status = lblUser.Content.ToString();
+            Window5.win5.Status1 = lblRut.Content.ToString();
+
+            win5.Show();
+            this.Close();
         }
 
         internal static Window1 win1;
         internal string Status
         {
-            get { return lblUser.Content.ToString(); }
-            set { Dispatcher.Invoke(new Action(() => { lblUser.Content = value; })); }
-        }
-        internal string Status1
-        {
             get { return lblRut.Content.ToString(); }
             set { Dispatcher.Invoke(new Action(() => { lblRut.Content = value; })); }
         }
-
-        private void btnBuscar_Click(object sender, RoutedEventArgs e)
+        internal string Status1
         {
-            Window4 win4 = new Window4();
-            Window4.win4.Status = lblUser.Content.ToString();
-            Window4.win4.Status1 = lblRut.Content.ToString();
-            win4.Show();
-            this.Close();
+            get { return lblUser.Content.ToString(); }
+            set { Dispatcher.Invoke(new Action(() => { lblUser.Content = value; })); }
         }
     }
 }
