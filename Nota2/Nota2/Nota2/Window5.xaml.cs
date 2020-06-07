@@ -51,13 +51,13 @@ namespace Nota2
         internal static Window5 win5;
         internal string Status
         {
-            get { return lblUsuario.Content.ToString(); }
-            set { Dispatcher.Invoke(new Action(() => { lblUsuario.Content = value; })); }
+            get { return lblRut.Content.ToString(); }
+            set { Dispatcher.Invoke(new Action(() => { lblRut.Content = value; })); }
         }
         internal string Status1
         {
-            get { return lblRut.Content.ToString(); }
-            set { Dispatcher.Invoke(new Action(() => { lblRut.Content = value; })); }
+            get { return lblUser.Content.ToString(); }
+            set { Dispatcher.Invoke(new Action(() => { lblUser.Content = value; })); }
         }
 
         private void tabla_Initialized(object sender, EventArgs e)
@@ -74,8 +74,8 @@ namespace Nota2
         {
             Window1 win1 = new Window1();
 
-            Window1.win1.Status = lblUsuario.Content.ToString();
-            Window1.win1.Status1 = lblRut.Content.ToString();
+            Window1.win1.Status = lblRut.Content.ToString();
+            Window1.win1.Status1 = lblUser.Content.ToString();
             win1.Show();
             this.Close();
         }

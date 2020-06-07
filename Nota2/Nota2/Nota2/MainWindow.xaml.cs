@@ -53,6 +53,8 @@ namespace Nota2
             }
             catch (Exception)
             {
+                txtRut.Text = "";
+                txtContraseña.Password = "";
                 MessageBoxResult result = MessageBox.Show("Error, usuario inválido...");
                 Console.WriteLine(result);
             }

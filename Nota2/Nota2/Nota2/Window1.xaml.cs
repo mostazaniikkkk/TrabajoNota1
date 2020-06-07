@@ -42,8 +42,8 @@ namespace Nota2
         {
             Window5 win5 = new Window5();
 
-            Window5.win5.Status = lblUser.Content.ToString();
-            Window5.win5.Status1 = lblRut.Content.ToString();
+            Window5.win5.Status = lblRut.Content.ToString();
+            Window5.win5.Status1 = lblUser.Content.ToString();
 
             win5.Show();
             this.Close();
