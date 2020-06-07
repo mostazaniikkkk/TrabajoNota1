@@ -26,6 +26,8 @@ namespace Nota2
             win1 = this;
         }
 
+        Window4 win4 = new Window4();
+
         internal static Window1 win1;
         internal string Status
         {
@@ -40,7 +42,8 @@ namespace Nota2
 
         private void btnBuscar_Click(object sender, RoutedEventArgs e)
         {
-
+            win4.Show();
+            this.Close();
         }
     }
 }

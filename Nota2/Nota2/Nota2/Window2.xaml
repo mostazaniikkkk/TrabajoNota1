@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Nota2"
         mc:Ignorable="d"
-        Title="Agregar contrato" Height="720" Width="1280">
+        Title="Agregar contrato" Height="720" Width="1356">
     <Window.Background>
         <ImageBrush ImageSource="Img/BG/BG00.png"/>
     </Window.Background>
     <Grid>
-        <Rectangle HorizontalAlignment="Left" Height="502" Margin="41,142,0,0" VerticalAlignment="Top" Width="1191">
+        <Rectangle HorizontalAlignment="Left" Height="502" Margin="41,142,0,0" VerticalAlignment="Top" Width="1265">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="Img/BG/BGC/BGC00.png"/>
             </Rectangle.Fill>
@@ -26,16 +26,16 @@
         <Label Content="Poliza:" HorizontalAlignment="Left" Margin="150,371,0,0" VerticalAlignment="Top" Height="40" Width="79" FontFamily="Myriad Pro" Foreground="White" FontSize="24"/>
         <Label Content="Fecha inicio:" HorizontalAlignment="Left" Margin="90,425,0,0" VerticalAlignment="Top" Height="42" Width="134" FontFamily="Myriad Pro" Foreground="White" FontSize="24"/>
         <Label Content="Fecha final:" HorizontalAlignment="Left" Margin="104,487,0,0" VerticalAlignment="Top" Height="42" Width="120" FontFamily="Myriad Pro" Foreground="White" FontSize="24"/>
-        <TextBox x:Name="txtUsuario_Copy5" HorizontalAlignment="Left" Height="42" Margin="817,245,0,0" TextWrapping="Wrap" Text="Ej. 12456789-3" VerticalAlignment="Top" Width="382" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black"/>
-        <Label Content="Cont. declaracion de salud:" HorizontalAlignment="Left" Margin="533,249,0,0" VerticalAlignment="Top" Height="40" Width="279" FontFamily="Myriad Pro" Foreground="White" FontSize="24"/>
-        <TextBox x:Name="txtUsuario_Copy6" HorizontalAlignment="Left" Height="42" Margin="817,307,0,0" TextWrapping="Wrap" Text="Ej. 12456789-3" VerticalAlignment="Top" Width="382" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black"/>
-        <Label Content="RUT:" HorizontalAlignment="Left" Margin="750,307,0,0" VerticalAlignment="Top" Height="42" Width="54" FontFamily="Myriad Pro" Foreground="White" FontSize="24"/>
-        <TextBox x:Name="txtUsuario_Copy7" HorizontalAlignment="Left" Height="40" Margin="817,371,0,0" TextWrapping="Wrap" Text="Ej. 12456789-3" VerticalAlignment="Top" Width="382" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black"/>
-        <Label Content="RUT:" HorizontalAlignment="Left" Margin="750,371,0,0" VerticalAlignment="Top" Height="40" Width="54" FontFamily="Myriad Pro" Foreground="White" FontSize="24"/>
-        <TextBox x:Name="txtUsuario_Copy8" HorizontalAlignment="Left" Height="104" Margin="817,427,0,0" TextWrapping="Wrap" Text="Ej. 12456789-3" VerticalAlignment="Top" Width="382" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black"/>
-        <Label Content="Observaciones:" HorizontalAlignment="Left" Margin="642,427,0,0" VerticalAlignment="Top" Height="42" Width="162" FontFamily="Myriad Pro" Foreground="White" FontSize="24"/>
+        <TextBox x:Name="txtUsuario_Copy5" HorizontalAlignment="Left" Height="42" Margin="871,245,0,0" TextWrapping="Wrap" Text="Ej. 12456789-3" VerticalAlignment="Top" Width="382" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black"/>
+        <Label Content="Cont. declaracion de saludo:" HorizontalAlignment="Left" Margin="557,245,0,0" VerticalAlignment="Top" Height="40" Width="314" FontFamily="Myriad Pro" Foreground="White" FontSize="24"/>
+        <TextBox x:Name="txtUsuario_Copy6" HorizontalAlignment="Left" Height="42" Margin="871,307,0,0" TextWrapping="Wrap" Text="Ej. 12456789-3" VerticalAlignment="Top" Width="382" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black"/>
+        <Label Content="RUT:" HorizontalAlignment="Left" Margin="804,307,0,0" VerticalAlignment="Top" Height="42" Width="62" FontFamily="Myriad Pro" Foreground="White" FontSize="24"/>
+        <TextBox x:Name="txtUsuario_Copy7" HorizontalAlignment="Left" Height="40" Margin="871,371,0,0" TextWrapping="Wrap" Text="Ej. 12456789-3" VerticalAlignment="Top" Width="382" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black"/>
+        <Label Content="RUT:" HorizontalAlignment="Left" Margin="804,371,0,0" VerticalAlignment="Top" Height="40" Width="62" FontFamily="Myriad Pro" Foreground="White" FontSize="24"/>
+        <TextBox x:Name="txtUsuario_Copy8" HorizontalAlignment="Left" Height="104" Margin="871,427,0,0" TextWrapping="Wrap" Text="Ej. 12456789-3" VerticalAlignment="Top" Width="382" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black"/>
+        <Label Content="Observaciones:" HorizontalAlignment="Left" Margin="696,427,0,0" VerticalAlignment="Top" Height="42" Width="170" FontFamily="Myriad Pro" Foreground="White" FontSize="24"/>
         <DatePicker HorizontalAlignment="Left" Margin="229,427,0,0" VerticalAlignment="Top" Height="40" Width="295"/>
-        <DatePicker HorizontalAlignment="Left" Margin="229,487,0,0" VerticalAlignment="Top" Height="40" Width="295"/>
+        <DatePicker HorizontalAlignment="Left" Margin="229,487,0,0" VerticalAlignment="Top" Height="33" Width="295"/>
         <Button Content="Button" HorizontalAlignment="Left" Margin="229,560,0,0" VerticalAlignment="Top" Width="149" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="44">
             <Button.Background>
                 <ImageBrush ImageSource="Img/Botones/cancel00.png" Stretch="Uniform"/>
@@ -46,7 +46,7 @@
                 <ImageBrush ImageSource="Img/Botones/add00.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
-        <Label Content="Crear contrato" HorizontalAlignment="Left" Margin="70,165,0,0" VerticalAlignment="Top" Height="57" Width="308" FontFamily="Myriad Pro" Foreground="White" FontSize="48"/>
+        <Label Content="Crear contrato" HorizontalAlignment="Left" Margin="70,165,0,0" VerticalAlignment="Top" Height="57" Width="328" FontFamily="Myriad Pro" Foreground="White" FontSize="48"/>
 
     </Grid>
 </Window>
