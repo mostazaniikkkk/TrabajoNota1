@@ -23,10 +23,8 @@ namespace Nota2
         {
             InitializeComponent();
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
-            win1 = this;
+            win1 = this;   
         }
-
-        Window4 win4 = new Window4();
 
         internal static Window1 win1;
         internal string Status
@@ -42,6 +40,9 @@ namespace Nota2
 
         private void btnBuscar_Click(object sender, RoutedEventArgs e)
         {
+            Window4 win4 = new Window4();
+            Window4.win4.Status = lblUser.Content.ToString();
+            Window4.win4.Status1 = lblRut.Content.ToString();
             win4.Show();
             this.Close();
         }

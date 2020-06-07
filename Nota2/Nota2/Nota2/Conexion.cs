@@ -36,8 +36,6 @@ namespace Nota2
                 dt.Clear();
                 da.Fill(dt);
 
-                Window4.win4.Status = dt.ToString();
-
                 int number = 0;
                 do
                 {
@@ -115,6 +113,8 @@ namespace Nota2
                     user.Contraseña = row["contraseña_usuario"].ToString();
                     user.Foto = row["foto_usuario"].ToString();
                     lista.Add(user);
+
+                    
                 }
                 return lista;
             }

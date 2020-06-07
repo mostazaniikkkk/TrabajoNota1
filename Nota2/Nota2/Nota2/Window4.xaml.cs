@@ -27,6 +27,7 @@ namespace Nota2
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             win4 = this;
         }
+        
         public SqlConnection conexion = new SqlConnection(@"Server=DESKTOP-3FLS338; Database=REGISTRO; Trusted_Connection=True;");
         DataTable dt = new DataTable();
 
@@ -56,14 +57,25 @@ namespace Nota2
         internal static Window4 win4;
         internal string Status
         {
-            get { return xd.Content.ToString(); }
-            set { Dispatcher.Invoke(new Action(() => { xd.Content = value; })); }
+            get { return lblUsuario.Content.ToString(); }
+            set { Dispatcher.Invoke(new Action(() => { lblUsuario.Content = value; })); }
+        }
+        internal string Status1
+        {
+            get { return lblRut.Content.ToString(); }
+            set { Dispatcher.Invoke(new Action(() => { lblRut.Content = value; })); }
         }
 
         private void btnBuscar_Click(object sender, RoutedEventArgs e)
         {
-            tabla.ItemsSource = Conexion.BuscarUsuario(txtBuscar.Text);
-            
+            tabla.ItemsSource = Conexion.BuscarUsuario(txtBuscar.Text); 
+        }
+
+        private void btnVolver_Click(object sender, RoutedEventArgs e)
+        {
+            Window1 win1 = new Window1();
+            win1.Show();
+            this.Close();
         }
     }
 }

@@ -38,6 +38,7 @@ namespace Nota2
 
                 this.Close();
                 win1.Show();
+                
             }
             catch (Exception)
             {
