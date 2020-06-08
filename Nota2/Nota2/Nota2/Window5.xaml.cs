@@ -28,18 +28,19 @@ namespace Nota2
             win5 = this;
         }
         public SqlConnection conexion = new SqlConnection(@"Server=DESKTOP-3FLS338; Database=REGISTRO; Trusted_Connection=True;");
-        DataTable dt = new DataTable();
+        
 
         public void Actualizar()
         {
-            using (SqlDataAdapter da = new SqlDataAdapter("Select * from REGISTRO", conexion))
+            using (SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM DBO.CLIENTE", conexion))
             {
 
                 try
                 {
-                    dt.Clear();
-                    da.Fill(dt);
-                    tabla.ItemsSource = dt.DefaultView;
+                    DataTable dt1 = new DataTable();
+                    dt1.Clear();
+                    da.Fill(dt1);
+                    tablax.ItemsSource = dt1.DefaultView;
                 }
                 catch
                 {
@@ -60,14 +61,10 @@ namespace Nota2
             set { Dispatcher.Invoke(new Action(() => { lblUser.Content = value; })); }
         }
 
-        private void tabla_Initialized(object sender, EventArgs e)
-        {
-            Actualizar();
-        }
-
         private void btnBuscar_Click_1(object sender, RoutedEventArgs e)
         {
-            tabla.ItemsSource = Conexion.BuscarUsuario(txtBuscar.Text);
+            tablax.ItemsSource = Conexion.BuscarUsuario(txtBuscar.Text);
+            rMostrar.IsChecked = false;
         }
 
         private void btnVolver_Click(object sender, RoutedEventArgs e)
@@ -78,6 +75,16 @@ namespace Nota2
             Window1.win1.Status1 = lblUser.Content.ToString();
             win1.Show();
             this.Close();
+        }
+
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            Actualizar();
+        }
+
+        private void tabla_Initialized_1(object sender, EventArgs e)
+        {
+            Actualizar();
         }
     }
 }

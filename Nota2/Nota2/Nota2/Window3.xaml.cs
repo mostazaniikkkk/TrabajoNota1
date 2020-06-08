@@ -29,6 +29,7 @@ namespace Nota2
 
         private void ComboBox_Loaded(object sender, RoutedEventArgs e)
         {
+            estadoCivil.Text = "Seleccionar";
             estadoCivil.Items.Add("Soltero");
             estadoCivil.Items.Add("Casado");
             estadoCivil.Items.Add("Viudo");
@@ -42,13 +43,13 @@ namespace Nota2
 
                 if (rFemenino.IsChecked == true)
                 {
-                    Conexion.AgregarCliente(txtRut.Text, txtNombre.Text, txtApellido.Text, estadoCivil.SelectedItem.ToString(), fechaNacimiento.SelectedDate.ToString(), 'F');
+                    Conexion.AgregarCliente(txtRut.Text, txtNombre.Text, txtApellido.Text, estadoCivil.SelectedItem.ToString(), fechaNacimiento.Text, 'F');
                     MessageBoxResult result = MessageBox.Show("Datos ingresados exitosamente!");
                     Console.WriteLine(result);
                 }
                 else if (rMasculino.IsChecked == true)
                 {
-                    Conexion.AgregarCliente(txtRut.Text, txtNombre.Text, txtApellido.Text, estadoCivil.SelectedItem.ToString(), fechaNacimiento.SelectedDate.ToString(), 'M');
+                    Conexion.AgregarCliente(txtRut.Text, txtNombre.Text, txtApellido.Text, estadoCivil.SelectedItem.ToString(), fechaNacimiento.Text, 'M');
                     MessageBoxResult result = MessageBox.Show("Datos ingresados exitosamente!");
                     Console.WriteLine(result);
                 }
@@ -57,10 +58,17 @@ namespace Nota2
                 txtNombre.Text = "";
                 txtApellido.Text = "";
                 estadoCivil.SelectedIndex = -1;
-                //fechaNacimiento.Text = "";
-                //rMasculino.IsChecked = false;
-                //rFemenino.IsChecked = false;
+                fechaNacimiento.Text = "";
+                if(rFemenino.IsChecked == true)
+                {
+                    rFemenino.IsChecked = false;
+                }
+                if (rMasculino.IsChecked == true)
+                {
+                    rMasculino.IsChecked = false;
+                }
                 
+
             }
             catch (Exception ex)
             {

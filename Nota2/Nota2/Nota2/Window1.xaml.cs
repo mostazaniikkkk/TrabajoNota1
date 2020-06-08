@@ -25,7 +25,6 @@ namespace Nota2
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             win1 = this;
         }
-        User usuario = new User();
 
         private void btnBuscar_Click(object sender, RoutedEventArgs e)
         {
@@ -34,8 +33,8 @@ namespace Nota2
             Window5.win5.Status = lblRut.Content.ToString();
             Window5.win5.Status1 = lblUser.Content.ToString();
 
-            win5.Show();
             this.Close();
+            win5.Show();
         }
 
         internal static Window1 win1;

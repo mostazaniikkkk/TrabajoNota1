@@ -55,6 +55,7 @@ namespace Nota2
             }
         }
 
+        
         internal static Window4 win4;
         internal string Status
         {
@@ -81,6 +82,21 @@ namespace Nota2
 
             win1.Show();
             this.Close();
+        }
+
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            tabla.ItemsSource = Conexion.ActualizarVigencia(); 
+        }
+
+        private void RadioButton_Checked_1(object sender, RoutedEventArgs e)
+        {
+            tabla.ItemsSource = Conexion.ActualizarExpiracion();
+        }
+
+        private void RadioButton_Checked_2(object sender, RoutedEventArgs e)
+        {
+            Actualizar();
         }
     }
 }

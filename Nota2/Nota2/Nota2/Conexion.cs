@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -15,6 +16,7 @@ namespace Nota2
         static string connectionString = @"Server=DESKTOP-3FLS338; Database=REGISTRO; Trusted_Connection=True;";
         public static List<User> lista;
         public static List<Contrato> listaContrato;
+        public static List<Cliente> listaCliente;
         public static int VerificarUsuario(string rut, string contraseña)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -111,14 +113,14 @@ namespace Nota2
             }
         }
 
-        public static List<User> BuscarUsuario(string rut)
+        public static List<Cliente> BuscarUsuario(string rut)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
 
                 SqlCommand command = new SqlCommand(null, connection);
 
-                command.CommandText = "SELECT * FROM DBO.REGISTRO WHERE rut_usuario = @rut";
+                command.CommandText = "SELECT * FROM DBO.CLIENTE WHERE rut_cliente = @rut";
                 command.Parameters.AddWithValue("@rut", rut);
 
                 connection.Open();
@@ -127,21 +129,23 @@ namespace Nota2
 
                 da.Fill(dt);
 
-                lista = new List<User>();
+                listaCliente = new List<Cliente>();
 
                 foreach (DataRow row in dt.Rows)
                 {
-                    User user = new User();
-                    user.Id = row["id_usuario"].ToString();
-                    user._Rut = row["rut_usuario"].ToString();
-                    user._Usuario = row["nombre_usuario"].ToString();
-                    user.Contraseña = row["contraseña_usuario"].ToString();
-                    user.Foto = row["foto_usuario"].ToString();
-                    lista.Add(user);
+                    Cliente cliente = new Cliente();
+                    cliente.Id_cliente = row["ID_CLIENTE"].ToString();
+                    cliente._Rut = row["RUT_CLIENTE"].ToString();
+                    cliente._Nombre_cliente = row["NOMBRE_CLIENTE"].ToString();
+                    cliente.Apellido_cliente = row["APELLIDO_CLIENTE"].ToString();
+                    cliente.Fecha_nacimiento = row["FECHA_NACIMIENTO"].ToString();
+                    cliente.Sexo = row["SEXO"].ToString();
+                    cliente.Estado_civil = row["ESTADO_CIVIL"].ToString();
+                    listaCliente.Add(cliente);
 
 
                 }
-                return lista;
+                return listaCliente;
             }
         }
 
@@ -364,7 +368,6 @@ namespace Nota2
                 foreach (DataRow row in dt.Rows)
                 {
                     Contrato contrato = new Contrato();
-                    //user.Id = row["nro_contrato"].ToString();
                     contrato.Nro_contrato = row["NRO_CONTRATO"].ToString();
                     contrato._Rut_contrato = row["RUT_CONTRATO"].ToString();
                     contrato.Plan_asociado = row["PLAN_ASOCIADO"].ToString();
@@ -379,6 +382,101 @@ namespace Nota2
                     listaContrato.Add(contrato);
 
 
+                }
+                return listaContrato;
+            }
+        }
+
+        /*public static int ContratoVigente()
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(null, connection);
+
+                command.CommandText = "SELECT DATEDIFF(DAY, CONVERT(DATE, SYSDATETIME()), fecha_termino) FROM dbo.contrato";
+
+                connection.Open();
+                SqlDataAdapter da = new SqlDataAdapter(command);
+
+                DataTable dt = new DataTable();
+
+                da.Fill(dt);
+
+                int fecha = int.Parse(dt.Rows[0][0].ToString());
+                Console.WriteLine("Fecha restada: "+fecha);
+
+                connection.Close();
+                return fecha;
+            }
+        }*/
+
+        public static List<Contrato> ActualizarVigencia()
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(null, connection);
+
+                command.CommandText = "SELECT * FROM DBO.CONTRATO WHERE DATEDIFF(DAY, CONVERT(DATE, SYSDATETIME()), fecha_termino) > 0";
+
+                connection.Open();
+                SqlDataAdapter da = new SqlDataAdapter(command);
+                DataTable dt = new DataTable();
+
+                da.Fill(dt);
+
+                listaContrato = new List<Contrato>();
+
+                foreach (DataRow row in dt.Rows)
+                {
+                    Contrato contrato = new Contrato();
+                    contrato.Nro_contrato = row["NRO_CONTRATO"].ToString();
+                    contrato._Rut_contrato = row["RUT_CONTRATO"].ToString();
+                    contrato.Plan_asociado = row["PLAN_ASOCIADO"].ToString();
+                    contrato.Poliza = row["POLIZA"].ToString();
+                    contrato.Fecha_inicio = row["FECHA_INICIO"].ToString();
+                    contrato.Fecha_termino = row["FECHA_TERMINO"].ToString();
+                    contrato.Declaracion_medica = row["DECLARACION_MEDICA"].ToString();
+                    contrato.Prima_mensual = row["PRIMA_MENSUAL"].ToString();
+                    contrato.Prima_anual = row["PRIMA_ANUAL"].ToString();
+                    contrato.Observacion = row["OBSERVACION"].ToString();
+
+                    listaContrato.Add(contrato);
+                }
+                return listaContrato;
+            }
+        }
+
+        public static List<Contrato> ActualizarExpiracion()
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(null, connection);
+
+                command.CommandText = "SELECT * FROM DBO.CONTRATO WHERE DATEDIFF(DAY, CONVERT(DATE, SYSDATETIME()), fecha_termino) <= 0";
+
+                connection.Open();
+                SqlDataAdapter da = new SqlDataAdapter(command);
+                DataTable dt = new DataTable();
+
+                da.Fill(dt);
+
+                listaContrato = new List<Contrato>();
+
+                foreach (DataRow row in dt.Rows)
+                {
+                    Contrato contrato = new Contrato();
+                    contrato.Nro_contrato = row["NRO_CONTRATO"].ToString();
+                    contrato._Rut_contrato = row["RUT_CONTRATO"].ToString();
+                    contrato.Plan_asociado = row["PLAN_ASOCIADO"].ToString();
+                    contrato.Poliza = row["POLIZA"].ToString();
+                    contrato.Fecha_inicio = row["FECHA_INICIO"].ToString();
+                    contrato.Fecha_termino = row["FECHA_TERMINO"].ToString();
+                    contrato.Declaracion_medica = row["DECLARACION_MEDICA"].ToString();
+                    contrato.Prima_mensual = row["PRIMA_MENSUAL"].ToString();
+                    contrato.Prima_anual = row["PRIMA_ANUAL"].ToString();
+                    contrato.Observacion = row["OBSERVACION"].ToString();
+
+                    listaContrato.Add(contrato);
                 }
                 return listaContrato;
             }

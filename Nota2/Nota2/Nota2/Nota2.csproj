@@ -56,6 +56,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Cliente.cs" />
     <Compile Include="Conexion.cs" />
     <Compile Include="Contrato.cs" />
     <Compile Include="User.cs" />
@@ -192,6 +193,9 @@
     <Resource Include="Img\Botones\eliminar.png" />
     <Resource Include="Img\Botones\ver.png" />
     <Resource Include="Img\Botones\volver01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="applelogo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
