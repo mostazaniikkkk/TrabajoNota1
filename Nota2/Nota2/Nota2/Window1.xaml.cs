@@ -81,5 +81,16 @@ namespace Nota2
             this.Close();
             win4.Show();
         }
+
+        private void btnVolver_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow main = new MainWindow();
+
+            MainWindow.main.Status = Conexion.SeleccionarUltimoRut();
+            MainWindow.main.Status1 = Conexion.SeleccionarUltimaContraseña();
+
+            this.Close();
+            main.Show();
+        }
     }
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Nota2"
         mc:Ignorable="d"
-        Title="Window1" Height="720" Width="1280">
+        Title="Menú principal" Height="748" Width="1280">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="Img/BG/BG00.png"/>
@@ -59,6 +59,11 @@
         </Button>
         <Label Content="Ultimos clientes agregados" HorizontalAlignment="Left" Margin="68,324,0,0" VerticalAlignment="Top" FontFamily="Myriad Pro" FontSize="24" Foreground="White"/>
         <Label Content="Ultimos contratos agregados" HorizontalAlignment="Left" Margin="68,505,0,0" VerticalAlignment="Top" FontFamily="Myriad Pro" FontSize="24" Foreground="White"/>
+        <Button x:Name="btnVolver" Content="Button" HorizontalAlignment="Left" Margin="558,663,0,0" VerticalAlignment="Top" Width="133" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="44" Click="btnVolver_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="Img/Botones/volver01.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
 
     </Grid>
 </Window>

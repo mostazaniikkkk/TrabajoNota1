@@ -481,5 +481,152 @@ namespace Nota2
                 return listaContrato;
             }
         }
+
+        public static string BuscarRutContrato(string rut)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(null, connection);
+                command.CommandText = "SELECT rut_cliente FROM DBO.CLIENTE WHERE rut_cliente = @rut";
+                command.Parameters.AddWithValue("@rut", rut);
+
+                connection.Open();
+                SqlDataAdapter da = new SqlDataAdapter(command);
+
+                DataTable dt = new DataTable();
+
+                da.Fill(dt);
+                string rutComprobar = dt.Rows[0][0].ToString();
+                Console.WriteLine(rutComprobar);
+
+                connection.Close();
+                return rutComprobar;
+            }
+        }
+
+        public static void GuardarUltimaConexion(string rut, string contraseña)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(null, connection);
+
+                command.CommandText = "INSERT INTO DBO.ULTIMA_CONEXION (recordar_conexion_rut, recordar_contraseña)" + " VALUES (@rut, @contraseña)";
+                command.Parameters.AddWithValue("@rut", rut);
+                command.Parameters.AddWithValue("@contraseña", contraseña);
+
+                //Abrir conexión y ejecutar query
+                try
+                {
+                    connection.Open();
+                    Int32 rowsAffected = command.ExecuteNonQuery();
+                    Console.WriteLine(rowsAffected);
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+
+                connection.Close();
+            }
+        }
+
+        public static int DevolverCount()
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(null, connection);
+
+                command.CommandText = "SELECT COUNT(*) FROM DBO.ULTIMA_CONEXION";
+
+                //Abrir conexión y ejecutar query
+                connection.Open();
+                SqlDataAdapter da = new SqlDataAdapter(command);
+
+                DataTable dt = new DataTable();
+
+                da.Fill(dt);
+
+                int count = int.Parse(dt.Rows[0][0].ToString());
+
+
+                connection.Close();
+                return count;
+                
+            }
+        }
+
+        public static void EliminarPrimerGuardado()
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(null, connection);
+
+                command.CommandText = "DELETE FROM DBO.ULTIMA_CONEXION";
+
+                //Abrir conexión y ejecutar query
+                try
+                {
+                    connection.Open();
+                    Int32 rowsAffected = command.ExecuteNonQuery();
+                    Console.WriteLine(rowsAffected);
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+
+                connection.Close();
+            }
+        }
+
+        public static string SeleccionarUltimoRut()
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(null, connection);
+
+                command.CommandText = "SELECT recordar_conexion_rut FROM DBO.ULTIMA_CONEXION";
+
+                //Abrir conexión y ejecutar query
+                connection.Open();
+                SqlDataAdapter da = new SqlDataAdapter(command);
+
+                DataTable dt = new DataTable();
+
+                da.Fill(dt);
+
+                string rut = dt.Rows[0][0].ToString();
+
+
+                connection.Close();
+                return rut;
+
+            }
+        }
+
+        public static string SeleccionarUltimaContraseña()
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(null, connection);
+
+                command.CommandText = "SELECT recordar_contraseña FROM DBO.ULTIMA_CONEXION";
+
+                //Abrir conexión y ejecutar query
+                connection.Open();
+                SqlDataAdapter da = new SqlDataAdapter(command);
+
+                DataTable dt = new DataTable();
+
+                da.Fill(dt);
+
+                string contraseña = dt.Rows[0][0].ToString();
+
+
+                connection.Close();
+                return contraseña;
+
+            }
+        }
     }
 }

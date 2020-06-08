@@ -25,6 +25,7 @@ namespace Nota2
         {
             InitializeComponent();
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
+            main = this;
         }
         User usuario = new User();
 
@@ -58,6 +59,38 @@ namespace Nota2
                 MessageBoxResult result = MessageBox.Show("Error, usuario inválido...");
                 Console.WriteLine(result);
             }
+        }
+
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            if(txtRut.Text != null && txtContraseña.Password != null) 
+            {
+                for(int i = 0; i < 2; i++)
+                {
+                    if (Conexion.DevolverCount() == 0)
+                    {
+                        Conexion.GuardarUltimaConexion(txtRut.Text, txtContraseña.Password);
+                        Console.WriteLine("insertados");
+                        break;
+                    }
+                    else if (Conexion.DevolverCount() >= 1)
+                    {
+                        Conexion.EliminarPrimerGuardado();
+                        Console.WriteLine("borrado el primero");
+                    }
+                }
+            }
+        }
+        internal static MainWindow main;
+        internal string Status
+        {
+            get { return txtRut.Text; }
+            set { Dispatcher.Invoke(new Action(() => { txtRut.Text = value; })); }
+        }
+        internal string Status1
+        {
+            get { return txtContraseña.Password; }
+            set { Dispatcher.Invoke(new Action(() => { txtContraseña.Password = value; })); }
         }
     }
 }

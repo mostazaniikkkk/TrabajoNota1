@@ -84,53 +84,54 @@ namespace Nota2
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine(fechaInicio.Text);
             try
             {
-                Console.WriteLine("ENTRATRY");
-                if(plan1.IsChecked == true)
+                if(Conexion.BuscarRutContrato(txtUsuario.Text).Equals(txtUsuario.Text))
                 {
-                    Console.WriteLine("ENTRAPLAN1");
-                    if (rSi.IsChecked == true)
+                    if (plan1.IsChecked == true)
                     {
-                        Console.WriteLine("EntraRSi plan 1");
-                        Conexion.GuardarContrato(txtUsuario.Text, "Plan1", txtPoliza.Text, fechaInicio.Text, fechaTermino.Text, 'S', int.Parse(txtPrimaMensual.Text), int.Parse(txtPrimaAnual.Text), txtObservacion.Text);
+                        if (rSi.IsChecked == true)
+                        {
+                            Conexion.GuardarContrato(txtUsuario.Text, "Plan1", txtPoliza.Text, fechaInicio.Text, fechaTermino.Text, 'S', int.Parse(txtPrimaMensual.Text), int.Parse(txtPrimaAnual.Text), txtObservacion.Text);
+                        }
+                        if (rNo.IsChecked == true)
+                        {
+                            Conexion.GuardarContrato(txtUsuario.Text, "Plan1", txtPoliza.Text, fechaInicio.Text, fechaTermino.Text, 'N', int.Parse(txtPrimaMensual.Text), int.Parse(txtPrimaAnual.Text), txtObservacion.Text);
+                            Console.WriteLine("lol");
+                        }
                     }
-                    if (rNo.IsChecked == true)
+                    else if (plan2.IsChecked == true)
                     {
-                        Console.WriteLine("EntraRNo plan 1");
-                        Conexion.GuardarContrato(txtUsuario.Text, "Plan1", txtPoliza.Text, fechaInicio.Text, fechaTermino.Text, 'N', int.Parse(txtPrimaMensual.Text), int.Parse(txtPrimaAnual.Text), txtObservacion.Text);
-                        Console.WriteLine("lol");
+                        if (rSi.IsChecked == true)
+                        {
+                            Conexion.GuardarContrato(txtUsuario.Text, "Plan2", txtPoliza.Text, fechaInicio.Text, fechaTermino.Text, 'S', int.Parse(txtPrimaMensual.Text), int.Parse(txtPrimaAnual.Text), txtObservacion.Text);
+                        }
+                        if (rNo.IsChecked == true)
+                        {
+                            Conexion.GuardarContrato(txtUsuario.Text, "Plan2", txtPoliza.Text, fechaInicio.Text, fechaTermino.Text, 'N', int.Parse(txtPrimaMensual.Text), int.Parse(txtPrimaAnual.Text), txtObservacion.Text);
+                        }
                     }
-                }
-                else if (plan2.IsChecked == true)
-                {
-                    Console.WriteLine("ENTRAPLAN2");
-                    if (rSi.IsChecked == true)
+                    else if (plan3.IsChecked == true)
                     {
-                        Conexion.GuardarContrato(txtUsuario.Text, "Plan2", txtPoliza.Text, fechaInicio.Text, fechaTermino.Text, 'S', int.Parse(txtPrimaMensual.Text), int.Parse(txtPrimaAnual.Text), txtObservacion.Text);
+                        if (rSi.IsChecked == true)
+                        {
+                            Conexion.GuardarContrato(txtUsuario.Text, "Plan3", txtPoliza.Text, fechaInicio.Text, fechaTermino.Text, 'S', int.Parse(txtPrimaMensual.Text), int.Parse(txtPrimaAnual.Text), txtObservacion.Text);
+                        }
+                        if (rNo.IsChecked == true)
+                        {
+                            Conexion.GuardarContrato(txtUsuario.Text, "Plan3", txtPoliza.Text, fechaInicio.Text, fechaTermino.Text, 'N', int.Parse(txtPrimaMensual.Text), int.Parse(txtPrimaAnual.Text), txtObservacion.Text);
+                        }
                     }
-                    if (rNo.IsChecked == true)
-                    {
-                        Conexion.GuardarContrato(txtUsuario.Text, "Plan2", txtPoliza.Text, fechaInicio.Text, fechaTermino.Text, 'N', int.Parse(txtPrimaMensual.Text), int.Parse(txtPrimaAnual.Text), txtObservacion.Text);
-                    }
-                }
-                else if (plan3.IsChecked == true)
-                {
-                    Console.WriteLine("ENTRAPLAN3");
-                    if (rSi.IsChecked == true)
-                    {
-                        Conexion.GuardarContrato(txtUsuario.Text, "Plan3", txtPoliza.Text, fechaInicio.Text, fechaTermino.Text, 'S', int.Parse(txtPrimaMensual.Text), int.Parse(txtPrimaAnual.Text), txtObservacion.Text);
-                    }
-                    if (rNo.IsChecked == true)
-                    {
-                        Conexion.GuardarContrato(txtUsuario.Text, "Plan3", txtPoliza.Text, fechaInicio.Text, fechaTermino.Text, 'N', int.Parse(txtPrimaMensual.Text), int.Parse(txtPrimaAnual.Text), txtObservacion.Text);
-                    }
-                }
 
-                MessageBoxResult result = MessageBox.Show("Contrato agregado exitosamente!");
-                Console.WriteLine(result);
-
+                    MessageBoxResult result = MessageBox.Show("Contrato agregado exitosamente!");
+                    Console.WriteLine(result);
+                    
+                }
+                else
+                {
+                    MessageBoxResult result = MessageBox.Show("Rut no existe en la base de datos...");
+                    Console.WriteLine(result);
+                }
             }
             catch (Exception)
             {
