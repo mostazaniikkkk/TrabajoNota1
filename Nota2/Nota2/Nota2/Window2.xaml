@@ -9,44 +9,89 @@
     <Window.Background>
         <ImageBrush ImageSource="Img/BG/BG00.png"/>
     </Window.Background>
+
+    <Window.Resources>
+        <Style x:Key="placeHolder" TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Type TextBox}}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Grid>
+                            <TextBox Text="{Binding Path=Text,
+                                                RelativeSource={RelativeSource TemplatedParent}, 
+                                                Mode=TwoWay,
+                                                UpdateSourceTrigger=PropertyChanged}"
+                                 x:Name="textSource" 
+                                 Background="Transparent"
+                                 Foreground="#FF777677"
+                                 Panel.ZIndex="2" />
+                            <TextBox Text="{TemplateBinding Tag}" Background="{TemplateBinding Background}" Panel.ZIndex="1">
+                                <TextBox.Style>
+                                    <Style TargetType="{x:Type TextBox}">
+                                        <Setter Property="Foreground" Value="Transparent"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Path=Text, Source={x:Reference textSource}}" Value="">
+                                                <Setter Property="Foreground" Value="Gray"/>
+                                                <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                                                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBox.Style>
+                            </TextBox>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="689"/>
+        </Grid.RowDefinitions>
         <Rectangle HorizontalAlignment="Left" Height="502" Margin="41,142,0,0" VerticalAlignment="Top" Width="1265">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="Img/BG/BGC/BGC00.png"/>
             </Rectangle.Fill>
         </Rectangle>
         <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="77" Margin="57,36,0,0" Stroke="Black" VerticalAlignment="Top" Width="77"/>
-        <Label x:Name="lblBienvenido" Content="" HorizontalAlignment="Left" Margin="150,42,0,0" VerticalAlignment="Top" FontFamily="Myriad Pro" Background="{x:Null}" Foreground="White" Height="34" Width="228" FontSize="24"/>
-        <Label Content="Rut Usuario" HorizontalAlignment="Left" Margin="150,76,0,0" VerticalAlignment="Top" FontFamily="Myriad Pro" Background="{x:Null}" Foreground="White" Height="34" Width="228" FontSize="18"/>
-        <TextBox x:Name="txtUsuario" HorizontalAlignment="Left" Height="40" Margin="229,249,0,0" TextWrapping="Wrap" Text="Ej. 12456789-3" VerticalAlignment="Top" Width="295" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black"/>
+        <Label x:Name="lblRut" Content="" HorizontalAlignment="Left" Margin="150,42,0,0" VerticalAlignment="Top" FontFamily="Myriad Pro" Background="{x:Null}" Foreground="White" Height="34" Width="228" FontSize="24"/>
+        <Label x:Name="lblUser" Content="" HorizontalAlignment="Left" Margin="150,76,0,0" VerticalAlignment="Top" FontFamily="Myriad Pro" Background="{x:Null}" Foreground="White" Height="34" Width="228" FontSize="18"/>
+        <TextBox x:Name="txtUsuario" Style="{StaticResource placeHolder}" Tag="Ej. 123456789-3" HorizontalAlignment="Left" Height="40" Margin="229,249,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="295" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black"/>
         <Label Content="RUT:" HorizontalAlignment="Left" Margin="170,249,0,0" VerticalAlignment="Top" Height="40" Width="54" FontFamily="Myriad Pro" Foreground="White" FontSize="24"/>
-        <TextBox x:Name="txtUsuario_Copy" HorizontalAlignment="Left" Height="40" Margin="229,311,0,0" TextWrapping="Wrap" Text="Ej. 12456789-3" VerticalAlignment="Top" Width="295" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black"/>
-        <Label Content="Plan asociado:" HorizontalAlignment="Left" Margin="70,311,0,0" VerticalAlignment="Top" Height="40" Width="154" FontFamily="Myriad Pro" Foreground="White" FontSize="24"/>
-        <TextBox x:Name="txtUsuario_Copy1" HorizontalAlignment="Left" Height="40" Margin="229,371,0,0" TextWrapping="Wrap" Text="Ej. 12456789-3" VerticalAlignment="Top" Width="295" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black"/>
+
+        <Label Content="Plan asociado:" HorizontalAlignment="Left" Margin="70,311,0,0" VerticalAlignment="Top" Height="40" Width="159" FontFamily="Myriad Pro" Foreground="White" FontSize="24"/>
         <Label Content="Poliza:" HorizontalAlignment="Left" Margin="150,371,0,0" VerticalAlignment="Top" Height="40" Width="79" FontFamily="Myriad Pro" Foreground="White" FontSize="24"/>
         <Label Content="Fecha inicio:" HorizontalAlignment="Left" Margin="90,425,0,0" VerticalAlignment="Top" Height="42" Width="134" FontFamily="Myriad Pro" Foreground="White" FontSize="24"/>
         <Label Content="Fecha final:" HorizontalAlignment="Left" Margin="104,487,0,0" VerticalAlignment="Top" Height="42" Width="120" FontFamily="Myriad Pro" Foreground="White" FontSize="24"/>
-        <TextBox x:Name="txtUsuario_Copy5" HorizontalAlignment="Left" Height="42" Margin="871,245,0,0" TextWrapping="Wrap" Text="Ej. 12456789-3" VerticalAlignment="Top" Width="382" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black"/>
+
         <Label Content="Cont. declaracion de saludo:" HorizontalAlignment="Left" Margin="557,245,0,0" VerticalAlignment="Top" Height="40" Width="314" FontFamily="Myriad Pro" Foreground="White" FontSize="24"/>
-        <TextBox x:Name="txtUsuario_Copy6" HorizontalAlignment="Left" Height="42" Margin="871,307,0,0" TextWrapping="Wrap" Text="Ej. 12456789-3" VerticalAlignment="Top" Width="382" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black"/>
-        <Label Content="RUT:" HorizontalAlignment="Left" Margin="804,307,0,0" VerticalAlignment="Top" Height="42" Width="62" FontFamily="Myriad Pro" Foreground="White" FontSize="24"/>
-        <TextBox x:Name="txtUsuario_Copy7" HorizontalAlignment="Left" Height="40" Margin="871,371,0,0" TextWrapping="Wrap" Text="Ej. 12456789-3" VerticalAlignment="Top" Width="382" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black"/>
-        <Label Content="RUT:" HorizontalAlignment="Left" Margin="804,371,0,0" VerticalAlignment="Top" Height="40" Width="62" FontFamily="Myriad Pro" Foreground="White" FontSize="24"/>
-        <TextBox x:Name="txtUsuario_Copy8" HorizontalAlignment="Left" Height="104" Margin="871,427,0,0" TextWrapping="Wrap" Text="Ej. 12456789-3" VerticalAlignment="Top" Width="382" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black"/>
+        <TextBox x:Name="txtPrimaMensual" HorizontalAlignment="Left" Height="42" Margin="871,307,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="382" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black" IsEnabled="False"/>
+        <Label Content="Prima mensual:" HorizontalAlignment="Left" Margin="703,306,0,0" VerticalAlignment="Top" Height="42" Width="168" FontFamily="Myriad Pro" Foreground="White" FontSize="24"/>
+        <TextBox x:Name="txtPrimaAnual" HorizontalAlignment="Left" Height="40" Margin="871,371,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="382" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black" IsEnabled="False"/>
+        <Label Content="Prima anual:" HorizontalAlignment="Left" Margin="729,367,0,0" VerticalAlignment="Top" Height="40" Width="137" FontFamily="Myriad Pro" Foreground="White" FontSize="24"/>
+        <TextBox x:Name="txtObservacion" HorizontalAlignment="Left" Height="104" Margin="871,427,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="382" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black"/>
         <Label Content="Observaciones:" HorizontalAlignment="Left" Margin="696,427,0,0" VerticalAlignment="Top" Height="42" Width="170" FontFamily="Myriad Pro" Foreground="White" FontSize="24"/>
-        <DatePicker HorizontalAlignment="Left" Margin="229,427,0,0" VerticalAlignment="Top" Height="40" Width="295"/>
-        <DatePicker HorizontalAlignment="Left" Margin="229,487,0,0" VerticalAlignment="Top" Height="33" Width="295"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="229,560,0,0" VerticalAlignment="Top" Width="149" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="44">
+        <DatePicker x:Name="fechaInicio" HorizontalAlignment="Left" Margin="229,427,0,0" VerticalAlignment="Top" Height="40" Width="295" IsEnabled="False" FontSize="17"/>
+        <DatePicker x:Name="fechaTermino" HorizontalAlignment="Left" Margin="229,487,0,0" VerticalAlignment="Top" Height="33" Width="295" FontSize="17"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="229,560,0,0" VerticalAlignment="Top" Width="149" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="44" Click="Button_Click">
             <Button.Background>
-                <ImageBrush ImageSource="Img/Botones/cancel00.png" Stretch="Uniform"/>
+                <ImageBrush ImageSource="Img/Botones/01.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
         <Button Content="Button" HorizontalAlignment="Left" Margin="942,560,0,0" VerticalAlignment="Top" Width="148" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="44">
             <Button.Background>
-                <ImageBrush ImageSource="Img/Botones/add00.png" Stretch="Uniform"/>
+                <ImageBrush ImageSource="Img/Botones/02.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
         <Label Content="Crear contrato" HorizontalAlignment="Left" Margin="70,165,0,0" VerticalAlignment="Top" Height="57" Width="328" FontFamily="Myriad Pro" Foreground="White" FontSize="48"/>
+        <RadioButton x:Name="plan1" Content="Plan1" HorizontalAlignment="Left" Margin="234,326,0,0" VerticalAlignment="Top" FontSize="17" Background="White" Foreground="White" GroupName="plan" Checked="plan1_Checked"/>
+        <RadioButton x:Name="plan2" Content="Plan2" HorizontalAlignment="Left" Margin="332,326,0,0" VerticalAlignment="Top" FontSize="17" Background="White" Foreground="White" GroupName="plan" Checked="plan2_Checked"/>
+        <RadioButton Content="Plan3" HorizontalAlignment="Left" Margin="431,326,0,0" VerticalAlignment="Top" FontSize="17" Background="White" Foreground="White" GroupName="plan" Checked="RadioButton_Checked"/>
+        <TextBox x:Name="txtPoliza" HorizontalAlignment="Left" Height="40" Margin="229,371,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="295" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black" IsEnabled="False"/>
+        <RadioButton Content="Sí" HorizontalAlignment="Left" Margin="896,254,0,0" VerticalAlignment="Top" GroupName="saludo" FontSize="17" Background="White" Foreground="White"/>
+        <RadioButton Content="No" HorizontalAlignment="Left" Margin="986,254,0,0" VerticalAlignment="Top" GroupName="saludo" FontSize="17" Background="White" Foreground="White"/>
+
 
     </Grid>
 </Window>

@@ -28,7 +28,7 @@
                 <ImageBrush ImageSource="Img/BG/BGC/BGC00.png"/>
             </Rectangle.Fill>
         </Rectangle>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="641,157,0,0" VerticalAlignment="Top" Width="282" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="141">
+        <Button Content="Button" HorizontalAlignment="Left" Margin="641,157,0,0" VerticalAlignment="Top" Width="282" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="141" Click="Button_Click_1">
             <Button.Background>
                 <ImageBrush ImageSource="Img/Botones/agregarContrato.png" Stretch="Uniform"/>
             </Button.Background>
@@ -38,7 +38,7 @@
                 <ImageBrush ImageSource="Img/Botones/buscarCliente.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="55,157,0,0" VerticalAlignment="Top" Width="281" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="141">
+        <Button Content="Button" HorizontalAlignment="Left" Margin="55,157,0,0" VerticalAlignment="Top" Width="281" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="141" Click="Button_Click">
             <Button.Background>
                 <ImageBrush ImageSource="Img/Botones/agregarCliente.png" Stretch="Uniform"/>
             </Button.Background>

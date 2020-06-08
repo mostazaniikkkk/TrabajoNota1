@@ -26,17 +26,6 @@ namespace Nota2
             win1 = this;
         }
         User usuario = new User();
-        //internal static Window1 win1;
-        /*internal string Status
-        {
-            get { return lblUser.Content.ToString(); }
-            set { Dispatcher.Invoke(new Action(() => { lblUser.Content = value; })); }
-        }/*
-        /*internal string Status1
-        {
-            get { return lblRut.Content.ToString(); }
-            set { Dispatcher.Invoke(new Action(() => { lblRut.Content = value; })); }
-        }*/
 
         private void btnBuscar_Click(object sender, RoutedEventArgs e)
         {
@@ -59,6 +48,28 @@ namespace Nota2
         {
             get { return lblUser.Content.ToString(); }
             set { Dispatcher.Invoke(new Action(() => { lblUser.Content = value; })); }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Window3 win3 = new Window3();
+
+            Window3.win3.Status = lblRut.Content.ToString();
+            Window3.win3.Status1 = lblUser.Content.ToString();
+
+            win3.Show();
+            this.Close();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Window2 win2 = new Window2();
+
+            Window2.win2.Status = lblRut.Content.ToString();
+            Window2.win2.Status1 = lblUser.Content.ToString();
+
+            this.Close();
+            win2.Show();
         }
     }
 }

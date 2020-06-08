@@ -22,6 +22,64 @@ namespace Nota2
         public Window2()
         {
             InitializeComponent();
+            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
+            fechaInicio.Text = Conexion.Date();
+            win2 = this;
+        }
+        
+        private void plan1_Checked(object sender, RoutedEventArgs e)
+        {
+            txtPoliza.Text = "Básica";
+            fechaTermino.Text = Conexion.Date1();
+            int primaMensual = 5000;
+            int primaAnual = primaMensual * 12;
+
+            txtPrimaMensual.Text = "$" + primaMensual.ToString();
+            txtPrimaAnual.Text = "$" + primaAnual.ToString();
+        }
+
+        private void plan2_Checked(object sender, RoutedEventArgs e)
+        {
+            txtPoliza.Text = "Hospitalaria";
+            fechaTermino.Text = Conexion.Date2();
+            int primaMensual = 10000;
+            int primaAnual = primaMensual * 12;
+
+            txtPrimaMensual.Text = "$" + primaMensual.ToString();
+            txtPrimaAnual.Text = "$" + primaAnual.ToString();
+        }
+
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            txtPoliza.Text = "Co-pago";
+            fechaTermino.Text = Conexion.Date3();
+            int primaMensual = 15000;
+            int primaAnual = primaMensual * 12;
+
+            txtPrimaMensual.Text = "$" + primaMensual.ToString();
+            txtPrimaAnual.Text = "$" + primaAnual.ToString();
+        }
+        internal static Window2 win2;
+        internal string Status
+        {
+            get { return lblRut.Content.ToString(); }
+            set { Dispatcher.Invoke(new Action(() => { lblRut.Content = value; })); }
+        }
+        internal string Status1
+        {
+            get { return lblUser.Content.ToString(); }
+            set { Dispatcher.Invoke(new Action(() => { lblUser.Content = value; })); }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Window1 win1 = new Window1();
+
+            Window1.win1.Status = lblRut.Content.ToString();
+            Window1.win1.Status1 = lblUser.Content.ToString();
+
+            this.Close();
+            win1.Show();
         }
     }
 }

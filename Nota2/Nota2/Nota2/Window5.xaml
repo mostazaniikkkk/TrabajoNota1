@@ -20,7 +20,8 @@
                                                 RelativeSource={RelativeSource TemplatedParent}, 
                                                 Mode=TwoWay,
                                                 UpdateSourceTrigger=PropertyChanged}"
-                                 x:Name="textSource" 
+                                 x:Name="textSource"
+                                 Foreground="#FF777677"
                                  Background="Transparent" 
                                  Panel.ZIndex="2" />
                             <TextBox Text="{TemplateBinding Tag}" Background="{TemplateBinding Background}" Panel.ZIndex="1">

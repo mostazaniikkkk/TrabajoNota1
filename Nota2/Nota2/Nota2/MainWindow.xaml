@@ -18,7 +18,8 @@
                                                 Mode=TwoWay,
                                                 UpdateSourceTrigger=PropertyChanged}"
                                  x:Name="textSource" 
-                                 Background="Transparent" 
+                                 Background="Transparent"
+                                 Foreground="#FF777677"
                                  Panel.ZIndex="2" />
                             <TextBox Text="{TemplateBinding Tag}" Background="{TemplateBinding Background}" Panel.ZIndex="1">
                                 <TextBox.Style>

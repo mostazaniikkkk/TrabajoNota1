@@ -9,6 +9,42 @@
     <Window.Background>
         <ImageBrush ImageSource="Img/BG/BG00.png"/>
     </Window.Background>
+
+    <Window.Resources>
+        <Style x:Key="placeHolder" TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Type TextBox}}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Grid>
+                            <TextBox Text="{Binding Path=Text,
+                                                RelativeSource={RelativeSource TemplatedParent}, 
+                                                Mode=TwoWay,
+                                                UpdateSourceTrigger=PropertyChanged}"
+                                 x:Name="textSource"
+                                 Foreground="#FF777677"
+                                 Background="Transparent" 
+                                 Panel.ZIndex="2" />
+                            <TextBox Text="{TemplateBinding Tag}" Background="{TemplateBinding Background}" Panel.ZIndex="1">
+                                <TextBox.Style>
+                                    <Style TargetType="{x:Type TextBox}">
+                                        <Setter Property="Foreground" Value="Transparent"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Path=Text, Source={x:Reference textSource}}" Value="">
+                                                <Setter Property="Foreground" Value="Gray"/>
+                                                <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                                                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBox.Style>
+                            </TextBox>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
     <Grid>
         <Rectangle HorizontalAlignment="Left" Height="502" Margin="41,142,0,0" VerticalAlignment="Top" Width="1191">
             <Rectangle.Fill>
@@ -16,31 +52,32 @@
             </Rectangle.Fill>
         </Rectangle>
         <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="77" Margin="57,36,0,0" Stroke="Black" VerticalAlignment="Top" Width="77"/>
-        <Label x:Name="lblBienvenido" Content="" HorizontalAlignment="Left" Margin="150,42,0,0" VerticalAlignment="Top" FontFamily="Myriad Pro" Background="{x:Null}" Foreground="White" Height="34" Width="228" FontSize="24"/>
-        <Label Content="Rut Usuario" HorizontalAlignment="Left" Margin="150,76,0,0" VerticalAlignment="Top" FontFamily="Myriad Pro" Background="{x:Null}" Foreground="White" Height="34" Width="228" FontSize="18"/>
-        <TextBox x:Name="txtUsuario" HorizontalAlignment="Left" Height="40" Margin="295,253,0,0" TextWrapping="Wrap" Text="Ej. 12456789-3" VerticalAlignment="Top" Width="295" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black"/>
+        <Label x:Name="lblRut" Content="" HorizontalAlignment="Left" Margin="150,42,0,0" VerticalAlignment="Top" FontFamily="Myriad Pro" Background="{x:Null}" Foreground="White" Height="34" Width="228" FontSize="24"/>
+        <Label x:Name="lblUser" Content="" HorizontalAlignment="Left" Margin="150,76,0,0" VerticalAlignment="Top" FontFamily="Myriad Pro" Background="{x:Null}" Foreground="White" Height="34" Width="228" FontSize="18"/>
+        <TextBox x:Name="txtRut" Style="{StaticResource placeHolder}" Tag="Ej. 123456789-3" HorizontalAlignment="Left" Height="40" Margin="295,253,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="295" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black"/>
         <Label Content="RUT:" HorizontalAlignment="Left" Margin="236,253,0,0" VerticalAlignment="Top" Height="40" Width="54" FontFamily="Myriad Pro" Foreground="White" FontSize="24"/>
-        <TextBox x:Name="txtUsuario_Copy" HorizontalAlignment="Left" Height="40" Margin="295,315,0,0" TextWrapping="Wrap" Text="Ej. 12456789-3" VerticalAlignment="Top" Width="295" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black"/>
+        <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Height="40" Margin="295,315,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="295" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black"/>
         <Label Content="Nombre:" HorizontalAlignment="Left" Margin="190,315,0,0" VerticalAlignment="Top" Height="40" Width="100" FontFamily="Myriad Pro" Foreground="White" FontSize="24"/>
-        <TextBox x:Name="txtUsuario_Copy1" HorizontalAlignment="Left" Height="40" Margin="295,375,0,0" TextWrapping="Wrap" Text="Ej. 12456789-3" VerticalAlignment="Top" Width="295" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black"/>
+        <TextBox x:Name="txtApellido" HorizontalAlignment="Left" Height="40" Margin="295,375,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="295" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black"/>
+        <ComboBox x:Name="estadoCivil" Text="Seleccionar" HorizontalAlignment="Left" Margin="295,439,0,0" VerticalAlignment="Top" Width="295" Height="40" Loaded="ComboBox_Loaded"/>
         <Label Content="Apellido:" HorizontalAlignment="Left" Margin="190,375,0,0" VerticalAlignment="Top" Height="40" Width="105" FontFamily="Myriad Pro" Foreground="White" FontSize="24"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="703,560,0,0" VerticalAlignment="Top" Width="149" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="44">
+        <Button Content="Button" HorizontalAlignment="Left" Margin="703,560,0,0" VerticalAlignment="Top" Width="149" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="44" Click="Button_Click_1">
             <Button.Background>
-                <ImageBrush ImageSource="Img/Botones/cancel00.png" Stretch="Uniform"/>
+                <ImageBrush ImageSource="Img/Botones/01.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="996,560,0,0" VerticalAlignment="Top" Width="148" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="44">
+        <Button Content="Button" HorizontalAlignment="Left" Margin="996,560,0,0" VerticalAlignment="Top" Width="148" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="44" Click="Button_Click">
             <Button.Background>
                 <ImageBrush ImageSource="Img/Botones/add01.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
         <Label Content="Registrar cliente" HorizontalAlignment="Left" Margin="70,165,0,0" VerticalAlignment="Top" Height="57" Width="395" FontFamily="Myriad Pro" Foreground="White" FontSize="48"/>
-        <TextBox x:Name="txtUsuario_Copy2" HorizontalAlignment="Left" Height="40" Margin="295,439,0,0" TextWrapping="Wrap" Text="Ej. 12456789-3" VerticalAlignment="Top" Width="295" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black"/>
-        <Label Content="Estado civil:" HorizontalAlignment="Left" Margin="165,439,0,0" VerticalAlignment="Top" Height="40" Width="130" FontFamily="Myriad Pro" Foreground="White" FontSize="24"/>
-        <Label Content="Fecha de nacimiento:" HorizontalAlignment="Left" Margin="70,503,0,0" VerticalAlignment="Top" Height="40" Width="225" FontFamily="Myriad Pro" Foreground="White" FontSize="24"/>
-        <DatePicker HorizontalAlignment="Left" Margin="295,503,0,0" VerticalAlignment="Top" Height="40" Width="295"/>
-        <Label Content="Genero:" HorizontalAlignment="Left" Margin="203,548,0,0" VerticalAlignment="Top" Height="40" Width="92" FontFamily="Myriad Pro" Foreground="White" FontSize="24"/>
-        <ComboBox HorizontalAlignment="Left" Margin="295,557,0,0" VerticalAlignment="Top" Width="295" Height="31"/>
 
+        <Label Content="Estado civil:" HorizontalAlignment="Left" Margin="160,439,0,0" VerticalAlignment="Top" Height="40" Width="130" FontFamily="Myriad Pro" Foreground="White" FontSize="24"/>
+        <Label Content="Fecha de nacimiento:" HorizontalAlignment="Left" Margin="62,503,0,0" VerticalAlignment="Top" Height="40" Width="233" FontFamily="Myriad Pro" Foreground="White" FontSize="24"/>
+        <DatePicker x:Name="fechaNacimiento" HorizontalAlignment="Left" Margin="295,503,0,0" VerticalAlignment="Top" Height="33" Width="295" FontSize="18"/>
+        <Label Content="Genero:" HorizontalAlignment="Left" Margin="203,548,0,0" VerticalAlignment="Top" Height="40" Width="92" FontFamily="Myriad Pro" Foreground="White" FontSize="24"/>
+        <RadioButton x:Name="rMasculino" Content="Másculino" HorizontalAlignment="Left" Margin="318,557,0,0" VerticalAlignment="Top" Height="20" FontSize="17" Foreground="White" GroupName="a"/>
+        <RadioButton x:Name="rFemenino" Content="Femenino" HorizontalAlignment="Left" Margin="454,557,0,0" VerticalAlignment="Top" FontSize="17" Foreground="White" GroupName="a"/>
     </Grid>
 </Window>
