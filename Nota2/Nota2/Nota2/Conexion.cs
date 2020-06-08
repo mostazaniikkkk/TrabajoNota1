@@ -168,6 +168,7 @@ namespace Nota2
                 {
                     throw;
                 }
+
                 connection.Close();
             }
         }
@@ -302,5 +303,42 @@ namespace Nota2
             }
         }
 
+        public static void GuardarContrato(string rut, string plan, string poliza, string fechaInicio, string fechaTermino, char declaracionMedica, int primaMensual, int primaAnual, string observacion)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(null, connection);
+
+                command.CommandText = "INSERT INTO DBO.CONTRATO (rut_contrato, plan_asociado, poliza, fecha_inicio, fecha_termino, declaracion_medica, prima_mensual, prima_anual, observacion)"+
+                                        "VALUES(@rut, @plan, @poliza, @fechaInicio, @fechaTermino, @declaracionMedica, @primaMensual, @primaAnual, @observacion)";
+
+                command.Parameters.AddWithValue("@rut", rut);
+                command.Parameters.AddWithValue("@plan",plan);
+                command.Parameters.AddWithValue("@poliza",poliza);
+                command.Parameters.AddWithValue("@fechaInicio",fechaInicio);
+                command.Parameters.AddWithValue("@fechaTermino",fechaTermino);
+                command.Parameters.AddWithValue("@declaracionMedica",declaracionMedica);
+                command.Parameters.AddWithValue("@primaMensual", primaMensual);
+                command.Parameters.AddWithValue("@primaAnual", primaAnual);
+                command.Parameters.AddWithValue("@observacion", observacion);
+
+                Console.WriteLine("Pasa la entrada de variables temporales");
+                try
+                {
+                    Console.WriteLine("caca");
+                    connection.Open();
+                    Int32 rowsAffected = command.ExecuteNonQuery();
+                    
+                    Console.WriteLine(rowsAffected);
+                    
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+
+                connection.Close();
+            }
+        }
     }
 }

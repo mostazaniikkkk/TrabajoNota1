@@ -79,7 +79,7 @@
                 <ImageBrush ImageSource="Img/Botones/01.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="942,560,0,0" VerticalAlignment="Top" Width="148" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="44">
+        <Button Content="Button" HorizontalAlignment="Left" Margin="942,560,0,0" VerticalAlignment="Top" Width="148" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="44" Click="Button_Click_1">
             <Button.Background>
                 <ImageBrush ImageSource="Img/Botones/02.png" Stretch="Uniform"/>
             </Button.Background>
@@ -87,10 +87,10 @@
         <Label Content="Crear contrato" HorizontalAlignment="Left" Margin="70,165,0,0" VerticalAlignment="Top" Height="57" Width="328" FontFamily="Myriad Pro" Foreground="White" FontSize="48"/>
         <RadioButton x:Name="plan1" Content="Plan1" HorizontalAlignment="Left" Margin="234,326,0,0" VerticalAlignment="Top" FontSize="17" Background="White" Foreground="White" GroupName="plan" Checked="plan1_Checked"/>
         <RadioButton x:Name="plan2" Content="Plan2" HorizontalAlignment="Left" Margin="332,326,0,0" VerticalAlignment="Top" FontSize="17" Background="White" Foreground="White" GroupName="plan" Checked="plan2_Checked"/>
-        <RadioButton Content="Plan3" HorizontalAlignment="Left" Margin="431,326,0,0" VerticalAlignment="Top" FontSize="17" Background="White" Foreground="White" GroupName="plan" Checked="RadioButton_Checked"/>
+        <RadioButton x:Name="plan3" Content="Plan3" HorizontalAlignment="Left" Margin="431,326,0,0" VerticalAlignment="Top" FontSize="17" Background="White" Foreground="White" GroupName="plan" Checked="RadioButton_Checked"/>
         <TextBox x:Name="txtPoliza" HorizontalAlignment="Left" Height="40" Margin="229,371,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="295" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black" IsEnabled="False"/>
-        <RadioButton Content="Sí" HorizontalAlignment="Left" Margin="896,254,0,0" VerticalAlignment="Top" GroupName="saludo" FontSize="17" Background="White" Foreground="White"/>
-        <RadioButton Content="No" HorizontalAlignment="Left" Margin="986,254,0,0" VerticalAlignment="Top" GroupName="saludo" FontSize="17" Background="White" Foreground="White"/>
+        <RadioButton x:Name="rSi" Content="Sí" HorizontalAlignment="Left" Margin="896,254,0,0" VerticalAlignment="Top" GroupName="saludo" FontSize="17" Background="White" Foreground="White"/>
+        <RadioButton x:Name="rNo" Content="No" HorizontalAlignment="Left" Margin="986,254,0,0" VerticalAlignment="Top" GroupName="saludo" FontSize="17" Background="White" Foreground="White" IsChecked="True"/>
 
 
     </Grid>
