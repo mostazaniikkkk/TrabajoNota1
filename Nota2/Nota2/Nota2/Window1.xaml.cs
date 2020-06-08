@@ -71,5 +71,16 @@ namespace Nota2
             this.Close();
             win2.Show();
         }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            Window4 win4 = new Window4();
+
+            Window4.win4.Status = lblRut.Content.ToString();
+            Window4.win4.Status1 = lblUser.Content.ToString();
+
+            this.Close();
+            win4.Show();
+        }
     }
 }

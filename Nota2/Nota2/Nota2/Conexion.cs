@@ -14,6 +14,7 @@ namespace Nota2
     {
         static string connectionString = @"Server=DESKTOP-3FLS338; Database=REGISTRO; Trusted_Connection=True;";
         public static List<User> lista;
+        public static List<Contrato> listaContrato;
         public static int VerificarUsuario(string rut, string contraseña)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -77,7 +78,7 @@ namespace Nota2
                 da.Fill(dt);
 
                 string rut = dt.Rows[0][0].ToString();
-                
+
                 connection.Close();
                 return rut;
             }
@@ -112,7 +113,8 @@ namespace Nota2
 
         public static List<User> BuscarUsuario(string rut)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString)){
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
 
                 SqlCommand command = new SqlCommand(null, connection);
 
@@ -137,7 +139,7 @@ namespace Nota2
                     user.Foto = row["foto_usuario"].ToString();
                     lista.Add(user);
 
-                    
+
                 }
                 return lista;
             }
@@ -218,7 +220,7 @@ namespace Nota2
         }*/
         public static string Date()
         {
-            using(SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand(null, connection);
 
@@ -309,15 +311,15 @@ namespace Nota2
             {
                 SqlCommand command = new SqlCommand(null, connection);
 
-                command.CommandText = "INSERT INTO DBO.CONTRATO (rut_contrato, plan_asociado, poliza, fecha_inicio, fecha_termino, declaracion_medica, prima_mensual, prima_anual, observacion)"+
+                command.CommandText = "INSERT INTO DBO.CONTRATO (rut_contrato, plan_asociado, poliza, fecha_inicio, fecha_termino, declaracion_medica, prima_mensual, prima_anual, observacion)" +
                                         "VALUES(@rut, @plan, @poliza, @fechaInicio, @fechaTermino, @declaracionMedica, @primaMensual, @primaAnual, @observacion)";
 
                 command.Parameters.AddWithValue("@rut", rut);
-                command.Parameters.AddWithValue("@plan",plan);
-                command.Parameters.AddWithValue("@poliza",poliza);
-                command.Parameters.AddWithValue("@fechaInicio",fechaInicio);
-                command.Parameters.AddWithValue("@fechaTermino",fechaTermino);
-                command.Parameters.AddWithValue("@declaracionMedica",declaracionMedica);
+                command.Parameters.AddWithValue("@plan", plan);
+                command.Parameters.AddWithValue("@poliza", poliza);
+                command.Parameters.AddWithValue("@fechaInicio", fechaInicio);
+                command.Parameters.AddWithValue("@fechaTermino", fechaTermino);
+                command.Parameters.AddWithValue("@declaracionMedica", declaracionMedica);
                 command.Parameters.AddWithValue("@primaMensual", primaMensual);
                 command.Parameters.AddWithValue("@primaAnual", primaAnual);
                 command.Parameters.AddWithValue("@observacion", observacion);
@@ -328,9 +330,9 @@ namespace Nota2
                     Console.WriteLine("caca");
                     connection.Open();
                     Int32 rowsAffected = command.ExecuteNonQuery();
-                    
+
                     Console.WriteLine(rowsAffected);
-                    
+
                 }
                 catch (Exception)
                 {
@@ -338,6 +340,47 @@ namespace Nota2
                 }
 
                 connection.Close();
+            }
+        }
+
+        public static List<Contrato> BuscarContrato(string rut)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+
+                SqlCommand command = new SqlCommand(null, connection);
+
+                command.CommandText = "SELECT * FROM DBO.CONTRATO WHERE rut_contrato = @rut";
+                command.Parameters.AddWithValue("@rut", rut);
+
+                connection.Open();
+                SqlDataAdapter da = new SqlDataAdapter(command);
+                DataTable dt = new DataTable();
+
+                da.Fill(dt);
+
+                listaContrato = new List<Contrato>();
+
+                foreach (DataRow row in dt.Rows)
+                {
+                    Contrato contrato = new Contrato();
+                    //user.Id = row["nro_contrato"].ToString();
+                    contrato.Nro_contrato = row["NRO_CONTRATO"].ToString();
+                    contrato._Rut_contrato = row["RUT_CONTRATO"].ToString();
+                    contrato.Plan_asociado = row["PLAN_ASOCIADO"].ToString();
+                    contrato.Poliza = row["POLIZA"].ToString();
+                    contrato.Fecha_inicio = row["FECHA_INICIO"].ToString();
+                    contrato.Fecha_termino = row["FECHA_TERMINO"].ToString();
+                    contrato.Declaracion_medica = row["DECLARACION_MEDICA"].ToString();
+                    contrato.Prima_mensual = row["PRIMA_MENSUAL"].ToString();
+                    contrato.Prima_anual = row["PRIMA_ANUAL"].ToString();
+                    contrato.Observacion = row["OBSERVACION"].ToString();
+
+                    listaContrato.Add(contrato);
+
+
+                }
+                return listaContrato;
             }
         }
     }

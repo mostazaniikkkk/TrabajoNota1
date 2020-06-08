@@ -51,8 +51,8 @@
             </Rectangle.Fill>
         </Rectangle>
         <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="77" Margin="57,36,0,0" Stroke="Black" VerticalAlignment="Top" Width="77"/>
-        <Label x:Name="lblUsuario" Content="" HorizontalAlignment="Left" Margin="150,42,0,0" VerticalAlignment="Top" FontFamily="Myriad Pro" Background="{x:Null}" Foreground="White" Height="34" Width="228" FontSize="24"/>
-        <Label x:Name="lblRut" Content="" HorizontalAlignment="Left" Margin="150,76,0,0" VerticalAlignment="Top" FontFamily="Myriad Pro" Background="{x:Null}" Foreground="White" Height="34" Width="228" FontSize="18"/>
+        <Label x:Name="lblRut" Content="" HorizontalAlignment="Left" Margin="150,42,0,0" VerticalAlignment="Top" FontFamily="Myriad Pro" Background="{x:Null}" Foreground="White" Height="34" Width="228" FontSize="24"/>
+        <Label x:Name="lblUser" Content="" HorizontalAlignment="Left" Margin="150,76,0,0" VerticalAlignment="Top" FontFamily="Myriad Pro" Background="{x:Null}" Foreground="White" Height="34" Width="228" FontSize="18"/>
         <TextBox x:Name="txtBuscar" Style="{StaticResource placeHolder}" Tag="Ej. 123456789-3" HorizontalAlignment="Left" Height="40" Margin="225,163,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="976" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black"/>
         <Button Content="Button" HorizontalAlignment="Left" Margin="72,576,0,0" VerticalAlignment="Top" Width="133" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="44">
             <Button.Background>

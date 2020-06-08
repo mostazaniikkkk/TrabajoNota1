@@ -29,7 +29,7 @@ namespace Nota2
         }
         
         public SqlConnection conexion = new SqlConnection(@"Server=DESKTOP-3FLS338; Database=REGISTRO; Trusted_Connection=True;");
-        DataTable dt = new DataTable();
+        
 
         private void DataGrid_Initialized(object sender, EventArgs e)
         {
@@ -38,11 +38,12 @@ namespace Nota2
 
         public void Actualizar()
         {
-            using (SqlDataAdapter da = new SqlDataAdapter("Select * from REGISTRO", conexion))
+            using (SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM DBO.CONTRATO", conexion))
             {
 
                 try
                 {
+                    DataTable dt = new DataTable();
                     dt.Clear();
                     da.Fill(dt);
                     tabla.ItemsSource = dt.DefaultView;
@@ -57,23 +58,27 @@ namespace Nota2
         internal static Window4 win4;
         internal string Status
         {
-            get { return lblUsuario.Content.ToString(); }
-            set { Dispatcher.Invoke(new Action(() => { lblUsuario.Content = value; })); }
+            get { return lblRut.Content.ToString(); }
+            set { Dispatcher.Invoke(new Action(() => { lblRut.Content = value; })); }
         }
         internal string Status1
         {
-            get { return lblRut.Content.ToString(); }
-            set { Dispatcher.Invoke(new Action(() => { lblRut.Content = value; })); }
+            get { return lblUser.Content.ToString(); }
+            set { Dispatcher.Invoke(new Action(() => { lblUser.Content = value; })); }
         }
 
         private void btnBuscar_Click(object sender, RoutedEventArgs e)
         {
-            tabla.ItemsSource = Conexion.BuscarUsuario(txtBuscar.Text); 
+            tabla.ItemsSource = Conexion.BuscarContrato(txtBuscar.Text); 
         }
 
         private void btnVolver_Click(object sender, RoutedEventArgs e)
         {
             Window1 win1 = new Window1();
+
+            Window1.win1.Status = lblRut.Content.ToString();
+            Window1.win1.Status1 = lblUser.Content.ToString();
+
             win1.Show();
             this.Close();
         }
