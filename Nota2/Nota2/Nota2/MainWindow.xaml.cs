@@ -47,22 +47,53 @@ namespace Nota2
                 Window1.win1.Status = usuario._Usuario;
                 Window1.win1.Status1 = usuario._Rut;
 
-                Window1.win1.Status2 = Conexion.TraerUltimosNombres();
-                Window1.win1.Status3 = Conexion.TraerPenultimosNombres();
 
-                Window1.win1.Status4 = Conexion.TraerUltimoContrato();
-                Window1.win1.Status5 = Conexion.TraerPenultimoContrato();
+                int enteroCliente = Conexion.countCliente();
+                Console.WriteLine(enteroCliente);
+                Console.WriteLine("Halox");
+                if (enteroCliente > 0)
+                {
+                    Console.WriteLine("Haloxsadas");
+                    if (enteroCliente >= 2)
+                    {
+                        Console.WriteLine("Hellooooo");
+                        Window1.win1.Status2 = Conexion.TraerUltimosNombres();
+                        Window1.win1.Status3 = Conexion.TraerPenultimosNombres();
+                        Console.WriteLine("Hellooooo123");
+                    }
+                    if (enteroCliente == 1)
+                    {
+                        Console.WriteLine("Hellooooo1234");
+                        Window1.win1.Status2 = Conexion.TraerUltimosNombres();
+                    }
+                }               
+                
 
+                int enteroContrato = Conexion.countContrato();
+
+                if (enteroContrato > 0)
+                {
+                    if(enteroContrato >= 2)
+                    {
+                        Window1.win1.Status4 = Conexion.TraerUltimoContrato();
+                        Window1.win1.Status5 = Conexion.TraerPenultimoContrato();
+                    }
+                    if(enteroContrato == 1)
+                    {
+                        Window1.win1.Status4 = Conexion.TraerUltimoContrato();
+                    }  
+                }
+                MessageBoxResult result = MessageBox.Show("Iniciando sesión...");
+                Console.WriteLine(result);
                 this.Close();
-
                 Window1.win1.Show();
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 txtRut.Text = "";
                 txtContraseña.Password = "";
-                MessageBoxResult result = MessageBox.Show("Error, usuario inválido...");
+                MessageBoxResult result = MessageBox.Show("Error, usuario inválido..."+ex);
                 Console.WriteLine(result);
             }
         }
@@ -76,13 +107,11 @@ namespace Nota2
                     if (Conexion.DevolverCount() == 0)
                     {
                         Conexion.GuardarUltimaConexion(txtRut.Text, txtContraseña.Password);
-                        Console.WriteLine("insertados");
                         break;
                     }
                     else if (Conexion.DevolverCount() >= 1)
                     {
                         Conexion.EliminarPrimerGuardado();
-                        Console.WriteLine("borrado el primero");
                     }
                 }
             }

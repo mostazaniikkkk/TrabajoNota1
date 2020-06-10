@@ -64,11 +64,7 @@
                 <ImageBrush ImageSource="Img/Botones/buscar.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btnVolver" Content="Button" HorizontalAlignment="Left" Margin="1068,576,0,0" VerticalAlignment="Top" Width="133" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="44" Click="btnVolver_Click">
-            <Button.Background>
-                <ImageBrush ImageSource="Img/Botones/volver01.png" Stretch="Uniform"/>
-            </Button.Background>
-        </Button>
+        
         <DataGrid x:Name="tablax" HorizontalAlignment="Left" Height="309" Margin="72,262,0,0" VerticalAlignment="Top" Width="1129" Initialized="tabla_Initialized_1" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black"/>
         <Button x:Name="btnActualizar" Content="Button" HorizontalAlignment="Left" Margin="72,576,0,0" VerticalAlignment="Top" Width="133" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="44" Click="btnActualizar_Click">
             <Button.Background>
@@ -80,6 +76,10 @@
                 <ImageBrush ImageSource="Img/Botones/modificar.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
-
+        <Button x:Name="btnVolver" Content="Button" HorizontalAlignment="Left" Margin="1068,576,0,0" VerticalAlignment="Top" Width="133" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="44" Click="btnVolver_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="Img/Botones/volver01.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
     </Grid>
 </Window>

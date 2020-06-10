@@ -70,7 +70,7 @@ namespace Nota2
 
         private void btnBuscar_Click(object sender, RoutedEventArgs e)
         {
-            tabla.ItemsSource = Conexion.BuscarContrato(txtBuscar.Text); 
+            tabla.ItemsSource = Conexion.BuscarContrato(txtBuscar.Text);
         }
 
         private void btnVolver_Click(object sender, RoutedEventArgs e)

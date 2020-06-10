@@ -1,17 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Nota2
 {
@@ -29,7 +17,8 @@ namespace Nota2
 
         private void ComboBox_Loaded(object sender, RoutedEventArgs e)
         {
-            estadoCivil.Text = "Seleccionar";
+            estadoCivil.SelectedIndex = estadoCivil.SelectedIndex + 1;
+            estadoCivil.Items.Add("Seleccionar");
             estadoCivil.Items.Add("Soltero");
             estadoCivil.Items.Add("Casado");
             estadoCivil.Items.Add("Viudo");
@@ -38,16 +27,19 @@ namespace Nota2
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            try
+            if (txtRut.Text != "" && txtNombre.Text != "" && txtApellido.Text != "" && estadoCivil.SelectedIndex > -1 && fechaNacimiento.Text != "" && rMasculino.IsChecked != false || rFemenino.IsChecked != false)
             {
-                if(txtRut.Text != "" && txtNombre.Text!="" && txtApellido.Text!="" && estadoCivil.SelectedIndex > -1 && fechaNacimiento.Text != "" && rMasculino.IsChecked != false || rFemenino.IsChecked != false)
+                try
                 {
-                    if (Conexion.BuscarRutCliente(txtRut.Text).Equals("0"))
+                    int entero = Conexion.BuscarRutCliente(txtRut.Text);
+                    Console.WriteLine(entero+".enteroxd");
+
+                    if (entero == 0)
                     {
-                        Window1 win1 = new Window1();
+
                         if (rFemenino.IsChecked == true)
                         {
-                            
+                            Console.WriteLine("Haliox");
                             Conexion.AgregarCliente(txtRut.Text, txtNombre.Text, txtApellido.Text, estadoCivil.SelectedItem.ToString(), fechaNacimiento.Text, 'F');
                             MessageBoxResult result = MessageBox.Show("Datos ingresados exitosamente!");
 
@@ -55,6 +47,7 @@ namespace Nota2
                         }
                         else if (rMasculino.IsChecked == true)
                         {
+                            Console.WriteLine("Haloxexfsad");
                             Conexion.AgregarCliente(txtRut.Text, txtNombre.Text, txtApellido.Text, estadoCivil.SelectedItem.ToString(), fechaNacimiento.Text, 'M');
                             MessageBoxResult result = MessageBox.Show("Datos ingresados exitosamente!");
 
@@ -64,7 +57,7 @@ namespace Nota2
                         txtRut.Text = "";
                         txtNombre.Text = "";
                         txtApellido.Text = "";
-                        estadoCivil.SelectedIndex = -1;
+                        estadoCivil.SelectedIndex = 0;
                         fechaNacimiento.Text = "";
                         if (rFemenino.IsChecked == true)
                         {
@@ -75,24 +68,33 @@ namespace Nota2
                             rMasculino.IsChecked = false;
                         }
                     }
+                    else
+                    {
+                        MessageBoxResult result = MessageBox.Show("Error, rut ingresado ya existe en la base de datos...");
+                        Console.WriteLine(result);
+                    }
+                    
                 }
-                else if(txtRut.Text == "" && txtNombre.Text == "" || txtApellido.Text == "" || estadoCivil.SelectedIndex == -1 || fechaNacimiento.Text == "" || rMasculino.IsChecked == false || rFemenino.IsChecked == false)
+
+
+                catch (Exception)
                 {
-                    MessageBoxResult result = MessageBox.Show("Error, rellene todos los campos...");
-                    Console.WriteLine(result);
-                }
-                else
-                {
-                    MessageBoxResult result = MessageBox.Show("Error, rellene todos los campos...");
+                    MessageBoxResult result = MessageBox.Show("Error, rut ingresado ya existe en la base de datos...");
                     Console.WriteLine(result);
                 }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBoxResult result = MessageBox.Show("Error, rut ingresado ya existe en la base de datos..."+ex);
+                MessageBoxResult result = MessageBox.Show("Error, rellene todos los campos...");
                 Console.WriteLine(result);
             }
         }
+
+
+
+
+
+    
 
         internal static Window3 win3;
         internal string Status

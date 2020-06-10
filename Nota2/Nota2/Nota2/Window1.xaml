@@ -12,11 +12,7 @@
         </Grid.Background>
         <Label x:Name="lblRut" Content="" HorizontalAlignment="Left" Margin="148,52,0,0" VerticalAlignment="Top" FontFamily="Myriad Pro" Background="{x:Null}" Foreground="White" Height="34" Width="228" FontSize="24"/>
         <Label x:Name="lblUser" HorizontalAlignment="Left" Margin="148,86,0,0" VerticalAlignment="Top" FontFamily="Myriad Pro" Background="{x:Null}" Foreground="White" Height="34" Width="228" FontSize="18"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="933,157,0,0" VerticalAlignment="Top" Width="281" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="141" Click="Button_Click_2">
-            <Button.Background>
-                <ImageBrush ImageSource="Img/Botones/buscarContrato.png" Stretch="Uniform"/>
-            </Button.Background>
-        </Button>
+        
         <Rectangle HorizontalAlignment="Left" Height="161" Margin="55,492,0,0" VerticalAlignment="Top" Width="1162" Stroke="{x:Null}">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="Img/BG/BGC/BGC00.png"/>
@@ -27,9 +23,11 @@
                 <ImageBrush ImageSource="Img/BG/BGC/BGC00.png"/>
             </Rectangle.Fill>
         </Rectangle>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="641,157,0,0" VerticalAlignment="Top" Width="282" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="141" Click="Button_Click_1">
+        
+        
+        <Button Content="Button" HorizontalAlignment="Left" Margin="55,157,0,0" VerticalAlignment="Top" Width="281" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="141" Click="Button_Click">
             <Button.Background>
-                <ImageBrush ImageSource="Img/Botones/agregarContrato.png" Stretch="Uniform"/>
+                <ImageBrush ImageSource="Img/Botones/agregarCliente.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
         <Button x:Name="btnBuscar" Content="Button" HorizontalAlignment="Left" Margin="348,157,0,0" VerticalAlignment="Top" Width="281" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="141" Click="btnBuscar_Click">
@@ -37,9 +35,14 @@
                 <ImageBrush ImageSource="Img/Botones/buscarCliente.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="55,157,0,0" VerticalAlignment="Top" Width="281" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="141" Click="Button_Click">
+        <Button Content="Button" HorizontalAlignment="Left" Margin="641,157,0,0" VerticalAlignment="Top" Width="282" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="141" Click="Button_Click_1">
             <Button.Background>
-                <ImageBrush ImageSource="Img/Botones/agregarCliente.png" Stretch="Uniform"/>
+                <ImageBrush ImageSource="Img/Botones/agregarContrato.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="933,157,0,0" VerticalAlignment="Top" Width="281" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="141" Click="Button_Click_2">
+            <Button.Background>
+                <ImageBrush ImageSource="Img/Botones/buscarContrato.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
         <Button Content="Button" HorizontalAlignment="Left" Margin="1119,365,0,0" VerticalAlignment="Top" Width="75" Height="75" BorderBrush="{x:Null}" Foreground="{x:Null}">
@@ -64,9 +67,9 @@
                 <ImageBrush ImageSource="applelogo.png" Stretch="Uniform"/>
             </Ellipse.Fill>
         </Ellipse>
-        <Label x:Name="cliente1"  Content="" HorizontalAlignment="Left" Margin="80,368,0,0" VerticalAlignment="Top" Width="326" Foreground="#FFC7C7C7" FontSize="17" FontWeight="Bold"/>
-        <Label x:Name="cliente2"  Content="" HorizontalAlignment="Left" Margin="80,401,0,0" VerticalAlignment="Top" Width="326" Foreground="#FFC7C7C7" FontSize="17" FontWeight="Bold"/>
-        <Label x:Name="contrato1"  Content="" HorizontalAlignment="Left" Margin="80,549,0,0" VerticalAlignment="Top" Width="326" Foreground="#FFC7C7C7" FontSize="17" FontWeight="Bold"/>
-        <Label x:Name="contrato2"  Content="" HorizontalAlignment="Left" Margin="80,582,0,0" VerticalAlignment="Top" Width="326" Foreground="#FFC7C7C7" FontSize="17" FontWeight="Bold"/>
+        <Label x:Name="cliente1"  Content="" HorizontalAlignment="Left" Margin="80,368,0,0" VerticalAlignment="Top" Width="516" Foreground="#FFC7C7C7" FontSize="17" FontWeight="Bold"/>
+        <Label x:Name="cliente2"  Content="" HorizontalAlignment="Left" Margin="80,401,0,0" VerticalAlignment="Top" Width="516" Foreground="#FFC7C7C7" FontSize="17" FontWeight="Bold"/>
+        <Label x:Name="contrato1"  Content="" HorizontalAlignment="Left" Margin="80,549,0,0" VerticalAlignment="Top" Width="516" Foreground="#FFC7C7C7" FontSize="17" FontWeight="Bold"/>
+        <Label x:Name="contrato2"  Content="" HorizontalAlignment="Left" Margin="80,582,0,0" VerticalAlignment="Top" Width="516" Foreground="#FFC7C7C7" FontSize="17" FontWeight="Bold"/>
     </Grid>
 </Window>

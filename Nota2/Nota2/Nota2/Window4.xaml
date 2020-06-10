@@ -59,20 +59,21 @@
                 <ImageBrush ImageSource="Img/Botones/buscar.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btnVolver" Content="Button" HorizontalAlignment="Left" Margin="545,576,0,0" VerticalAlignment="Top" Width="133" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="44" Click="btnVolver_Click">
-            <Button.Background>
-                <ImageBrush ImageSource="Img/Botones/volver01.png" Stretch="Uniform"/>
-            </Button.Background>
-        </Button>
+        
         <RadioButton Content="Contrato vigente" HorizontalAlignment="Left" Margin="225,208,0,0" VerticalAlignment="Top" FontSize="24" Foreground="White" Checked="RadioButton_Checked"/>
         <RadioButton Content="Contrato expirado" HorizontalAlignment="Left" Margin="489,208,0,0" VerticalAlignment="Top" FontSize="24" Foreground="White" Checked="RadioButton_Checked_1"/>
+        <RadioButton Content="Mostrar todo" HorizontalAlignment="Left" Margin="763,208,0,0" VerticalAlignment="Top" FontSize="24" Foreground="White" Checked="RadioButton_Checked_2" IsChecked="True"/>
         <DataGrid x:Name="tabla" HorizontalAlignment="Left" Height="305" Margin="72,245,0,0" VerticalAlignment="Top" Width="1129" Initialized="DataGrid_Initialized" Background="#FF2D2D2E" BorderBrush="Black"/>
         <Label x:Name="xd" Content="" HorizontalAlignment="Left" Margin="1194,24,0,0" VerticalAlignment="Top"/>
-        <RadioButton Content="Mostrar todo" HorizontalAlignment="Left" Margin="763,208,0,0" VerticalAlignment="Top" FontSize="24" Foreground="White" Checked="RadioButton_Checked_2" IsChecked="True"/>
         <Ellipse HorizontalAlignment="Left" Height="106" Margin="57,10,0,0" VerticalAlignment="Top" Width="93">
             <Ellipse.Fill>
                 <ImageBrush ImageSource="applelogo.png" Stretch="Uniform"/>
             </Ellipse.Fill>
         </Ellipse>
+        <Button x:Name="btnVolver" Content="Button" HorizontalAlignment="Left" Margin="545,576,0,0" VerticalAlignment="Top" Width="133" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="44" Click="btnVolver_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="Img/Botones/volver01.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
     </Grid>
 </Window>

@@ -203,5 +203,11 @@
   <ItemGroup>
     <Resource Include="login.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="buscarxd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="limpiar.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -24,12 +24,13 @@ namespace Nota2
             InitializeComponent();
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             win6 = this;
-            estadoCivil.SelectedIndex = estadoCivil.SelectedIndex +1;
+            estadoCivil.SelectedIndex = 0;
             estadoCivil.Items.Add("Seleccionar");
             estadoCivil.Items.Add("Soltero");
             estadoCivil.Items.Add("Casado");
             estadoCivil.Items.Add("Viudo");
             estadoCivil.Items.Add("Cónyuge");
+
         }
         internal static Window6 win6;
         internal string Status
@@ -56,40 +57,119 @@ namespace Nota2
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            txtNombreCliente.Text = Conexion.devolverNombreCliente(txtRutCliente.Text);
-            txtApellidoCliente.Text = Conexion.devolverApellidoCliente(txtRutCliente.Text);
-            fechaNacimiento.Text = Conexion.devolverFechaCliente(txtRutCliente.Text);
-            string estado= Conexion.devolverEstadoCivilCliente(txtRutCliente.Text);
-            if (estado == "Soltero")
+            try
             {
-                estadoCivil.SelectedIndex = estadoCivil.SelectedIndex + 2;
+                txtNombreCliente.Tag = Conexion.devolverNombreCliente(txtRutCliente.Text);
+                txtApellidoCliente.Tag = Conexion.devolverApellidoCliente(txtRutCliente.Text);
+                fechaNacimiento.Text = Conexion.devolverFechaCliente(txtRutCliente.Text);
+                string estado = Conexion.devolverEstadoCivilCliente(txtRutCliente.Text);
+                if (estado == "Soltero")
+                {
+                    estadoCivil.SelectedIndex = estadoCivil.SelectedIndex + 1;
 
+                }
+                if (estado == "Casado")
+                {
+                    estadoCivil.SelectedIndex = estadoCivil.SelectedIndex + 2;
+                }
+                if (estado == "Viudo")
+                {
+                    estadoCivil.SelectedIndex = estadoCivil.SelectedIndex + 3;
+                }
+                if (estado == "Cónyuge")
+                {
+                    estadoCivil.SelectedIndex = estadoCivil.SelectedIndex + 4;
+                }
+
+                string genero = Conexion.devolverGeneroCliente(txtRutCliente.Text);
+                if (genero.Equals("F "))
+                {
+                    rFemenino.IsChecked = true;
+                }
+                else if (genero.Equals("M "))
+                {
+                    rMasculino.IsChecked = true;
+                }
+
+                tablax.ItemsSource = Conexion.BuscarContrato(txtRutCliente.Text);
+
+                estadoCivil.IsEnabled = true;
             }
-            if (estado == "Casado")
+            catch(Exception)
             {
-                estadoCivil.SelectedIndex = estadoCivil.SelectedIndex + 3;
-            }
-            if (estado == "Viudo")
-            {
-                estadoCivil.SelectedIndex = estadoCivil.SelectedIndex + 4;
-            }
-            if (estado == "Cónyuge")
-            {
-                estadoCivil.SelectedIndex = estadoCivil.SelectedIndex + 5;
+                MessageBoxResult result = MessageBox.Show("Error, rut ingresado no existe en la base de datos...");
+                Console.WriteLine(result);
             }
 
-            string genero = Conexion.devolverGeneroCliente(txtRutCliente.Text);
-            if (genero.Equals("F "))
-            {
-                rFemenino.IsChecked = true;
-            }
-            else if (genero.Equals("M "))
-            {
-                rMasculino.IsChecked = true;
-            }
 
-            tablax.ItemsSource = Conexion.BuscarUsuario(txtRutCliente.Text);
+        }
 
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            Conexion.eliminarCliente(txtRutCliente.Text);
+            Conexion.eliminarContrato(txtRutCliente.Text);
+
+            MessageBoxResult result = MessageBox.Show("Cliente y contratos vinculados eliminados correctamente!");
+            Console.WriteLine(result);
+
+            tablax.ItemsSource = Conexion.BuscarContrato(txtRutCliente.Text);
+
+            txtRutCliente.Text = "";
+            txtNombreCliente.Text = "";
+            txtApellidoCliente.Text = "";
+            fechaNacimiento.Text = "";
+            estadoCivil.SelectedIndex = 0;
+            if (rFemenino.IsChecked == true)
+            {
+                rFemenino.IsChecked = false;
+            }
+            else if (rMasculino.IsChecked == true)
+            {
+                rMasculino.IsChecked = false;
+            }
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (txtNombreCliente.Text != "")
+                {
+                    Conexion.modificarClienteNombre(txtRutCliente.Text, txtNombreCliente.Text);
+                }
+                if (txtApellidoCliente.Text != "")
+                {
+                    Conexion.modificarClienteApellido(txtRutCliente.Text, txtApellidoCliente.Text);
+                }
+                if (estadoCivil.SelectedItem.ToString() != "Seleccionar")
+                {
+                    Conexion.modificarClienteEstado(txtRutCliente.Text, estadoCivil.SelectedItem.ToString());
+                }
+                MessageBoxResult result = MessageBox.Show("Datos modificados correctamente!");
+                Console.WriteLine(result);
+            }
+            catch(Exception)
+            {
+                MessageBoxResult result = MessageBox.Show("Error, no se pudieron modificar los datos...");
+                Console.WriteLine(result);
+            }
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            txtRutCliente.Text = "";
+            txtNombreCliente.Text = "";
+            txtApellidoCliente.Text = "";
+            fechaNacimiento.Text = "";
+            estadoCivil.SelectedIndex = 0;
+            if (rFemenino.IsChecked == true)
+            {
+                rFemenino.IsChecked = false;
+            }
+            else if (rMasculino.IsChecked == true)
+            {
+                rMasculino.IsChecked = false;
+            }
         }
     }
 }

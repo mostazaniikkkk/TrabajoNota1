@@ -48,8 +48,7 @@ namespace Nota2
                         {
                             int id = int.Parse(dt.Rows[0][0].ToString());
                             number = id;
-                            MessageBoxResult result = MessageBox.Show("Iniciando sesión...");
-                            Console.WriteLine(result);
+                            
 
                         }
                         connection.Close();
@@ -185,17 +184,26 @@ namespace Nota2
 
                 SqlCommand command = new SqlCommand(null, connection);
 
-                command.CommandText = "SELECT rut_cliente, nombre_cliente FROM dbo.cliente where id_cliente = (select max(id_cliente) from dbo.cliente)";
+                command.CommandText = "SELECT rut_cliente, nombre_cliente FROM dbo.cliente where id_cliente = (select max(id_cliente)-1 from dbo.cliente)";
 
                 connection.Open();
                 SqlDataAdapter da = new SqlDataAdapter(command);
                 DataTable dt = new DataTable();
 
                 da.Fill(dt);
-
-                string nombres = "Rut: "+dt.Rows[0][0].ToString() +"  -  Nombre: "+ dt.Rows[0][1].ToString();
-
-                return nombres;
+                try
+                {
+                    Console.WriteLine("no pasa");
+                    string nombres = "Rut: " + dt.Rows[0][0].ToString() + "  -  Nombre: " + dt.Rows[0][1].ToString();
+                    connection.Close();
+                    return nombres;
+                }
+                catch (Exception ex)
+                {
+                    MessageBoxResult result = MessageBox.Show("wtf!" + ex);
+                    Console.WriteLine(result);
+                }
+                return "";
             }
         }
 
@@ -206,17 +214,31 @@ namespace Nota2
 
                 SqlCommand command = new SqlCommand(null, connection);
 
-                command.CommandText = "SELECT rut_cliente, nombre_cliente FROM dbo.cliente where id_cliente = (select max(id_cliente)-1 from dbo.cliente)";
+                command.CommandText = "SELECT rut_cliente, nombre_cliente FROM dbo.cliente where id_cliente = (select max(id_cliente) from dbo.cliente)";
 
                 connection.Open();
                 SqlDataAdapter da = new SqlDataAdapter(command);
                 DataTable dt = new DataTable();
 
+                dt.Clear();
                 da.Fill(dt);
 
-                string nombres = "Rut: " + dt.Rows[0][0].ToString() + "  -  Nombre: " + dt.Rows[0][1].ToString();
+                try
+                {
+                    Console.WriteLine("Why");
+                    string nombres = "Rut: " + dt.Rows[0][0].ToString() + "  -  Nombre: " + dt.Rows[0][1].ToString();
+                    connection.Close();
+                    return nombres;
+                }
+                catch(Exception ex)
+                {
+                    MessageBoxResult result = MessageBox.Show("wtf!"+ex);
+                    Console.WriteLine(result);
+                }
 
-                return nombres;
+                return "";
+                
+                
             }
         }
         public static string TraerUltimoContrato()
@@ -509,12 +531,13 @@ namespace Nota2
                 connection.Open();
                 SqlDataAdapter da = new SqlDataAdapter(command);
 
-                Console.WriteLine("comando:"+command);
+                Console.WriteLine("comando:" + command);
                 DataTable dt = new DataTable();
 
                 da.Fill(dt);
 
-                if (dt.Rows[0][0].ToString().Length > 0){
+                if (dt.Rows[0][0].ToString().Length > 0)
+                {
                     string rutComprobar = dt.Rows[0][0].ToString();
                     Console.WriteLine(rutComprobar);
 
@@ -526,38 +549,42 @@ namespace Nota2
                     connection.Close();
                     return "";
                 }
-                
+
             }
         }
 
-        public static string BuscarRutCliente(string rut)
+        public static int BuscarRutCliente(string rut)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand(null, connection);
-                command.CommandText = "SELECT rut_cliente FROM DBO.CLIENTE WHERE rut_cliente = @rut";
+                command.CommandText = "SELECT ISNULL(id_cliente,0) FROM DBO.CLIENTE WHERE rut_cliente = @rut";
                 command.Parameters.AddWithValue("@rut", rut);
 
                 connection.Open();
+
                 SqlDataAdapter da = new SqlDataAdapter(command);
-                //DataTable dt = new DataTable();
+                DataTable dt = new DataTable();
 
-                //da.Fill(dt);
+                da.Fill(dt);
 
-                int RecordCount = Convert.ToInt32(command.ExecuteScalar());
-                if (RecordCount > 0)
+                Console.WriteLine("error");
+                try
                 {
-                    //string rutComprobar = dt.Rows[0][0].ToString();
-                    //Console.WriteLine(rutComprobar);
-
-                    connection.Close();
-                    return "1";
+                    int entero = Convert.ToInt32(dt.Rows[0][0].ToString());
+                    if (entero > 0)
+                    {
+                        Console.WriteLine("entra");
+                        return entero;
+                    }
                 }
-                else
+                catch(Exception ex)
                 {
-                    return "0";
+                    return 0;
+                    
                 }
 
+                return 0;
             }
         }
 
@@ -608,7 +635,7 @@ namespace Nota2
 
                 connection.Close();
                 return count;
-                
+
             }
         }
 
@@ -779,6 +806,182 @@ namespace Nota2
                 connection.Close();
                 return sexo;
 
+            }
+        }
+
+        public static void eliminarCliente(string rut)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(null, connection);
+
+                command.CommandText = "DELETE FROM DBO.CLIENTE WHERE rut_cliente = @rut";
+                command.Parameters.AddWithValue("@rut", rut);
+
+                //Abrir conexión y ejecutar query
+                try
+                {
+                    connection.Open();
+                    Int32 rowsAffected = command.ExecuteNonQuery();
+                    Console.WriteLine(rowsAffected);
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+
+                connection.Close();
+            }
+        }
+
+        public static void eliminarContrato(string rut)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(null, connection);
+
+                command.CommandText = "DELETE FROM DBO.CONTRATO WHERE rut_contrato = @rut";
+                command.Parameters.AddWithValue("@rut", rut);
+
+                //Abrir conexión y ejecutar query
+                try
+                {
+                    connection.Open();
+                    Int32 rowsAffected = command.ExecuteNonQuery();
+                    Console.WriteLine(rowsAffected);
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+
+                connection.Close();
+            }
+        }
+
+        public static int countContrato()
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(null, connection);
+
+                command.CommandText = "SELECT COUNT(*) FROM DBO.CONTRATO";
+
+                //Abrir conexión y ejecutar query
+                connection.Open();
+                SqlDataAdapter da = new SqlDataAdapter(command);
+
+                DataTable dt = new DataTable();
+
+                da.Fill(dt);
+
+                int count = int.Parse(dt.Rows[0][0].ToString());
+
+
+                connection.Close();
+                return count;
+
+            }
+        }
+
+        public static int countCliente()
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(null, connection);
+
+                command.CommandText = "SELECT COUNT(*) FROM DBO.CLIENTE";
+
+                //Abrir conexión y ejecutar query
+                connection.Open();
+                SqlDataAdapter da = new SqlDataAdapter(command);
+
+                DataTable dt = new DataTable();
+
+                da.Fill(dt);
+
+                int count = int.Parse(dt.Rows[0][0].ToString());
+
+
+                connection.Close();
+                return count;
+
+            }
+        }
+
+        public static void modificarClienteNombre(string rut, string nombre)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(null, connection);
+
+                command.CommandText = "UPDATE DBO.CLIENTE SET nombre_cliente = @nombre WHERE RUT_CLIENTE = @rut";
+                command.Parameters.AddWithValue("@nombre", nombre);
+                command.Parameters.AddWithValue("@rut", rut);
+
+                //Abrir conexión y ejecutar query
+                try
+                {
+                    connection.Open();
+                    Int32 rowsAffected = command.ExecuteNonQuery();
+                    Console.WriteLine(rowsAffected);
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+
+                connection.Close();
+            }
+        }
+        public static void modificarClienteApellido(string rut, string apellido)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(null, connection);
+
+                command.CommandText = "UPDATE DBO.CLIENTE SET apellido_cliente = @apellido WHERE RUT_CLIENTE = @rut";
+                command.Parameters.AddWithValue("@apellido", apellido);
+                command.Parameters.AddWithValue("@rut", rut);
+
+                //Abrir conexión y ejecutar query
+                try
+                {
+                    connection.Open();
+                    Int32 rowsAffected = command.ExecuteNonQuery();
+                    Console.WriteLine(rowsAffected);
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+
+                connection.Close();
+            }
+        }
+        public static void modificarClienteEstado(string rut, string estado)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(null, connection);
+
+                command.CommandText = "UPDATE DBO.CLIENTE SET estado_civil = @estado WHERE RUT_CLIENTE = @rut";
+                command.Parameters.AddWithValue("@estado", estado);
+                command.Parameters.AddWithValue("@rut", rut);
+
+                //Abrir conexión y ejecutar query
+                try
+                {
+                    connection.Open();
+                    Int32 rowsAffected = command.ExecuteNonQuery();
+                    Console.WriteLine(rowsAffected);
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+
+                connection.Close();
             }
         }
     }

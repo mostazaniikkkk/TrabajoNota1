@@ -57,6 +57,28 @@
         <Label x:Name="lblRut" Content="" HorizontalAlignment="Left" Margin="150,42,0,0" VerticalAlignment="Top" FontFamily="Myriad Pro" Background="{x:Null}" Foreground="White" Height="34" Width="228" FontSize="24"/>
         <Label x:Name="lblUser" Content="" HorizontalAlignment="Left" Margin="150,76,0,0" VerticalAlignment="Top" FontFamily="Myriad Pro" Background="{x:Null}" Foreground="White" Height="34" Width="228" FontSize="18"/>
         <TextBox x:Name="txtUsuario" Style="{StaticResource placeHolder}" Tag="Ej. 123456789-3" HorizontalAlignment="Left" Height="40" Margin="229,249,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="295" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black"/>
+        <RadioButton x:Name="plan1" Content="Plan1" HorizontalAlignment="Left" Margin="234,326,0,0" VerticalAlignment="Top" FontSize="17" Background="White" Foreground="White" GroupName="plan" Checked="plan1_Checked"/>
+        <RadioButton x:Name="plan2" Content="Plan2" HorizontalAlignment="Left" Margin="332,326,0,0" VerticalAlignment="Top" FontSize="17" Background="White" Foreground="White" GroupName="plan" Checked="plan2_Checked"/>
+        <RadioButton x:Name="plan3" Content="Plan3" HorizontalAlignment="Left" Margin="431,326,0,0" VerticalAlignment="Top" FontSize="17" Background="White" Foreground="White" GroupName="plan" Checked="RadioButton_Checked"/>
+        <TextBox x:Name="txtPoliza" HorizontalAlignment="Left" Height="40" Margin="229,371,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="295" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black" IsEnabled="False"/>
+        <DatePicker x:Name="fechaInicio" HorizontalAlignment="Left" Margin="229,427,0,0" VerticalAlignment="Top" Height="40" Width="295" IsEnabled="False" FontSize="17"/>
+        <DatePicker x:Name="fechaTermino" HorizontalAlignment="Left" Margin="229,487,0,0" VerticalAlignment="Top" Height="33" Width="295" FontSize="17" IsEnabled="False"/>
+        <RadioButton x:Name="rSi" Content="Sí" HorizontalAlignment="Left" Margin="896,254,0,0" VerticalAlignment="Top" GroupName="saludo" FontSize="17" Background="White" Foreground="White"/>
+        <RadioButton x:Name="rNo" Content="No" HorizontalAlignment="Left" Margin="986,254,0,0" VerticalAlignment="Top" GroupName="saludo" FontSize="17" Background="White" Foreground="White" IsChecked="True"/>
+        <TextBox x:Name="txtPrimaMensual" HorizontalAlignment="Left" Height="42" Margin="871,307,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="382" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black" IsEnabled="False"/>
+        <TextBox x:Name="txtPrimaAnual" HorizontalAlignment="Left" Height="40" Margin="871,371,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="382" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black" IsEnabled="False"/>
+        <TextBox x:Name="txtObservacion" HorizontalAlignment="Left" Height="104" Margin="871,427,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="382" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="960,560,0,0" VerticalAlignment="Top" Width="148" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="44" Click="Button_Click_1">
+            <Button.Background>
+                <ImageBrush ImageSource="Img/Botones/02.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="287,560,0,0" VerticalAlignment="Top" Width="149" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="44" Click="Button_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="Img/Botones/01.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+
         <Label Content="RUT:" HorizontalAlignment="Left" Margin="170,249,0,0" VerticalAlignment="Top" Height="40" Width="54" FontFamily="Myriad Pro" Foreground="White" FontSize="24"/>
 
         <Label Content="Plan asociado:" HorizontalAlignment="Left" Margin="70,311,0,0" VerticalAlignment="Top" Height="40" Width="159" FontFamily="Myriad Pro" Foreground="White" FontSize="24"/>
@@ -65,31 +87,17 @@
         <Label Content="Fecha final:" HorizontalAlignment="Left" Margin="104,487,0,0" VerticalAlignment="Top" Height="42" Width="120" FontFamily="Myriad Pro" Foreground="White" FontSize="24"/>
 
         <Label Content="Cont. declaracion de saludo:" HorizontalAlignment="Left" Margin="557,245,0,0" VerticalAlignment="Top" Height="40" Width="314" FontFamily="Myriad Pro" Foreground="White" FontSize="24"/>
-        <TextBox x:Name="txtPrimaMensual" HorizontalAlignment="Left" Height="42" Margin="871,307,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="382" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black" IsEnabled="False"/>
         <Label Content="Prima mensual:" HorizontalAlignment="Left" Margin="703,306,0,0" VerticalAlignment="Top" Height="42" Width="168" FontFamily="Myriad Pro" Foreground="White" FontSize="24"/>
-        <TextBox x:Name="txtPrimaAnual" HorizontalAlignment="Left" Height="40" Margin="871,371,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="382" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black" IsEnabled="False"/>
         <Label Content="Prima anual:" HorizontalAlignment="Left" Margin="729,367,0,0" VerticalAlignment="Top" Height="40" Width="137" FontFamily="Myriad Pro" Foreground="White" FontSize="24"/>
-        <TextBox x:Name="txtObservacion" HorizontalAlignment="Left" Height="104" Margin="871,427,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="382" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black"/>
         <Label Content="Observaciones:" HorizontalAlignment="Left" Margin="696,427,0,0" VerticalAlignment="Top" Height="42" Width="170" FontFamily="Myriad Pro" Foreground="White" FontSize="24"/>
-        <DatePicker x:Name="fechaInicio" HorizontalAlignment="Left" Margin="229,427,0,0" VerticalAlignment="Top" Height="40" Width="295" IsEnabled="False" FontSize="17"/>
-        <DatePicker x:Name="fechaTermino" HorizontalAlignment="Left" Margin="229,487,0,0" VerticalAlignment="Top" Height="33" Width="295" FontSize="17" IsEnabled="False"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="287,560,0,0" VerticalAlignment="Top" Width="149" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="44" Click="Button_Click">
-            <Button.Background>
-                <ImageBrush ImageSource="Img/Botones/01.png" Stretch="Uniform"/>
-            </Button.Background>
-        </Button>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="960,560,0,0" VerticalAlignment="Top" Width="148" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="44" Click="Button_Click_1">
-            <Button.Background>
-                <ImageBrush ImageSource="Img/Botones/02.png" Stretch="Uniform"/>
-            </Button.Background>
-        </Button>
+        
+        
+        
         <Label Content="Crear contrato" HorizontalAlignment="Left" Margin="70,165,0,0" VerticalAlignment="Top" Height="57" Width="328" FontFamily="Myriad Pro" Foreground="White" FontSize="48"/>
-        <RadioButton x:Name="plan1" Content="Plan1" HorizontalAlignment="Left" Margin="234,326,0,0" VerticalAlignment="Top" FontSize="17" Background="White" Foreground="White" GroupName="plan" Checked="plan1_Checked"/>
-        <RadioButton x:Name="plan2" Content="Plan2" HorizontalAlignment="Left" Margin="332,326,0,0" VerticalAlignment="Top" FontSize="17" Background="White" Foreground="White" GroupName="plan" Checked="plan2_Checked"/>
-        <RadioButton x:Name="plan3" Content="Plan3" HorizontalAlignment="Left" Margin="431,326,0,0" VerticalAlignment="Top" FontSize="17" Background="White" Foreground="White" GroupName="plan" Checked="RadioButton_Checked"/>
-        <TextBox x:Name="txtPoliza" HorizontalAlignment="Left" Height="40" Margin="229,371,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="295" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black" IsEnabled="False"/>
-        <RadioButton x:Name="rSi" Content="Sí" HorizontalAlignment="Left" Margin="896,254,0,0" VerticalAlignment="Top" GroupName="saludo" FontSize="17" Background="White" Foreground="White"/>
-        <RadioButton x:Name="rNo" Content="No" HorizontalAlignment="Left" Margin="986,254,0,0" VerticalAlignment="Top" GroupName="saludo" FontSize="17" Background="White" Foreground="White" IsChecked="True"/>
+        
+        
+        
+        
         <Ellipse HorizontalAlignment="Left" Height="106" Margin="57,10,0,0" VerticalAlignment="Top" Width="93">
             <Ellipse.Fill>
                 <ImageBrush ImageSource="applelogo.png" Stretch="Uniform"/>
