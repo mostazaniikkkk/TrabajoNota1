@@ -50,6 +50,9 @@ namespace Nota2
                 Window1.win1.Status2 = Conexion.TraerUltimosNombres();
                 Window1.win1.Status3 = Conexion.TraerPenultimosNombres();
 
+                Window1.win1.Status4 = Conexion.TraerUltimoContrato();
+                Window1.win1.Status5 = Conexion.TraerPenultimoContrato();
+
                 this.Close();
 
                 Window1.win1.Show();

@@ -72,13 +72,13 @@
         <TextBox x:Name="txtObservacion" HorizontalAlignment="Left" Height="104" Margin="871,427,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="382" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black"/>
         <Label Content="Observaciones:" HorizontalAlignment="Left" Margin="696,427,0,0" VerticalAlignment="Top" Height="42" Width="170" FontFamily="Myriad Pro" Foreground="White" FontSize="24"/>
         <DatePicker x:Name="fechaInicio" HorizontalAlignment="Left" Margin="229,427,0,0" VerticalAlignment="Top" Height="40" Width="295" IsEnabled="False" FontSize="17"/>
-        <DatePicker x:Name="fechaTermino" HorizontalAlignment="Left" Margin="229,487,0,0" VerticalAlignment="Top" Height="33" Width="295" FontSize="17"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="229,560,0,0" VerticalAlignment="Top" Width="149" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="44" Click="Button_Click">
+        <DatePicker x:Name="fechaTermino" HorizontalAlignment="Left" Margin="229,487,0,0" VerticalAlignment="Top" Height="33" Width="295" FontSize="17" IsEnabled="False"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="287,560,0,0" VerticalAlignment="Top" Width="149" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="44" Click="Button_Click">
             <Button.Background>
                 <ImageBrush ImageSource="Img/Botones/01.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="942,560,0,0" VerticalAlignment="Top" Width="148" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="44" Click="Button_Click_1">
+        <Button Content="Button" HorizontalAlignment="Left" Margin="960,560,0,0" VerticalAlignment="Top" Width="148" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="44" Click="Button_Click_1">
             <Button.Background>
                 <ImageBrush ImageSource="Img/Botones/02.png" Stretch="Uniform"/>
             </Button.Background>
@@ -90,11 +90,11 @@
         <TextBox x:Name="txtPoliza" HorizontalAlignment="Left" Height="40" Margin="229,371,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="295" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black" IsEnabled="False"/>
         <RadioButton x:Name="rSi" Content="Sí" HorizontalAlignment="Left" Margin="896,254,0,0" VerticalAlignment="Top" GroupName="saludo" FontSize="17" Background="White" Foreground="White"/>
         <RadioButton x:Name="rNo" Content="No" HorizontalAlignment="Left" Margin="986,254,0,0" VerticalAlignment="Top" GroupName="saludo" FontSize="17" Background="White" Foreground="White" IsChecked="True"/>
-        <Button Content="" HorizontalAlignment="Left" Margin="55,14,0,0" VerticalAlignment="Top" Width="93" Height="103">
-            <Button.Background>
+        <Ellipse HorizontalAlignment="Left" Height="106" Margin="57,10,0,0" VerticalAlignment="Top" Width="93">
+            <Ellipse.Fill>
                 <ImageBrush ImageSource="applelogo.png" Stretch="Uniform"/>
-            </Button.Background>
-        </Button>
+            </Ellipse.Fill>
+        </Ellipse>
 
     </Grid>
 </Window>

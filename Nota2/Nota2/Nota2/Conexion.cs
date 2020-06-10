@@ -14,7 +14,7 @@ namespace Nota2
     class Conexion
     {
         static string connectionString = @"Server=DESKTOP-3FLS338; Database=REGISTRO; Trusted_Connection=True;";
-        public static List<User> lista;
+        //public static List<User> lista;
         public static List<Contrato> listaContrato;
         public static List<Cliente> listaCliente;
         public static int VerificarUsuario(string rut, string contraseña)
@@ -219,14 +219,14 @@ namespace Nota2
                 return nombres;
             }
         }
-        public static string TraerUltimosContrato()
+        public static string TraerUltimoContrato()
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
 
                 SqlCommand command = new SqlCommand(null, connection);
 
-                command.CommandText = "SELECT rut_cliente, nombre_cliente FROM dbo.cliente where id_cliente = (select max(id_cliente)-1 from dbo.cliente)";
+                command.CommandText = "SELECT rut_contrato, poliza FROM dbo.contrato where nro_contrato = (select max(nro_contrato) from dbo.contrato)";
 
                 connection.Open();
                 SqlDataAdapter da = new SqlDataAdapter(command);
@@ -234,7 +234,7 @@ namespace Nota2
 
                 da.Fill(dt);
 
-                string nombres = "Rut: " + dt.Rows[0][0].ToString() + "  -  Nombre: " + dt.Rows[0][1].ToString();
+                string nombres = "Rut: " + dt.Rows[0][0].ToString() + "  -  Poliza: " + dt.Rows[0][1].ToString();
 
                 return nombres;
             }
@@ -247,7 +247,7 @@ namespace Nota2
 
                 SqlCommand command = new SqlCommand(null, connection);
 
-                command.CommandText = "SELECT rut_cliente, nombre_cliente FROM dbo.cliente where id_cliente = (select max(id_cliente) from dbo.cliente)";
+                command.CommandText = "SELECT rut_contrato, poliza FROM dbo.contrato where nro_contrato = (select max(nro_contrato)-1 from dbo.contrato)";
 
                 connection.Open();
                 SqlDataAdapter da = new SqlDataAdapter(command);
@@ -255,7 +255,7 @@ namespace Nota2
 
                 da.Fill(dt);
 
-                string nombres = "Rut: " + dt.Rows[0][0].ToString() + "  -  Nombre: " + dt.Rows[0][1].ToString();
+                string nombres = "Rut: " + dt.Rows[0][0].ToString() + "  -  Poliza: " + dt.Rows[0][1].ToString();
 
                 return nombres;
             }
@@ -682,6 +682,103 @@ namespace Nota2
 
                 connection.Close();
                 return contraseña;
+
+            }
+        }
+
+        public static string devolverNombreCliente(string rut)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(null, connection);
+                command.CommandText = "SELECT nombre_cliente FROM DBO.CLIENTE WHERE rut_cliente = @rut";
+                command.Parameters.AddWithValue("@rut", rut);
+
+                connection.Open();
+                SqlDataAdapter da = new SqlDataAdapter(command);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                string nombre = dt.Rows[0][0].ToString();
+
+                connection.Close();
+                return nombre;
+            }
+        }
+        public static string devolverApellidoCliente(string rut)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(null, connection);
+                command.CommandText = "SELECT apellido_cliente FROM DBO.CLIENTE WHERE rut_cliente = @rut";
+                command.Parameters.AddWithValue("@rut", rut);
+
+                connection.Open();
+                SqlDataAdapter da = new SqlDataAdapter(command);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                string apellido = dt.Rows[0][0].ToString();
+
+                connection.Close();
+                return apellido;
+            }
+        }
+        public static string devolverFechaCliente(string rut)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(null, connection);
+                command.CommandText = "SELECT fecha_nacimiento FROM DBO.CLIENTE WHERE rut_cliente = @rut";
+                command.Parameters.AddWithValue("@rut", rut);
+
+                connection.Open();
+                SqlDataAdapter da = new SqlDataAdapter(command);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                string fecha = dt.Rows[0][0].ToString();
+
+                connection.Close();
+                return fecha;
+            }
+        }
+        public static string devolverEstadoCivilCliente(string rut)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(null, connection);
+                command.CommandText = "SELECT estado_civil FROM DBO.CLIENTE WHERE rut_cliente = @rut";
+                command.Parameters.AddWithValue("@rut", rut);
+
+                connection.Open();
+                SqlDataAdapter da = new SqlDataAdapter(command);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                string estadoCivil = dt.Rows[0][0].ToString();
+
+                connection.Close();
+                return estadoCivil;
+            }
+        }
+        public static string devolverGeneroCliente(string rut)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(null, connection);
+                command.CommandText = "SELECT sexo FROM DBO.CLIENTE WHERE rut_cliente = @rut";
+                command.Parameters.AddWithValue("@rut", rut);
+
+                connection.Open();
+                SqlDataAdapter da = new SqlDataAdapter(command);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                string sexo = dt.Rows[0][0].ToString();
+                Console.WriteLine(sexo+".sexo");
+                connection.Close();
+                return sexo;
 
             }
         }

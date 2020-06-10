@@ -54,7 +54,7 @@
         <Label x:Name="lblRut" Content="" HorizontalAlignment="Left" Margin="150,42,0,0" VerticalAlignment="Top" FontFamily="Myriad Pro" Background="{x:Null}" Foreground="White" Height="34" Width="228" FontSize="24"/>
         <Label x:Name="lblUser" Content="" HorizontalAlignment="Left" Margin="150,76,0,0" VerticalAlignment="Top" FontFamily="Myriad Pro" Background="{x:Null}" Foreground="White" Height="34" Width="228" FontSize="18"/>
         <TextBox x:Name="txtBuscar" Style="{StaticResource placeHolder}" Tag="Ej. 123456789-3" HorizontalAlignment="Left" Height="40" Margin="225,163,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="976" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="72,576,0,0" VerticalAlignment="Top" Width="133" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="44">
+        <Button Content="Button" HorizontalAlignment="Left" Margin="72,576,0,0" VerticalAlignment="Top" Width="133" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="44" Click="Button_Click">
             <Button.Background>
                 <ImageBrush ImageSource="Img/Botones/modificar.png" Stretch="Uniform"/>
             </Button.Background>
@@ -74,10 +74,10 @@
         <DataGrid x:Name="tabla" HorizontalAlignment="Left" Height="305" Margin="72,245,0,0" VerticalAlignment="Top" Width="1129" Initialized="DataGrid_Initialized" Background="#FF2D2D2E" BorderBrush="Black"/>
         <Label x:Name="xd" Content="" HorizontalAlignment="Left" Margin="1194,24,0,0" VerticalAlignment="Top"/>
         <RadioButton Content="Mostrar todo" HorizontalAlignment="Left" Margin="763,208,0,0" VerticalAlignment="Top" FontSize="24" Foreground="White" Checked="RadioButton_Checked_2" IsChecked="True"/>
-        <Button Content="" HorizontalAlignment="Left" Margin="55,14,0,0" VerticalAlignment="Top" Width="93" Height="103">
-            <Button.Background>
+        <Ellipse HorizontalAlignment="Left" Height="106" Margin="57,10,0,0" VerticalAlignment="Top" Width="93">
+            <Ellipse.Fill>
                 <ImageBrush ImageSource="applelogo.png" Stretch="Uniform"/>
-            </Button.Background>
-        </Button>
+            </Ellipse.Fill>
+        </Ellipse>
     </Grid>
 </Window>

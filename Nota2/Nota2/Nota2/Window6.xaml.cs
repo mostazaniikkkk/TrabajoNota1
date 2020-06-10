@@ -22,7 +22,13 @@ namespace Nota2
         public Window6()
         {
             InitializeComponent();
+            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             win6 = this;
+            estadoCivil.Text = "Seleccionar";
+            estadoCivil.Items.Add("Soltero");
+            estadoCivil.Items.Add("Casado");
+            estadoCivil.Items.Add("Viudo");
+            estadoCivil.Items.Add("Cónyuge");
         }
         internal static Window6 win6;
         internal string Status
@@ -34,6 +40,36 @@ namespace Nota2
         {
             get { return lblUser.Content.ToString(); }
             set { Dispatcher.Invoke(new Action(() => { lblUser.Content = value; })); }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Window4 win4 = new Window4();
+
+            Window4.win4.Status = lblRut.Content.ToString();
+            Window4.win4.Status1 = lblUser.Content.ToString();
+
+            this.Close();
+            win4.Show();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            txtNombreCliente.Text = Conexion.devolverNombreCliente(txtRutCliente.Text);
+            txtApellidoCliente.Text = Conexion.devolverApellidoCliente(txtRutCliente.Text);
+            fechaNacimiento.Text = Conexion.devolverFechaCliente(txtRutCliente.Text);
+            estadoCivil.Tag= Conexion.devolverEstadoCivilCliente(txtRutCliente.Text);
+            string genero = Conexion.devolverGeneroCliente(txtRutCliente.Text);
+            Console.WriteLine(genero+"genero");
+            if (genero.Equals("F "))
+            {
+                rFemenino.IsChecked = true;
+            }
+            else if (genero.Equals("M "))
+            {
+                rMasculino.IsChecked = true;
+            }
+            
         }
     }
 }

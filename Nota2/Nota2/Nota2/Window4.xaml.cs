@@ -83,6 +83,9 @@ namespace Nota2
             Window1.win1.Status2 = Conexion.TraerUltimosNombres();
             Window1.win1.Status3 = Conexion.TraerPenultimosNombres();
 
+            Window1.win1.Status4 = Conexion.TraerUltimoContrato();
+            Window1.win1.Status5 = Conexion.TraerPenultimoContrato();
+
             win1.Show();
             this.Close();
         }
@@ -100,6 +103,17 @@ namespace Nota2
         private void RadioButton_Checked_2(object sender, RoutedEventArgs e)
         {
             Actualizar();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Window6 win6 = new Window6();
+
+            Window6.win6.Status = lblRut.Content.ToString();
+            Window6.win6.Status1 = lblUser.Content.ToString();
+
+            this.Close();
+            win6.Show();
         }
     }
 }

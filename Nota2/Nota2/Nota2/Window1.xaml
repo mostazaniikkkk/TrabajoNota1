@@ -59,12 +59,14 @@
                 <ImageBrush ImageSource="Img/Botones/volver01.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
-        <Button Content="" HorizontalAlignment="Left" Margin="55,14,0,0" VerticalAlignment="Top" Width="93" Height="103">
-            <Button.Background>
+        <Ellipse HorizontalAlignment="Left" Height="106" Margin="57,10,0,0" VerticalAlignment="Top" Width="93">
+            <Ellipse.Fill>
                 <ImageBrush ImageSource="applelogo.png" Stretch="Uniform"/>
-            </Button.Background>
-        </Button>
-        <Label x:Name="cliente1"  Content="" HorizontalAlignment="Left" Margin="68,368,0,0" VerticalAlignment="Top" Width="296" Foreground="#FFC7C7C7" FontSize="17"/>
-        <Label x:Name="cliente2"  Content="" HorizontalAlignment="Left" Margin="68,399,0,0" VerticalAlignment="Top" Width="296" Foreground="#FFC7C7C7" FontSize="17"/>
+            </Ellipse.Fill>
+        </Ellipse>
+        <Label x:Name="cliente1"  Content="" HorizontalAlignment="Left" Margin="80,368,0,0" VerticalAlignment="Top" Width="326" Foreground="#FFC7C7C7" FontSize="17" FontWeight="Bold"/>
+        <Label x:Name="cliente2"  Content="" HorizontalAlignment="Left" Margin="80,401,0,0" VerticalAlignment="Top" Width="326" Foreground="#FFC7C7C7" FontSize="17" FontWeight="Bold"/>
+        <Label x:Name="contrato1"  Content="" HorizontalAlignment="Left" Margin="80,549,0,0" VerticalAlignment="Top" Width="326" Foreground="#FFC7C7C7" FontSize="17" FontWeight="Bold"/>
+        <Label x:Name="contrato2"  Content="" HorizontalAlignment="Left" Margin="80,582,0,0" VerticalAlignment="Top" Width="326" Foreground="#FFC7C7C7" FontSize="17" FontWeight="Bold"/>
     </Grid>
 </Window>

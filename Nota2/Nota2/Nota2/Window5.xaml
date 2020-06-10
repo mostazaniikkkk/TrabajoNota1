@@ -51,7 +51,7 @@
                 <ImageBrush ImageSource="Img/BG/BGC/BGC00.png"/>
             </Rectangle.Fill>
         </Rectangle>
-        <Ellipse HorizontalAlignment="Left" Height="103" Margin="55,14,0,0" Stroke="Black" VerticalAlignment="Top" Width="93">
+        <Ellipse HorizontalAlignment="Left" Height="106" Margin="57,10,0,0" VerticalAlignment="Top" Width="93">
             <Ellipse.Fill>
                 <ImageBrush ImageSource="applelogo.png" Stretch="Uniform"/>
             </Ellipse.Fill>

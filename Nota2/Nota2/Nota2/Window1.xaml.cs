@@ -58,6 +58,16 @@ namespace Nota2
             get { return cliente2.Content.ToString(); }
             set { Dispatcher.Invoke(new Action(() => { cliente2.Content = value; })); }
         }
+        internal string Status4
+        {
+            get { return contrato1.Content.ToString(); }
+            set { Dispatcher.Invoke(new Action(() => { contrato1.Content = value; })); }
+        }
+        internal string Status5 
+        {
+            get { return contrato2.Content.ToString(); }
+            set { Dispatcher.Invoke(new Action(() => { contrato2.Content = value; })); }
+        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {

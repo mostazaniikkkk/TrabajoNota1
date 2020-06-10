@@ -5,45 +5,101 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Nota2"
         mc:Ignorable="d"
-        Title="Perfil del cliente" Height="720" Width="1280">
+        Title="Perfil del cliente" Height="791" Width="1280">
+    <Window.Resources>
+        <Style x:Key="placeHolder" TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Type TextBox}}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Grid>
+                            <TextBox Text="{Binding Text, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}, UpdateSourceTrigger=PropertyChanged}"
+                                x:Name="textSource" 
+                                Background="Transparent"
+                                Foreground="#FF777677"
+                                Panel.ZIndex="2" />
+                            <TextBox Text="{TemplateBinding Tag}" Background="{TemplateBinding Background}" Panel.ZIndex="1">
+                                <TextBox.Style>
+                                    <Style TargetType="{x:Type TextBox}">
+                                        <Setter Property="Foreground" Value="Transparent"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Text, Source={x:Reference textSource}}" Value="">
+                                                <Setter Property="Foreground" Value="Gray"/>
+                                                <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                                                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBox.Style>
+                            </TextBox>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Window.Background>
         <ImageBrush ImageSource="Img/BG/BG00.png"/>
     </Window.Background>
-    <Grid>
-        <Rectangle HorizontalAlignment="Left" Height="502" Margin="41,142,0,0" VerticalAlignment="Top" Width="1191">
+    <Grid Margin="0,0,0,-2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Rectangle HorizontalAlignment="Left" Height="586" Margin="41,142,0,0" VerticalAlignment="Top" Width="1185">
             <Rectangle.Fill>
                 <ImageBrush ImageSource="Img/BG/BGC/BGC00.png"/>
             </Rectangle.Fill>
         </Rectangle>
-        <Ellipse HorizontalAlignment="Left" Height="106" Margin="57,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="93">
+        <Ellipse HorizontalAlignment="Left" Height="106" Margin="57,10,0,0" VerticalAlignment="Top" Width="93">
             <Ellipse.Fill>
                 <ImageBrush ImageSource="applelogo.png" Stretch="Uniform"/>
             </Ellipse.Fill>
         </Ellipse>
         <Label x:Name="lblRut" Content="" HorizontalAlignment="Left" Margin="150,42,0,0" VerticalAlignment="Top" FontFamily="Myriad Pro" Background="{x:Null}" Foreground="White" Height="34" Width="228" FontSize="24"/>
         <Label x:Name="lblUser" Content="" HorizontalAlignment="Left" Margin="150,76,0,0" VerticalAlignment="Top" FontFamily="Myriad Pro" Background="{x:Null}" Foreground="White" Height="34" Width="228" FontSize="18"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="1064,339,0,0" VerticalAlignment="Top" Width="133" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="44">
+        
+        <Ellipse HorizontalAlignment="Left" Height="132" Margin="57,161,0,0" VerticalAlignment="Top" Width="132">
+            <Ellipse.Fill>
+                <ImageBrush ImageSource="login.png" Stretch="Uniform"/>
+            </Ellipse.Fill>
+        </Ellipse>
+        <Label Content="Rut cliente:" HorizontalAlignment="Left" Margin="251,184,0,0" VerticalAlignment="Top" FontFamily="Myriad Pro" Background="{x:Null}" Foreground="White" Height="57" Width="152" FontSize="28"/>
+        <Label Content="Fecha nacimiento:" HorizontalAlignment="Left" Margin="194,374,0,0" VerticalAlignment="Top" FontFamily="Myriad Pro" Background="{x:Null}" Foreground="White" Height="36" Width="209" FontSize="25"/>
+        <Label Content="Estado civil:" HorizontalAlignment="Left" Margin="729,187,0,0" VerticalAlignment="Top" FontFamily="Myriad Pro" Background="{x:Null}" Foreground="White" Height="36" Width="138" FontSize="25"/>
+        <Label Content="Genero cliente:" HorizontalAlignment="Left" Margin="687,248,0,0" VerticalAlignment="Top" FontFamily="Myriad Pro" Background="{x:Null}" Foreground="White" Height="36" Width="180" FontSize="25"/>
+        <Label Content="Contratos efectuados." HorizontalAlignment="Left" Margin="80,459,0,0" VerticalAlignment="Top" FontFamily="Myriad Pro" Background="{x:Null}" Foreground="White" Height="42" Width="400" FontSize="28"/>
+        
+        
+        <Label Content="Nombre cliente:" HorizontalAlignment="Left" Margin="194,246,0,0" VerticalAlignment="Top" FontFamily="Myriad Pro" Background="{x:Null}" Foreground="White" Height="57" Width="209" FontSize="27"/>
+        <TextBox x:Name="txtRutCliente" Style="{StaticResource placeHolder}" Tag="Ej. 123456789-3" HorizontalAlignment="Left" Height="40" Margin="403,187,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="243" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black"/>
+        <TextBox x:Name="txtNombreCliente" HorizontalAlignment="Left" Height="40" Margin="403,248,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="243" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black"/>
+        <TextBox x:Name="txtApellidoCliente" HorizontalAlignment="Left" Height="40" Margin="403,310,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="243" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black"/>
+        <DatePicker x:Name="fechaNacimiento" HorizontalAlignment="Left" Margin="403,374,0,0" VerticalAlignment="Top" Height="33" Width="243" FontSize="18" IsEnabled="False"/>
+        <ComboBox x:Name="estadoCivil" Text="Seleccionar" HorizontalAlignment="Left" Margin="872,187,0,0" VerticalAlignment="Top" Width="243" Height="40"/>
+        <RadioButton x:Name="rMasculino" Content="Másculino" HorizontalAlignment="Left" Margin="872,258,0,0" VerticalAlignment="Top" Height="20" FontSize="17" Foreground="White" GroupName="a" IsEnabled="False"/>
+        <RadioButton x:Name="rFemenino" Content="Femenino" HorizontalAlignment="Left" Margin="1008,258,0,0" VerticalAlignment="Top" FontSize="17" Foreground="White" GroupName="a" IsEnabled="False"/>
+        <DataGrid x:Name="tablax" HorizontalAlignment="Left" Height="154" Margin="80,506,0,0" VerticalAlignment="Top" Width="1119" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="763,401,0,0" VerticalAlignment="Top" Width="133" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="44" Click="Button_Click_1">
             <Button.Background>
-                <ImageBrush ImageSource="Img/Botones/volver01.png" Stretch="Uniform"/>
+                <ImageBrush ImageSource="Img/Botones/buscar.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
-        <Ellipse Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="132" Margin="80,164,0,0" Stroke="Black" VerticalAlignment="Top" Width="132"/>
-        <Label Content="Nombre cliente" HorizontalAlignment="Left" Margin="217,164,0,0" VerticalAlignment="Top" FontFamily="Myriad Pro" Background="{x:Null}" Foreground="White" Height="57" Width="400" FontSize="36"/>
-        <Label Content="RUT cliente" HorizontalAlignment="Left" Margin="217,221,0,0" VerticalAlignment="Top" FontFamily="Myriad Pro" Background="{x:Null}" Foreground="White" Height="36" Width="352" FontSize="18"/>
-        <Label Content="Fecha nacimiento cliente" HorizontalAlignment="Left" Margin="217,257,0,0" VerticalAlignment="Top" FontFamily="Myriad Pro" Background="{x:Null}" Foreground="White" Height="36" Width="352" FontSize="18"/>
-        <Label Content="Estado civil cliente" HorizontalAlignment="Left" Margin="617,221,0,0" VerticalAlignment="Top" FontFamily="Myriad Pro" Background="{x:Null}" Foreground="White" Height="36" Width="352" FontSize="18"/>
-        <Label Content="Genero cliente" HorizontalAlignment="Left" Margin="617,257,0,0" VerticalAlignment="Top" FontFamily="Myriad Pro" Background="{x:Null}" Foreground="White" Height="36" Width="352" FontSize="18"/>
-        <Label Content="Contratos efectuados:" HorizontalAlignment="Left" Margin="80,341,0,0" VerticalAlignment="Top" FontFamily="Myriad Pro" Background="{x:Null}" Foreground="White" Height="42" Width="400" FontSize="28"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="910,341,0,0" VerticalAlignment="Top" Width="133" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="44">
-            <Button.Background>
-                <ImageBrush ImageSource="Img/Botones/eliminar.png" Stretch="Uniform"/>
-            </Button.Background>
-        </Button>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="759,341,0,0" VerticalAlignment="Top" Width="133" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="44">
+        <Button Content="Button" HorizontalAlignment="Left" Margin="901,401,0,0" VerticalAlignment="Top" Width="133" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="44">
             <Button.Background>
                 <ImageBrush ImageSource="Img/Botones/modificar.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="1039,401,0,0" VerticalAlignment="Top" Width="133" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="44">
+            <Button.Background>
+                <ImageBrush ImageSource="Img/Botones/eliminar.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="545,665,0,0" VerticalAlignment="Top" Width="133" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="44" Click="Button_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="Img/Botones/volver01.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+        <Label Content="Apellido cliente:" HorizontalAlignment="Left" Margin="194,308,0,0" VerticalAlignment="Top" FontFamily="Myriad Pro" Background="{x:Null}" Foreground="White" Height="57" Width="209" FontSize="27"/>
+        
 
     </Grid>
 </Window>

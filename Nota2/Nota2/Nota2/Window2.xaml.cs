@@ -81,6 +81,9 @@ namespace Nota2
             Window1.win1.Status2 = Conexion.TraerUltimosNombres();
             Window1.win1.Status3 = Conexion.TraerPenultimosNombres();
 
+            Window1.win1.Status4 = Conexion.TraerUltimoContrato();
+            Window1.win1.Status5 = Conexion.TraerPenultimoContrato();
+
             this.Close();
             win1.Show();
         }
@@ -128,7 +131,30 @@ namespace Nota2
 
                     MessageBoxResult result = MessageBox.Show("Contrato agregado exitosamente!");
                     Console.WriteLine(result);
-                    
+
+                    txtUsuario.Text = "";
+                    if(plan1.IsChecked == true)
+                    {
+                        plan1.IsChecked = false;
+                    }
+                    if (plan2.IsChecked == true)
+                    {
+                        plan2.IsChecked = false;
+                    }
+                    if (plan3.IsChecked == true)
+                    {
+                        plan3.IsChecked = false;
+                    }
+                    txtPoliza.Text = "";
+                    fechaInicio.Text = "";
+                    fechaTermino.Text = "";
+                    if(rSi.IsChecked == true)
+                    {
+                        rNo.IsChecked = true;
+                    }
+                    txtPrimaMensual.Text = "";
+                    txtPrimaAnual.Text = "";
+                    txtObservacion.Text = "";
                 }
                 else
                 {

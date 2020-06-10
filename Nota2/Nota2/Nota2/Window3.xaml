@@ -61,12 +61,12 @@
         <TextBox x:Name="txtApellido" HorizontalAlignment="Left" Height="40" Margin="295,375,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="295" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black"/>
         <ComboBox x:Name="estadoCivil" Text="Seleccionar" HorizontalAlignment="Left" Margin="295,439,0,0" VerticalAlignment="Top" Width="295" Height="40" Loaded="ComboBox_Loaded"/>
         <Label Content="Apellido:" HorizontalAlignment="Left" Margin="190,375,0,0" VerticalAlignment="Top" Height="40" Width="105" FontFamily="Myriad Pro" Foreground="White" FontSize="24"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="703,560,0,0" VerticalAlignment="Top" Width="149" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="44" Click="Button_Click_1">
+        <Button Content="Button" HorizontalAlignment="Left" Margin="996,560,0,0" VerticalAlignment="Top" Width="149" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="44" Click="Button_Click_1">
             <Button.Background>
                 <ImageBrush ImageSource="Img/Botones/01.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="996,560,0,0" VerticalAlignment="Top" Width="148" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="44" Click="Button_Click">
+        <Button Content="Button" HorizontalAlignment="Left" Margin="703,560,0,0" VerticalAlignment="Top" Width="148" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="44" Click="Button_Click">
             <Button.Background>
                 <ImageBrush ImageSource="Img/Botones/add01.png" Stretch="Uniform"/>
             </Button.Background>
@@ -79,10 +79,10 @@
         <Label Content="Genero:" HorizontalAlignment="Left" Margin="203,548,0,0" VerticalAlignment="Top" Height="40" Width="92" FontFamily="Myriad Pro" Foreground="White" FontSize="24"/>
         <RadioButton x:Name="rMasculino" Content="Másculino" HorizontalAlignment="Left" Margin="318,557,0,0" VerticalAlignment="Top" Height="20" FontSize="17" Foreground="White" GroupName="a"/>
         <RadioButton x:Name="rFemenino" Content="Femenino" HorizontalAlignment="Left" Margin="454,557,0,0" VerticalAlignment="Top" FontSize="17" Foreground="White" GroupName="a"/>
-        <Button Content="" HorizontalAlignment="Left" Margin="55,14,0,0" VerticalAlignment="Top" Width="93" Height="103">
-            <Button.Background>
+        <Ellipse HorizontalAlignment="Left" Height="106" Margin="57,10,0,0" VerticalAlignment="Top" Width="93">
+            <Ellipse.Fill>
                 <ImageBrush ImageSource="applelogo.png" Stretch="Uniform"/>
-            </Button.Background>
-        </Button>
+            </Ellipse.Fill>
+        </Ellipse>
     </Grid>
 </Window>
