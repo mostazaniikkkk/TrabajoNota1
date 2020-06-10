@@ -143,7 +143,6 @@ namespace Nota2
                     cliente.Estado_civil = row["ESTADO_CIVIL"].ToString();
                     listaCliente.Add(cliente);
 
-
                 }
                 return listaCliente;
             }
@@ -493,14 +492,55 @@ namespace Nota2
                 connection.Open();
                 SqlDataAdapter da = new SqlDataAdapter(command);
 
+                Console.WriteLine("comando:"+command);
                 DataTable dt = new DataTable();
 
                 da.Fill(dt);
-                string rutComprobar = dt.Rows[0][0].ToString();
-                Console.WriteLine(rutComprobar);
 
-                connection.Close();
-                return rutComprobar;
+                if (dt.Rows[0][0].ToString().Length > 0){
+                    string rutComprobar = dt.Rows[0][0].ToString();
+                    Console.WriteLine(rutComprobar);
+
+                    connection.Close();
+                    return rutComprobar;
+                }
+                else
+                {
+                    connection.Close();
+                    return "";
+                }
+                
+            }
+        }
+
+        public static string BuscarRutCliente(string rut)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(null, connection);
+                command.CommandText = "SELECT rut_cliente FROM DBO.CLIENTE WHERE rut_cliente = @rut";
+                command.Parameters.AddWithValue("@rut", rut);
+
+                connection.Open();
+                SqlDataAdapter da = new SqlDataAdapter(command);
+                //DataTable dt = new DataTable();
+
+                //da.Fill(dt);
+
+                int RecordCount = Convert.ToInt32(command.ExecuteScalar());
+                if (RecordCount > 0)
+                {
+                    //string rutComprobar = dt.Rows[0][0].ToString();
+                    //Console.WriteLine(rutComprobar);
+
+                    connection.Close();
+                    return "1";
+                }
+                else
+                {
+                    return "0";
+                }
+
             }
         }
 

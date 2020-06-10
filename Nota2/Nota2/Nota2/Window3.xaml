@@ -51,11 +51,7 @@
                 <ImageBrush ImageSource="Img/BG/BGC/BGC00.png"/>
             </Rectangle.Fill>
         </Rectangle>
-        <Ellipse HorizontalAlignment="Left" Height="106" Margin="54,14,0,0" Stroke="Black" VerticalAlignment="Top" Width="93">
-            <Ellipse.Fill>
-                <ImageBrush ImageSource="applelogo.png" Stretch="Uniform"/>
-            </Ellipse.Fill>
-        </Ellipse>
+
         <Label x:Name="lblRut" Content="" HorizontalAlignment="Left" Margin="150,42,0,0" VerticalAlignment="Top" FontFamily="Myriad Pro" Background="{x:Null}" Foreground="White" Height="34" Width="228" FontSize="24"/>
         <Label x:Name="lblUser" Content="" HorizontalAlignment="Left" Margin="150,76,0,0" VerticalAlignment="Top" FontFamily="Myriad Pro" Background="{x:Null}" Foreground="White" Height="34" Width="228" FontSize="18"/>
         <TextBox x:Name="txtRut" Style="{StaticResource placeHolder}" Tag="Ej. 123456789-3" HorizontalAlignment="Left" Height="40" Margin="295,253,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="295" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black"/>
@@ -75,7 +71,7 @@
                 <ImageBrush ImageSource="Img/Botones/add01.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
-        <Label Content="Registrar cliente" HorizontalAlignment="Left" Margin="70,165,0,0" VerticalAlignment="Top" Height="57" Width="395" FontFamily="Myriad Pro" Foreground="White" FontSize="48"/>
+        <Label Content="Registrar cliente" HorizontalAlignment="Left" Margin="70,165,0,0" VerticalAlignment="Top" Height="65" Width="395" FontFamily="Myriad Pro" Foreground="White" FontSize="48"/>
 
         <Label Content="Estado civil:" HorizontalAlignment="Left" Margin="160,439,0,0" VerticalAlignment="Top" Height="40" Width="130" FontFamily="Myriad Pro" Foreground="White" FontSize="24"/>
         <Label Content="Fecha de nacimiento:" HorizontalAlignment="Left" Margin="62,503,0,0" VerticalAlignment="Top" Height="40" Width="233" FontFamily="Myriad Pro" Foreground="White" FontSize="24"/>
@@ -83,5 +79,10 @@
         <Label Content="Genero:" HorizontalAlignment="Left" Margin="203,548,0,0" VerticalAlignment="Top" Height="40" Width="92" FontFamily="Myriad Pro" Foreground="White" FontSize="24"/>
         <RadioButton x:Name="rMasculino" Content="Másculino" HorizontalAlignment="Left" Margin="318,557,0,0" VerticalAlignment="Top" Height="20" FontSize="17" Foreground="White" GroupName="a"/>
         <RadioButton x:Name="rFemenino" Content="Femenino" HorizontalAlignment="Left" Margin="454,557,0,0" VerticalAlignment="Top" FontSize="17" Foreground="White" GroupName="a"/>
+        <Button Content="" HorizontalAlignment="Left" Margin="55,14,0,0" VerticalAlignment="Top" Width="93" Height="103">
+            <Button.Background>
+                <ImageBrush ImageSource="applelogo.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
     </Grid>
 </Window>

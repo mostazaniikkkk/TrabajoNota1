@@ -40,39 +40,52 @@ namespace Nota2
         {
             try
             {
-
-                if (rFemenino.IsChecked == true)
+                if(txtRut.Text != "" && txtNombre.Text!="" && txtApellido.Text!="" && estadoCivil.SelectedIndex > -1 && fechaNacimiento.Text != "" && rMasculino.IsChecked != false || rFemenino.IsChecked != false)
                 {
-                    Conexion.AgregarCliente(txtRut.Text, txtNombre.Text, txtApellido.Text, estadoCivil.SelectedItem.ToString(), fechaNacimiento.Text, 'F');
-                    MessageBoxResult result = MessageBox.Show("Datos ingresados exitosamente!");
+                    if (Conexion.BuscarRutCliente(txtRut.Text).Equals("0"))
+                    {
+                        if (rFemenino.IsChecked == true)
+                        {
+                            Conexion.AgregarCliente(txtRut.Text, txtNombre.Text, txtApellido.Text, estadoCivil.SelectedItem.ToString(), fechaNacimiento.Text, 'F');
+                            MessageBoxResult result = MessageBox.Show("Datos ingresados exitosamente!");
+                            Console.WriteLine(result);
+                        }
+                        else if (rMasculino.IsChecked == true)
+                        {
+                            Conexion.AgregarCliente(txtRut.Text, txtNombre.Text, txtApellido.Text, estadoCivil.SelectedItem.ToString(), fechaNacimiento.Text, 'M');
+                            MessageBoxResult result = MessageBox.Show("Datos ingresados exitosamente!");
+                            Console.WriteLine(result);
+                        }
+
+                        txtRut.Text = "";
+                        txtNombre.Text = "";
+                        txtApellido.Text = "";
+                        estadoCivil.SelectedIndex = -1;
+                        fechaNacimiento.Text = "";
+                        if (rFemenino.IsChecked == true)
+                        {
+                            rFemenino.IsChecked = false;
+                        }
+                        if (rMasculino.IsChecked == true)
+                        {
+                            rMasculino.IsChecked = false;
+                        }
+                    }
+                }
+                else if(txtRut.Text == "" && txtNombre.Text == "" || txtApellido.Text == "" || estadoCivil.SelectedIndex == -1 || fechaNacimiento.Text == "" || rMasculino.IsChecked == false || rFemenino.IsChecked == false)
+                {
+                    MessageBoxResult result = MessageBox.Show("Error, rellene todos los campos...");
                     Console.WriteLine(result);
                 }
-                else if (rMasculino.IsChecked == true)
+                else
                 {
-                    Conexion.AgregarCliente(txtRut.Text, txtNombre.Text, txtApellido.Text, estadoCivil.SelectedItem.ToString(), fechaNacimiento.Text, 'M');
-                    MessageBoxResult result = MessageBox.Show("Datos ingresados exitosamente!");
+                    MessageBoxResult result = MessageBox.Show("Error, rellene todos los campos...");
                     Console.WriteLine(result);
                 }
-
-                txtRut.Text = "";
-                txtNombre.Text = "";
-                txtApellido.Text = "";
-                estadoCivil.SelectedIndex = -1;
-                fechaNacimiento.Text = "";
-                if(rFemenino.IsChecked == true)
-                {
-                    rFemenino.IsChecked = false;
-                }
-                if (rMasculino.IsChecked == true)
-                {
-                    rMasculino.IsChecked = false;
-                }
-                
-
             }
             catch (Exception ex)
             {
-                MessageBoxResult result = MessageBox.Show("Error, rellene todos los campos"+ex);
+                MessageBoxResult result = MessageBox.Show("Error, rut ingresado ya existe en la base de datos..."+ex);
                 Console.WriteLine(result);
             }
         }

@@ -10,11 +10,6 @@
         <Grid.Background>
             <ImageBrush ImageSource="Img/BG/BG00.png"/>
         </Grid.Background>
-        <Ellipse HorizontalAlignment="Left" Height="106" Margin="55,14,0,0" Stroke="Black" VerticalAlignment="Top" Width="93">
-            <Ellipse.Fill>
-                <ImageBrush ImageSource="applelogo.png" Stretch="Uniform"/>
-            </Ellipse.Fill>
-        </Ellipse>
         <Label x:Name="lblRut" Content="" HorizontalAlignment="Left" Margin="148,52,0,0" VerticalAlignment="Top" FontFamily="Myriad Pro" Background="{x:Null}" Foreground="White" Height="34" Width="228" FontSize="24"/>
         <Label x:Name="lblUser" HorizontalAlignment="Left" Margin="148,86,0,0" VerticalAlignment="Top" FontFamily="Myriad Pro" Background="{x:Null}" Foreground="White" Height="34" Width="228" FontSize="18"/>
         <Button Content="Button" HorizontalAlignment="Left" Margin="933,157,0,0" VerticalAlignment="Top" Width="281" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="141" Click="Button_Click_2">
@@ -64,6 +59,10 @@
                 <ImageBrush ImageSource="Img/Botones/volver01.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
-
+        <Button Content="" HorizontalAlignment="Left" Margin="55,14,0,0" VerticalAlignment="Top" Width="93" Height="103">
+            <Button.Background>
+                <ImageBrush ImageSource="applelogo.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
     </Grid>
 </Window>

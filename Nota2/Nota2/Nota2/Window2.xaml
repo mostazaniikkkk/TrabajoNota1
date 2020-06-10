@@ -54,11 +54,6 @@
                 <ImageBrush ImageSource="Img/BG/BGC/BGC00.png"/>
             </Rectangle.Fill>
         </Rectangle>
-        <Ellipse HorizontalAlignment="Left" Height="106" Margin="55,14,0,0" Stroke="Black" VerticalAlignment="Top" Width="93">
-            <Ellipse.Fill>
-                <ImageBrush ImageSource="applelogo.png" Stretch="Uniform"/>
-            </Ellipse.Fill>
-        </Ellipse>
         <Label x:Name="lblRut" Content="" HorizontalAlignment="Left" Margin="150,42,0,0" VerticalAlignment="Top" FontFamily="Myriad Pro" Background="{x:Null}" Foreground="White" Height="34" Width="228" FontSize="24"/>
         <Label x:Name="lblUser" Content="" HorizontalAlignment="Left" Margin="150,76,0,0" VerticalAlignment="Top" FontFamily="Myriad Pro" Background="{x:Null}" Foreground="White" Height="34" Width="228" FontSize="18"/>
         <TextBox x:Name="txtUsuario" Style="{StaticResource placeHolder}" Tag="Ej. 123456789-3" HorizontalAlignment="Left" Height="40" Margin="229,249,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="295" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black"/>
@@ -95,7 +90,11 @@
         <TextBox x:Name="txtPoliza" HorizontalAlignment="Left" Height="40" Margin="229,371,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="295" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black" IsEnabled="False"/>
         <RadioButton x:Name="rSi" Content="Sí" HorizontalAlignment="Left" Margin="896,254,0,0" VerticalAlignment="Top" GroupName="saludo" FontSize="17" Background="White" Foreground="White"/>
         <RadioButton x:Name="rNo" Content="No" HorizontalAlignment="Left" Margin="986,254,0,0" VerticalAlignment="Top" GroupName="saludo" FontSize="17" Background="White" Foreground="White" IsChecked="True"/>
-
+        <Button Content="" HorizontalAlignment="Left" Margin="55,14,0,0" VerticalAlignment="Top" Width="93" Height="103">
+            <Button.Background>
+                <ImageBrush ImageSource="applelogo.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
 
     </Grid>
 </Window>

@@ -32,7 +32,7 @@ namespace Nota2
 
         public void Actualizar()
         {
-            using (SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM DBO.CLIENTE", conexion))
+            using (SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM DBO.CLIENTE ORDER BY id_cliente", conexion))
             {
 
                 try
@@ -63,8 +63,9 @@ namespace Nota2
 
         private void btnBuscar_Click_1(object sender, RoutedEventArgs e)
         {
+
             tablax.ItemsSource = Conexion.BuscarUsuario(txtBuscar.Text);
-            rMostrar.IsChecked = false;
+            
         }
 
         private void btnVolver_Click(object sender, RoutedEventArgs e)
@@ -77,12 +78,12 @@ namespace Nota2
             this.Close();
         }
 
-        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        private void tabla_Initialized_1(object sender, EventArgs e)
         {
             Actualizar();
         }
 
-        private void tabla_Initialized_1(object sender, EventArgs e)
+        private void btnMostrar_Click(object sender, RoutedEventArgs e)
         {
             Actualizar();
         }
