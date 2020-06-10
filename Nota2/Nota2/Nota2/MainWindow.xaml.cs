@@ -47,7 +47,6 @@ namespace Nota2
                 Window1.win1.Status = usuario._Usuario;
                 Window1.win1.Status1 = usuario._Rut;
 
-
                 int enteroCliente = Conexion.countCliente();
                 Console.WriteLine(enteroCliente);
                 Console.WriteLine("Halox");

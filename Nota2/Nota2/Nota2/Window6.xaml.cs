@@ -158,8 +158,8 @@ namespace Nota2
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
             txtRutCliente.Text = "";
-            txtNombreCliente.Text = "";
-            txtApellidoCliente.Text = "";
+            txtNombreCliente.Tag = "";
+            txtApellidoCliente.Tag = "";
             fechaNacimiento.Text = "";
             estadoCivil.SelectedIndex = 0;
             if (rFemenino.IsChecked == true)
