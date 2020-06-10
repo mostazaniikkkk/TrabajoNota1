@@ -48,6 +48,16 @@ namespace Nota2
             get { return lblUser.Content.ToString(); }
             set { Dispatcher.Invoke(new Action(() => { lblUser.Content = value; })); }
         }
+        internal string Status2
+        {
+            get { return cliente1.Content.ToString(); }
+            set { Dispatcher.Invoke(new Action(() => { cliente1.Content = value; })); }
+        }
+        internal string Status3
+        {
+            get { return cliente2.Content.ToString(); }
+            set { Dispatcher.Invoke(new Action(() => { cliente2.Content = value; })); }
+        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {

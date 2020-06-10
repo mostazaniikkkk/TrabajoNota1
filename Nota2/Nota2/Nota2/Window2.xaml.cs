@@ -78,6 +78,9 @@ namespace Nota2
             Window1.win1.Status = lblRut.Content.ToString();
             Window1.win1.Status1 = lblUser.Content.ToString();
 
+            Window1.win1.Status2 = Conexion.TraerUltimosNombres();
+            Window1.win1.Status3 = Conexion.TraerPenultimosNombres();
+
             this.Close();
             win1.Show();
         }

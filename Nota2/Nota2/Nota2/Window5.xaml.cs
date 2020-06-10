@@ -74,6 +74,10 @@ namespace Nota2
 
             Window1.win1.Status = lblRut.Content.ToString();
             Window1.win1.Status1 = lblUser.Content.ToString();
+
+            Window1.win1.Status2 = Conexion.TraerUltimosNombres();
+            Window1.win1.Status3 = Conexion.TraerPenultimosNombres();
+
             win1.Show();
             this.Close();
         }
@@ -83,7 +87,7 @@ namespace Nota2
             Actualizar();
         }
 
-        private void btnMostrar_Click(object sender, RoutedEventArgs e)
+        private void btnActualizar_Click(object sender, RoutedEventArgs e)
         {
             Actualizar();
         }

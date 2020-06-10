@@ -178,49 +178,89 @@ namespace Nota2
             }
         }
 
-        /*public static int EncuentraRut(string rut) 
+        public static string TraerPenultimosNombres()
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
+
                 SqlCommand command = new SqlCommand(null, connection);
-                command.CommandText = "SELECT id_cliente FROM DBO.CLIENTE WHERE rut_cliente = @rut";
-                command.Parameters.AddWithValue("@rut", rut);
 
-                //Abrir conexión y ejecutar query
+                command.CommandText = "SELECT rut_cliente, nombre_cliente FROM dbo.cliente where id_cliente = (select max(id_cliente) from dbo.cliente)";
+
                 connection.Open();
-                Int32 rowsAffected = command.ExecuteNonQuery();
                 SqlDataAdapter da = new SqlDataAdapter(command);
-
                 DataTable dt = new DataTable();
 
-                dt.Clear();
                 da.Fill(dt);
 
-                int number = 0;
-                do
-                {
-                    if (dt.Rows[0][0].ToString() != null)
-                    {
-                        if (int.Parse(dt.Rows[0][0].ToString()) > 0)
-                        {
-                            int id = int.Parse(dt.Rows[0][0].ToString());
-                            number = id;
-                            MessageBoxResult result = MessageBox.Show("Iniciando sesión...");
-                            Console.WriteLine(result);
-                            connection.Close();
-                            return number;
+                string nombres = "Rut: "+dt.Rows[0][0].ToString() +"  -  Nombre: "+ dt.Rows[0][1].ToString();
 
-                        }
-                        else
-                        {
-                            connection.Close();
-                            return 0;
-                        }
-                        
-                    }
-                } while (true);
+                return nombres;
             }
-        }*/
+        }
+
+        public static string TraerUltimosNombres()
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+
+                SqlCommand command = new SqlCommand(null, connection);
+
+                command.CommandText = "SELECT rut_cliente, nombre_cliente FROM dbo.cliente where id_cliente = (select max(id_cliente)-1 from dbo.cliente)";
+
+                connection.Open();
+                SqlDataAdapter da = new SqlDataAdapter(command);
+                DataTable dt = new DataTable();
+
+                da.Fill(dt);
+
+                string nombres = "Rut: " + dt.Rows[0][0].ToString() + "  -  Nombre: " + dt.Rows[0][1].ToString();
+
+                return nombres;
+            }
+        }
+        public static string TraerUltimosContrato()
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+
+                SqlCommand command = new SqlCommand(null, connection);
+
+                command.CommandText = "SELECT rut_cliente, nombre_cliente FROM dbo.cliente where id_cliente = (select max(id_cliente)-1 from dbo.cliente)";
+
+                connection.Open();
+                SqlDataAdapter da = new SqlDataAdapter(command);
+                DataTable dt = new DataTable();
+
+                da.Fill(dt);
+
+                string nombres = "Rut: " + dt.Rows[0][0].ToString() + "  -  Nombre: " + dt.Rows[0][1].ToString();
+
+                return nombres;
+            }
+        }
+
+        public static string TraerPenultimoContrato()
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+
+                SqlCommand command = new SqlCommand(null, connection);
+
+                command.CommandText = "SELECT rut_cliente, nombre_cliente FROM dbo.cliente where id_cliente = (select max(id_cliente) from dbo.cliente)";
+
+                connection.Open();
+                SqlDataAdapter da = new SqlDataAdapter(command);
+                DataTable dt = new DataTable();
+
+                da.Fill(dt);
+
+                string nombres = "Rut: " + dt.Rows[0][0].ToString() + "  -  Nombre: " + dt.Rows[0][1].ToString();
+
+                return nombres;
+            }
+        }
+
         public static string Date()
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -385,29 +425,6 @@ namespace Nota2
                 return listaContrato;
             }
         }
-
-        /*public static int ContratoVigente()
-        {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                SqlCommand command = new SqlCommand(null, connection);
-
-                command.CommandText = "SELECT DATEDIFF(DAY, CONVERT(DATE, SYSDATETIME()), fecha_termino) FROM dbo.contrato";
-
-                connection.Open();
-                SqlDataAdapter da = new SqlDataAdapter(command);
-
-                DataTable dt = new DataTable();
-
-                da.Fill(dt);
-
-                int fecha = int.Parse(dt.Rows[0][0].ToString());
-                Console.WriteLine("Fecha restada: "+fecha);
-
-                connection.Close();
-                return fecha;
-            }
-        }*/
 
         public static List<Contrato> ActualizarVigencia()
         {

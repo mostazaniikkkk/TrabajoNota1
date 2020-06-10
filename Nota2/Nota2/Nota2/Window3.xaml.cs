@@ -44,16 +44,20 @@ namespace Nota2
                 {
                     if (Conexion.BuscarRutCliente(txtRut.Text).Equals("0"))
                     {
+                        Window1 win1 = new Window1();
                         if (rFemenino.IsChecked == true)
                         {
+                            
                             Conexion.AgregarCliente(txtRut.Text, txtNombre.Text, txtApellido.Text, estadoCivil.SelectedItem.ToString(), fechaNacimiento.Text, 'F');
                             MessageBoxResult result = MessageBox.Show("Datos ingresados exitosamente!");
+
                             Console.WriteLine(result);
                         }
                         else if (rMasculino.IsChecked == true)
                         {
                             Conexion.AgregarCliente(txtRut.Text, txtNombre.Text, txtApellido.Text, estadoCivil.SelectedItem.ToString(), fechaNacimiento.Text, 'M');
                             MessageBoxResult result = MessageBox.Show("Datos ingresados exitosamente!");
+
                             Console.WriteLine(result);
                         }
 
@@ -108,6 +112,9 @@ namespace Nota2
 
             Window1.win1.Status = lblRut.Content.ToString();
             Window1.win1.Status1 = lblUser.Content.ToString();
+
+            Window1.win1.Status2 = Conexion.TraerUltimosNombres();
+            Window1.win1.Status3 = Conexion.TraerPenultimosNombres();
 
             this.Close();
             win1.Show();

@@ -64,5 +64,7 @@
                 <ImageBrush ImageSource="applelogo.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
+        <Label x:Name="cliente1"  Content="" HorizontalAlignment="Left" Margin="68,368,0,0" VerticalAlignment="Top" Width="296" Foreground="#FFC7C7C7" FontSize="17"/>
+        <Label x:Name="cliente2"  Content="" HorizontalAlignment="Left" Margin="68,399,0,0" VerticalAlignment="Top" Width="296" Foreground="#FFC7C7C7" FontSize="17"/>
     </Grid>
 </Window>
