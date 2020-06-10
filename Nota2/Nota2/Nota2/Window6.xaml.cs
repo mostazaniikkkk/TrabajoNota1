@@ -24,7 +24,8 @@ namespace Nota2
             InitializeComponent();
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             win6 = this;
-            estadoCivil.Text = "Seleccionar";
+            estadoCivil.SelectedIndex = estadoCivil.SelectedIndex +1;
+            estadoCivil.Items.Add("Seleccionar");
             estadoCivil.Items.Add("Soltero");
             estadoCivil.Items.Add("Casado");
             estadoCivil.Items.Add("Viudo");
@@ -44,13 +45,13 @@ namespace Nota2
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Window4 win4 = new Window4();
+            Window5 win5 = new Window5();
 
-            Window4.win4.Status = lblRut.Content.ToString();
-            Window4.win4.Status1 = lblUser.Content.ToString();
+            Window5.win5.Status = lblRut.Content.ToString();
+            Window5.win5.Status1 = lblUser.Content.ToString();
 
             this.Close();
-            win4.Show();
+            win5.Show();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -58,9 +59,26 @@ namespace Nota2
             txtNombreCliente.Text = Conexion.devolverNombreCliente(txtRutCliente.Text);
             txtApellidoCliente.Text = Conexion.devolverApellidoCliente(txtRutCliente.Text);
             fechaNacimiento.Text = Conexion.devolverFechaCliente(txtRutCliente.Text);
-            estadoCivil.Tag= Conexion.devolverEstadoCivilCliente(txtRutCliente.Text);
+            string estado= Conexion.devolverEstadoCivilCliente(txtRutCliente.Text);
+            if (estado == "Soltero")
+            {
+                estadoCivil.SelectedIndex = estadoCivil.SelectedIndex + 2;
+
+            }
+            if (estado == "Casado")
+            {
+                estadoCivil.SelectedIndex = estadoCivil.SelectedIndex + 3;
+            }
+            if (estado == "Viudo")
+            {
+                estadoCivil.SelectedIndex = estadoCivil.SelectedIndex + 4;
+            }
+            if (estado == "Cónyuge")
+            {
+                estadoCivil.SelectedIndex = estadoCivil.SelectedIndex + 5;
+            }
+
             string genero = Conexion.devolverGeneroCliente(txtRutCliente.Text);
-            Console.WriteLine(genero+"genero");
             if (genero.Equals("F "))
             {
                 rFemenino.IsChecked = true;
@@ -69,7 +87,9 @@ namespace Nota2
             {
                 rMasculino.IsChecked = true;
             }
-            
+
+            tablax.ItemsSource = Conexion.BuscarUsuario(txtRutCliente.Text);
+
         }
     }
 }

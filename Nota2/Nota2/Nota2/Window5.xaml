@@ -75,6 +75,11 @@
                 <ImageBrush ImageSource="Img/Botones/actualizar.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="554,576,0,0" VerticalAlignment="Top" Width="133" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="44" Click="Button_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="Img/Botones/modificar.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
 
     </Grid>
 </Window>

@@ -776,7 +776,6 @@ namespace Nota2
                 da.Fill(dt);
 
                 string sexo = dt.Rows[0][0].ToString();
-                Console.WriteLine(sexo+".sexo");
                 connection.Close();
                 return sexo;
 

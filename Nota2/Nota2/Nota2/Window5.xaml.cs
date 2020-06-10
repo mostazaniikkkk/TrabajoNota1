@@ -94,5 +94,16 @@ namespace Nota2
         {
             Actualizar();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Window6 win6 = new Window6();
+
+            Window6.win6.Status = lblRut.Content.ToString();
+            Window6.win6.Status1 = lblUser.Content.ToString();
+
+            this.Close();
+            win6.Show();
+        }
     }
 }

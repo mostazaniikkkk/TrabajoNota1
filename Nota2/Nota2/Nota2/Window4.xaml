@@ -54,17 +54,12 @@
         <Label x:Name="lblRut" Content="" HorizontalAlignment="Left" Margin="150,42,0,0" VerticalAlignment="Top" FontFamily="Myriad Pro" Background="{x:Null}" Foreground="White" Height="34" Width="228" FontSize="24"/>
         <Label x:Name="lblUser" Content="" HorizontalAlignment="Left" Margin="150,76,0,0" VerticalAlignment="Top" FontFamily="Myriad Pro" Background="{x:Null}" Foreground="White" Height="34" Width="228" FontSize="18"/>
         <TextBox x:Name="txtBuscar" Style="{StaticResource placeHolder}" Tag="Ej. 123456789-3" HorizontalAlignment="Left" Height="40" Margin="225,163,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="976" FontSize="24" Background="#FF373737" Foreground="#FF777677" FontFamily="Myriad Pro" BorderBrush="Black"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="72,576,0,0" VerticalAlignment="Top" Width="133" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="44" Click="Button_Click">
-            <Button.Background>
-                <ImageBrush ImageSource="Img/Botones/modificar.png" Stretch="Uniform"/>
-            </Button.Background>
-        </Button>
         <Button x:Name="btnBuscar" Content="Button" HorizontalAlignment="Left" Margin="72,163,0,0" VerticalAlignment="Top" Width="133" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="44" Click="btnBuscar_Click">
             <Button.Background>
                 <ImageBrush ImageSource="Img/Botones/buscar.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
-        <Button x:Name="btnVolver" Content="Button" HorizontalAlignment="Left" Margin="1068,576,0,0" VerticalAlignment="Top" Width="133" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="44" Click="btnVolver_Click">
+        <Button x:Name="btnVolver" Content="Button" HorizontalAlignment="Left" Margin="545,576,0,0" VerticalAlignment="Top" Width="133" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="44" Click="btnVolver_Click">
             <Button.Background>
                 <ImageBrush ImageSource="Img/Botones/volver01.png" Stretch="Uniform"/>
             </Button.Background>
