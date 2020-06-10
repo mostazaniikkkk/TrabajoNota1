@@ -6,7 +6,27 @@
         xmlns:local="clr-namespace:Nota2.Ventanas_Emergentes"
         mc:Ignorable="d"
         Title="Window2" Height="450" Width="800">
+    <Window.Background>
+        <ImageBrush ImageSource="/Nota2;component/Img/BG/BG00.png"/>
+    </Window.Background>
     <Grid>
-        
+        <Rectangle HorizontalAlignment="Left" Height="363" Margin="29,32,0,0" VerticalAlignment="Top" Width="734">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/Nota2;component/Img/BG/BGC/BGC00.png"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle HorizontalAlignment="Left" Height="169" Margin="310,51,0,0" VerticalAlignment="Top" Width="169">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/Nota2;component/Img/exitoICO.png"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="326,333,0,0" VerticalAlignment="Top" Width="135" Height="39" BorderBrush="{x:Null}" Foreground="{x:Null}">
+            <Button.Background>
+                <ImageBrush ImageSource="/Nota2;component/Img/Botones/volver01.png"/>
+            </Button.Background>
+        </Button>
+        <Label Content="Exito" HorizontalAlignment="Left" Margin="360,230,0,0" VerticalAlignment="Top" FontSize="24" Background="{x:Null}" Foreground="White" RenderTransformOrigin="1.485,0.715"/>
+        <Label Content="Info" HorizontalAlignment="Left" Margin="360,272,0,0" VerticalAlignment="Top" FontSize="24" Background="{x:Null}" Foreground="White"/>
+
     </Grid>
 </Window>

@@ -76,7 +76,7 @@
         </Button>
         <RadioButton Content="Contrato vigente" HorizontalAlignment="Left" Margin="225,208,0,0" VerticalAlignment="Top" FontSize="24" Foreground="White" Checked="RadioButton_Checked"/>
         <RadioButton Content="Contrato expirado" HorizontalAlignment="Left" Margin="489,208,0,0" VerticalAlignment="Top" FontSize="24" Foreground="White" Checked="RadioButton_Checked_1"/>
-        <DataGrid x:Name="tabla" HorizontalAlignment="Left" Height="305" Margin="72,245,0,0" VerticalAlignment="Top" Width="1129" Initialized="DataGrid_Initialized"/>
+        <DataGrid x:Name="tabla" HorizontalAlignment="Left" Height="305" Margin="72,245,0,0" VerticalAlignment="Top" Width="1129" Initialized="DataGrid_Initialized" Background="#FF2D2D2E" BorderBrush="Black"/>
         <Label x:Name="xd" Content="" HorizontalAlignment="Left" Margin="1194,24,0,0" VerticalAlignment="Top"/>
         <RadioButton Content="Mostrar todo" HorizontalAlignment="Left" Margin="763,208,0,0" VerticalAlignment="Top" FontSize="24" Foreground="White" Checked="RadioButton_Checked_2" IsChecked="True"/>
 
